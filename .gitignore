@@ -1,0 +1,7 @@
+# directories
+.cache
+public
+node_modules
+
+# files
+jsconfig.json
