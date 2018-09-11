@@ -31,6 +31,9 @@
     }
   },
   "rules": {
+    "import/no-extraneous-dependencies": [
+      "off"
+    ],
     "import/prefer-default-export": [
       "off"
     ],
@@ -52,14 +55,6 @@
         ]
       }
     ],
-    "array-bracket-spacing": [
-      "error",
-      "always"
-    ],
-    "arrow-parens": [
-      "error",
-      "always"
-    ],
     "no-restricted-imports": [
       "error",
       {
@@ -68,11 +63,11 @@
         ]
       }
     ],
-    "object-curly-newline": [
+    "max-len": [
       "error",
       {
-        "consistent": true,
-        "multiline": true
+        "code": 80,
+        "ignorePattern": "^import |^export {(.*?)}"
       }
     ]
   }

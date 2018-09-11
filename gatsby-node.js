@@ -8,7 +8,7 @@
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [ 'src' ],
+      modules: ['src'],
     },
   });
 };

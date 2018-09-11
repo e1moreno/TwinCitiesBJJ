@@ -4,16 +4,19 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "babel-plugin-styled-components": "^1.6.4",
     "gatsby": "next",
+    "gatsby-plugin-layout": "^1.0.0-rc.4",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
+    "gatsby-plugin-styled-components": "^3.0.0-rc.1",
     "prettier-eslint": "^8.8.2",
     "prettier-eslint-cli": "^4.7.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
-    "styled-components": "^3.4.5"
+    "styled-components": "^4.0.0-beta.2"
   },
   "keywords": [
     "gatsby"
