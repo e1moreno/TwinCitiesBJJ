@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import 'typeface-contrail-one';
+
 import GlobalStyle from 'design/GlobalStyle';
 
 import LayoutContextProvider from '../context/LayoutContextProvider';

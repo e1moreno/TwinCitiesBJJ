@@ -6,6 +6,9 @@ const GlobalStyle = createGlobalStyle`
   html {
     background-color: #28519F;
     background-image: url(${pattern});
+  };
+  body {
+    margin: 0;
   }
 `;
 
