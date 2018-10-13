@@ -1,20 +1,21 @@
 import React, { Fragment } from 'react';
-import { TCBJJHelmet } from 'app/TCBJJHelmet';
+import { Helmet } from 'react-helmet';
 
 import { Banner } from 'app/Banner';
+import { AboutSection, MainContent } from '../styles/Home.styles';
 
 const Home = () => (
   <Fragment>
-    <TCBJJHelmet>
+    <Helmet>
       <title>Home</title>
-    </TCBJJHelmet>
+    </Helmet>
     <Fragment>
       <Banner />
-      <main>
-        <div style={{ paddingTop: '100px', color: 'white' }}>
-          TWIN CITIES BJJJ
-        </div>
-      </main>
+      <MainContent>
+        <AboutSection>
+          <h1>Twin Cities Brazilian Jiu Jitsu</h1>
+        </AboutSection>
+      </MainContent>
     </Fragment>
   </Fragment>
 );
