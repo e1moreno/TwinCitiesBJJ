@@ -4,4 +4,6 @@ public
 node_modules
 
 # files
+.env
 jsconfig.json
+yarn-error.log
