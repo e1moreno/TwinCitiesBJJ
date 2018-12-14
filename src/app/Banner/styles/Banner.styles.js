@@ -5,7 +5,7 @@ export const BannerContainer = styled.div`
   overflow: hidden;
   position: relative;
   z-index: 0;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 14px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.08);
 `;
 
 export const BannerImage = styled.img`
@@ -13,7 +13,7 @@ export const BannerImage = styled.img`
   filter: grayscale(1) brightness(90%);
   object-fit: cover;
   width: 100%;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 80px - 4rem);
   margin: 0;
 `;
 
@@ -25,12 +25,9 @@ export const BannerGrid = styled.div`
   height: 100%;
   display: grid;
   grid-template-columns: 1rem auto 1rem;
-  grid-template-rows: 1rem 48px 70% 48px auto 1rem;
+  grid-template-rows: 70% 48px 1fr;
   grid-template-areas:
     '. . .'
-    '. navigation .'
-    '. . .'
     '. contact .'
-    '. . .'
     '. . .';
 `;

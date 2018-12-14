@@ -6,7 +6,14 @@ import { MobileNavToggle } from '../styles/NavIcon.styles';
 
 const NavIcon = () => (
   <MobileNavToggle>
-    <Icon Symbol={MenuIcon} color="var(--white)" />
+    <Icon
+      Symbol={MenuIcon}
+      color="var(--white)"
+      IconStyles={{
+        width: '32px',
+        height: '32px',
+      }}
+    />
   </MobileNavToggle>
 );
 

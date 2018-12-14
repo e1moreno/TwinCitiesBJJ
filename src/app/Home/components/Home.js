@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 
 import { Banner } from 'app/Banner';
-import { AboutSection, MainContent } from '../styles/Home.styles';
+import { MainContent } from '../styles/Home.styles';
 
 const Home = () => (
   <Fragment>
@@ -11,11 +11,7 @@ const Home = () => (
     </Helmet>
     <Fragment>
       <Banner />
-      <MainContent>
-        <AboutSection>
-          <h1>Twin Cities Brazilian Jiu Jitsu</h1>
-        </AboutSection>
-      </MainContent>
+      <MainContent />
     </Fragment>
   </Fragment>
 );

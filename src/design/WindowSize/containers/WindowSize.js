@@ -26,9 +26,9 @@ class WindowSize extends Component {
 
   render = () => {
     const { children } = this.props;
-    const { width, height } = this.state;
+    const { width: windowWidth, height: windowHeight } = this.state;
 
-    return children({ width, height });
+    return children({ windowWidth, windowHeight });
   };
 }
 

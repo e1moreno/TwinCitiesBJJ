@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import 'typeface-contrail-one';
+import 'typeface-roboto-condensed';
+import 'typeface-vollkorn';
 
-import GlobalStyle from 'design/GlobalStyle';
 import { Helmet } from 'react-helmet';
+import GlobalStyle from 'design/GlobalStyle';
 
+import { NavBar } from 'app/NavBar';
 import LayoutContextProvider from '../context/LayoutContextProvider';
 
 const Layout = ({ children }) => (
@@ -14,7 +16,10 @@ const Layout = ({ children }) => (
       <html lang="en" amp />
     </Helmet>
     <GlobalStyle />
-    <LayoutContextProvider>{children}</LayoutContextProvider>
+    <LayoutContextProvider>
+      <NavBar />
+      {children}
+    </LayoutContextProvider>
   </Fragment>
 );
 

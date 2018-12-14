@@ -12,23 +12,28 @@ const baseStyle = {
 };
 
 const RegularIcon = ({
-  Symbol, color, width, ...rest
+  Symbol, color, windowWidth, IconStyles, ...rest
 }) => (
-  <RegularIconWrapper color={color} {...rest}>
-    <Symbol size={width < 600 ? '3em' : '2em'} style={{ ...baseStyle }} />
+  <RegularIconWrapper color={color} {...rest} tabindex="0">
+    <Symbol
+      size={windowWidth < 600 ? '3em' : '2em'}
+      style={{ ...baseStyle, ...IconStyles }}
+    />
   </RegularIconWrapper>
 );
 RegularIcon.propTypes = {
+  IconStyles: PropTypes.object,
   Symbol: PropTypes.object.isRequired,
   color: PropTypes.string,
-  width: PropTypes.number.isRequired,
+  windowWidth: PropTypes.number.isRequired,
 };
 RegularIcon.defaultProps = {
+  IconStyles: {},
   color: 'inherit',
 };
 
 const RoundIcon = ({ Symbol, color, ...rest }) => (
-  <RoundIconWrapper color={color} {...rest}>
+  <RoundIconWrapper color={color} {...rest} tabindex="0">
     <Symbol size="1.5em" style={{ ...baseStyle }} />
   </RoundIconWrapper>
 );
@@ -53,15 +58,19 @@ const Icon = ({ variant, ...rest }) => {
 
   return (
     <WindowSize>
-      {({ width }) => <IconComponent {...rest} width={width} />}
+      {({ windowWidth }) => (
+        <IconComponent {...rest} windowWidth={windowWidth} />
+      )}
     </WindowSize>
   );
 };
 
 Icon.propTypes = {
+  IconStyles: PropTypes.object,
   variant: PropTypes.string,
 };
 Icon.defaultProps = {
+  IconStyles: {},
   variant: 'icon',
 };
 
