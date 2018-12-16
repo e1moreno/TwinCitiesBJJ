@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { SMALL_VIEW } from 'utils/constants';
 import { WindowSize } from 'design/WindowSize';
 import { RoundIconWrapper, RegularIconWrapper } from '../styles/Icon.styles';
 
@@ -14,9 +15,9 @@ const baseStyle = {
 const RegularIcon = ({
   Symbol, color, windowWidth, IconStyles, ...rest
 }) => (
-  <RegularIconWrapper color={color} {...rest} tabindex="0">
+  <RegularIconWrapper color={color} {...rest} tabIndex="0">
     <Symbol
-      size={windowWidth < 600 ? '3em' : '2em'}
+      size={windowWidth < SMALL_VIEW ? '3em' : '2em'}
       style={{ ...baseStyle, ...IconStyles }}
     />
   </RegularIconWrapper>
@@ -33,7 +34,7 @@ RegularIcon.defaultProps = {
 };
 
 const RoundIcon = ({ Symbol, color, ...rest }) => (
-  <RoundIconWrapper color={color} {...rest} tabindex="0">
+  <RoundIconWrapper color={color} {...rest} tabIndex="0">
     <Symbol size="1.5em" style={{ ...baseStyle }} />
   </RoundIconWrapper>
 );

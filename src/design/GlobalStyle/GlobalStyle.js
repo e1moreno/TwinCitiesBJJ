@@ -1,11 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  html {
+  :root {
     --white: #FAFAFA;
     --menuGray: #2B2B2B;
     --blue: #28519F ;
     --darkBlue: #1e4476;
+ 
+  }
+  html {
     z-index: -1;
     background: linear-gradient(to right,var(--blue) 0%,var(--darkBlue) 100%);
     font-size: 16px;
@@ -21,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
+
+    &:hover, &:active {
+      color: inherit;
+    }
   }
 `;
 
