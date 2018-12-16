@@ -2,6 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   :root {
+    --smallDisplay: 600px;
+    --mediumDisplay: 1024px;
     --white: #FAFAFA;
     --menuGray: #2B2B2B;
     --blue: #28519F ;

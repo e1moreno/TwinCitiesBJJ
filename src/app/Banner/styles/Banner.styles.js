@@ -14,6 +14,7 @@ export const BannerImage = styled.img`
   object-fit: cover;
   width: 100%;
   height: calc(100vh - 80px - 4rem);
+  max-height: var(--mediumDisplay);
   margin: 0;
 `;
 
