@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-export const BannerContainer = styled.div`
+export const BannerWrapper = styled.div`
+  position: relative;
+`;
+
+export const BannerImageWrapper = styled.div`
   display: flex;
   overflow: hidden;
   position: relative;
-  z-index: 0;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.08);
 `;
 
 export const BannerImage = styled.img`
@@ -13,8 +15,10 @@ export const BannerImage = styled.img`
   filter: grayscale(1) brightness(90%);
   object-fit: cover;
   width: 100%;
-  height: calc(100vh - 80px - 4rem);
+  height: calc(100vh - var(--navBarHeight) - var(--bannerFooterSize));
+  max-height: 1280px;
   margin: 0;
+  z-index: -1;
 `;
 
 export const BannerGrid = styled.div`

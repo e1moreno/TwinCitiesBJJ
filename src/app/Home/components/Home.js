@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 
 import { Banner } from 'app/Banner';
+import { Introduction } from 'app/Introduction';
 import { MainContent } from '../styles/Home.styles';
 
 const Home = () => (
@@ -9,10 +10,10 @@ const Home = () => (
     <Helmet>
       <title>Home</title>
     </Helmet>
-    <Fragment>
-      <Banner />
-      <MainContent />
-    </Fragment>
+    <Banner />
+    <MainContent>
+      <Introduction />
+    </MainContent>
   </Fragment>
 );
 

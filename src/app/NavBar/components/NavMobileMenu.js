@@ -2,9 +2,9 @@ import React from 'react';
 import { Menu as MenuIcon } from 'styled-icons/material';
 
 import { Icon } from 'design/Icon';
-import { MobileNavToggle } from '../styles/NavIcon.styles';
+import { MobileNavToggle } from '../styles/NavMobileMenu.styles';
 
-const NavIcon = () => (
+const NavMobileMenu = () => (
   <MobileNavToggle>
     <Icon
       Symbol={MenuIcon}
@@ -17,4 +17,4 @@ const NavIcon = () => (
   </MobileNavToggle>
 );
 
-export default NavIcon;
+export default NavMobileMenu;
