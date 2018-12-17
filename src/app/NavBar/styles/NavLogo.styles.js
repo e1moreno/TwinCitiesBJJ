@@ -11,7 +11,6 @@ export const NavBarLogo = styled.h1`
   text-transform: uppercase;
   font-size: 24px;
   line-height: 24px;
-  cursor: pointer;
 
   @media (max-width: 600px) {
     font-size: 15px;

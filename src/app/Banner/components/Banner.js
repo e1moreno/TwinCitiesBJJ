@@ -2,20 +2,22 @@ import React from 'react';
 
 import billImage from 'images/bill.jpg';
 
-import Contact from './Contact';
+import InviteButton from './InviteButton';
 import {
-  BannerContainer,
+  BannerImageWrapper,
   BannerImage,
   BannerGrid,
+  BannerWrapper,
 } from '../styles/Banner.styles';
 
 const Banner = () => (
-  <BannerContainer role="banner">
-    <BannerImage src={billImage} alt="Students practicing Knee on Belly" />
-    <BannerGrid>
-      <Contact />
-    </BannerGrid>
-  </BannerContainer>
+  <BannerWrapper>
+    <BannerImageWrapper role="banner">
+      <BannerImage src={billImage} alt="Students practicing Knee on Belly" />
+      <BannerGrid />
+    </BannerImageWrapper>
+    <InviteButton />
+  </BannerWrapper>
 );
 
 export default Banner;

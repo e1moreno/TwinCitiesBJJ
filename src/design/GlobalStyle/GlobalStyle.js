@@ -8,10 +8,9 @@ const GlobalStyle = createGlobalStyle`
     --menuGray: #2B2B2B;
     --blue: #28519F ;
     --darkBlue: #1e4476;
- 
+    --orange: #E84011;
   }
   html {
-    z-index: -1;
     background: linear-gradient(to right,var(--blue) 0%,var(--darkBlue) 100%);
     font-size: 16px;
 
@@ -26,10 +25,17 @@ const GlobalStyle = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
 
     &:hover, &:active {
       color: inherit;
     }
+  }
+
+  h2 {
+    margin: 0;
+    padding: 0;
+    color: inherit;
   }
 `;
 

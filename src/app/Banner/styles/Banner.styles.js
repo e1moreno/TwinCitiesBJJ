@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-export const BannerContainer = styled.div`
+export const BannerWrapper = styled.div`
+  position: relative;
+`;
+
+export const BannerImageWrapper = styled.div`
   display: flex;
   overflow: hidden;
   position: relative;
-  z-index: 0;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.08);
 `;
 
 export const BannerImage = styled.img`
@@ -16,6 +18,7 @@ export const BannerImage = styled.img`
   height: calc(100vh - 80px - 4rem);
   max-height: var(--mediumDisplay);
   margin: 0;
+  z-index: -1;
 `;
 
 export const BannerGrid = styled.div`
