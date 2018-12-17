@@ -15,7 +15,7 @@ export const BannerImage = styled.img`
   filter: grayscale(1) brightness(90%);
   object-fit: cover;
   width: 100%;
-  height: calc(100vh - 80px - 4rem);
+  height: calc(100vh - var(--navBarHeight) - var(--bannerFooterSize));
   max-height: var(--mediumDisplay);
   margin: 0;
   z-index: -1;

@@ -22,8 +22,4 @@ export const InviteMainText = styled.h2`
   text-transform: uppercase;
   white-space: nowrap;
   font-weight: 700;
-
-  @media (max-width: 600px) {
-    font-size: 1.1em;
-  }
 `;
