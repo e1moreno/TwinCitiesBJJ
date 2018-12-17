@@ -10,3 +10,5 @@ export const IntroLogo = styled.div`
 `;
 
 export const IntroHeader = styled.h2``;
+
+export const IntroContent = styled.div``;

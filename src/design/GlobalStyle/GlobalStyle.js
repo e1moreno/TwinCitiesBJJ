@@ -5,8 +5,9 @@ const GlobalStyle = createGlobalStyle`
     --white: #FAFAFA;
     --menuGray: #2B2B2B;
     --blue: #28519F ;
-    --darkBlue: #1e4476;
+    --darkBlue: #14284F;
     --orange: #E84011;
+    --yellow: #fdfe70;
 
     --navBarHeight: 72px;
     --bannerFooterSize: 6em;
