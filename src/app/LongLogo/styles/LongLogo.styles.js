@@ -9,12 +9,7 @@ export const NavBarLogo = styled.h1`
   margin: 0;
   color: var(--white);
   text-transform: uppercase;
-  font-size: 24px;
-  line-height: 24px;
-
-  @media (max-width: 600px) {
-    font-size: 15px;
-  }
+  font-weight: 700;
 `;
 
 export const LogoLink = styled.a`

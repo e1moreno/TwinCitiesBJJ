@@ -1,11 +1,17 @@
 import React from 'react';
 import TCBJJLogo from 'images/TCBJJLogo';
 
+import { WindowSize } from 'design/WindowSize';
+import { SMALL_VIEW } from 'utils/constants';
 import { IntroWrapper } from '../styles/Introduction.styles';
 
 const Introduction = () => (
   <IntroWrapper>
-    <TCBJJLogo height="140px" />
+    <WindowSize>
+      {({ windowWidth }) => (
+        <TCBJJLogo height={windowWidth > SMALL_VIEW ? '190px' : '140px'} />
+      )}
+    </WindowSize>
   </IntroWrapper>
 );
 

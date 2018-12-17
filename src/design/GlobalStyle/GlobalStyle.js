@@ -35,7 +35,11 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  h1 {
+    font-size: 1.6rem;
+  }
   h2 {
+    font-size: 1.5rem;
     margin: 0;
     padding: 0;
     color: inherit;

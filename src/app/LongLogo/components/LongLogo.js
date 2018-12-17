@@ -3,9 +3,9 @@ import { WindowSize } from 'design/WindowSize';
 
 import { SMALL_VIEW } from 'utils/constants';
 import TCTraingle from 'images/TCTriangle';
-import { NavBarLogo, LogoLink, LogoGraphic } from '../styles/NavLogo.styles';
+import { NavBarLogo, LogoLink, LogoGraphic } from '../styles/LongLogo.styles';
 
-const NavLogo = () => (
+const LongLogo = () => (
   <NavBarLogo>
     <LogoLink href="/">
       Twin Cities
@@ -24,4 +24,4 @@ const NavLogo = () => (
   </NavBarLogo>
 );
 
-export default NavLogo;
+export default LongLogo;

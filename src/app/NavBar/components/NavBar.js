@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { NavBarContainer } from '../styles/NavBar.styles';
+import { LongLogo } from 'app/LongLogo';
 import NavMobileMenu from './NavMobileMenu';
-import NavLogo from './NavLogo';
+
+import { NavBarContainer } from '../styles/NavBar.styles';
 
 const NavBar = () => (
   <NavBarContainer>
-    <NavLogo />
+    <LongLogo />
     <NavMobileMenu />
   </NavBarContainer>
 );
