@@ -9,10 +9,8 @@ const Home = () => (
     <Helmet>
       <title>Home</title>
     </Helmet>
-    <Fragment>
-      <Banner />
-      <MainContent />
-    </Fragment>
+    <Banner />
+    <MainContent />
   </Fragment>
 );
 
