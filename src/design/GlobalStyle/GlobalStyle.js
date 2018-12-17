@@ -16,10 +16,6 @@ const GlobalStyle = createGlobalStyle`
   html {
     background: linear-gradient(to right,var(--blue) 0%,var(--darkBlue) 100%);
     font-size: 16px;
-
-    @media (max-width: 600px) {
-      font-size: 10px;
-    }
   };
   body {
     margin: 0;
@@ -36,10 +32,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin: 0;
     padding: 0;
     color: inherit;

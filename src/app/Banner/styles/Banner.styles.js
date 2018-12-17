@@ -16,7 +16,7 @@ export const BannerImage = styled.img`
   object-fit: cover;
   width: 100%;
   height: calc(100vh - var(--navBarHeight) - var(--bannerFooterSize));
-  max-height: var(--mediumDisplay);
+  max-height: 1280px;
   margin: 0;
   z-index: -1;
 `;
