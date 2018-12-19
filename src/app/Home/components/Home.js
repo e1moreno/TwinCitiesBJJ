@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import { Banner } from 'app/Banner';
 import { Introduction } from 'app/Introduction';
+import { Join } from 'app/Join';
 import { MainContent } from '../styles/Home.styles';
 
 const Home = () => (
@@ -13,6 +14,7 @@ const Home = () => (
     <Banner />
     <MainContent>
       <Introduction />
+      <Join />
     </MainContent>
   </Fragment>
 );

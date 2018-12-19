@@ -6,9 +6,10 @@ const GlobalStyle = createGlobalStyle`
     --black: #222222;
     --red: #FF4136;
     --menuGray: #2B2B2B;
+    --gray: #515151;
     --blue: #28519F ;
     --darkBlue: #14284F;
-    --orange: #E84011;
+    --orange: #F84011;
     --yellow: #fdfe70;
 
     --navBarHeight: 86px;
@@ -45,6 +46,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: inherit;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 1.2rem;
   }
 `;
 
