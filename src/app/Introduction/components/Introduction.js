@@ -1,17 +1,14 @@
 import React from 'react';
 
 import { CollapseContainer } from 'design/Collapse';
+import { PageSection } from 'design/PageSection';
 import { ImageGalleryContextConsumer } from 'app/ImageGallery';
 import IntroductionGalleryContainer from '../containers/IntroductionGalleryContainer';
 
-import {
-  IntroWrapper,
-  IntroHeader,
-  IntroContent,
-} from '../styles/Introduction.styles';
+import { IntroHeader, IntroContent } from '../styles/Introduction.styles';
 
 const Introduction = () => (
-  <IntroWrapper>
+  <PageSection color="var(--white)">
     <IntroHeader>
       This is an introduction header with any information we may want
     </IntroHeader>
@@ -46,7 +43,7 @@ const Introduction = () => (
         ad, te mea facete discere.
       </CollapseContainer>
     </IntroContent>
-  </IntroWrapper>
+  </PageSection>
 );
 
 export default Introduction;
