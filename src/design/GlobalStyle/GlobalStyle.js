@@ -9,14 +9,15 @@ const GlobalStyle = createGlobalStyle`
     --orange: #E84011;
     --yellow: #fdfe70;
 
-    --navBarHeight: 72px;
-    --bannerFooterSize: 6em;
+    --navBarHeight: 86px;
+    --bannerFooterSize: 5em;
     --smallDisplay: 600px;
     --mediumDisplay: 1024px;
   }
   html {
+    font-family: 'Source Sans Pro', 'sans-serif';
+    font-feature-settings: "kern" 1;
     background: linear-gradient(to right,var(--blue) 0%,var(--darkBlue) 100%);
-    font-size: 16px;
   };
   body {
     margin: 0;
@@ -34,9 +35,11 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     font-size: 1.5rem;
+    font-weight: 600;
   }
   h2 {
     font-size: 1.4rem;
+    font-weight: 600;
     margin: 0;
     padding: 0;
     color: inherit;
