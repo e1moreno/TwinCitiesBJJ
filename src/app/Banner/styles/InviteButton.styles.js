@@ -16,7 +16,7 @@ export const InviteButtonContainer = styled(Button)`
   font-size: 1.4rem;
   text-transform: uppercase;
   white-space: nowrap;
-  font-weight: 700;
+  font-weight: 600;
 
   &:hover {
     background-color: var(--white);

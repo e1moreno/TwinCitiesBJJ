@@ -1,13 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import 'typeface-roboto-condensed';
-import 'typeface-vollkorn';
+import 'typeface-source-sans-pro';
 
 import { Helmet } from 'react-helmet';
 import GlobalStyle from 'design/GlobalStyle';
 
 import { NavBar } from 'app/NavBar';
+import {
+  ImageGalleryContextProvider,
+  ImageGalleryContextWrapper,
+} from 'app/ImageGallery';
 import LayoutContextProvider from '../context/LayoutContextProvider';
 
 const Layout = ({ children }) => (
@@ -17,8 +20,11 @@ const Layout = ({ children }) => (
     </Helmet>
     <GlobalStyle />
     <LayoutContextProvider>
-      <NavBar />
-      {children}
+      <ImageGalleryContextProvider>
+        <NavBar />
+        <ImageGalleryContextWrapper />
+        {children}
+      </ImageGalleryContextProvider>
     </LayoutContextProvider>
   </Fragment>
 );

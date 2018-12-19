@@ -3,8 +3,7 @@ import pattern from 'images/smallpattern.svg';
 
 export const NavBarContainer = styled.nav`
   display: flex;
-  padding: 8px 16px;
-  width: 100%;
+  padding: 0 16px;
   height: var(--navBarHeight);
   align-items: center;
   justify-content: space-between;

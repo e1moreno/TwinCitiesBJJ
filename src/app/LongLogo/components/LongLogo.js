@@ -7,7 +7,6 @@ import { NavBarLogo, LogoGraphic } from '../styles/LongLogo.styles';
 
 const LongLogo = () => (
   <NavBarLogo>
-    Twin Cities
     <LogoGraphic>
       <WindowSize>
         {({ windowWidth }) => (
@@ -18,7 +17,7 @@ const LongLogo = () => (
         )}
       </WindowSize>
     </LogoGraphic>
-    Brazilian Jiu Jitsu
+    Twin Cities Brazilian Jiu Jitsu
   </NavBarLogo>
 );
 

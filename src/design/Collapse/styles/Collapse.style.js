@@ -15,10 +15,11 @@ export const ReadButton = styled(Button)`
   color: var(--orange);
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.1rem;
-  font-weight: 700;
-  margin-top: 12px;
+  font-weight: 600;
   min-height: 48px;
   padding: 0 16px;
+  left: 50%;
+  transform: translate(-50%, 0);
 `;
 
 export const ButtonText = styled.div`
