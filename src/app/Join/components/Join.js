@@ -6,7 +6,7 @@ import { JoinFormContainer } from 'app/JoinForm';
 import { JoinHeader, JoinSubheader } from '../styles/Join.styles';
 
 const Join = () => (
-  <PageSection backgroundColor="var(--white)" color="var(--menuGray)">
+  <PageSection backgroundColor="var(--off-white)">
     <JoinHeader>Try a Free Class!</JoinHeader>
     <JoinSubheader>
       We are excited to start your Jiu Jitsu Journey! Fill out the form and

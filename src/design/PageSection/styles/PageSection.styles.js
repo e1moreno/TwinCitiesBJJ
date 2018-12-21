@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
+  position: relative;
   color: ${({ color }) => color};
   background-color: ${({ backgroundColor }) => backgroundColor};
+  padding-bottom: 16px;
 `;
 
 export const SectionContent = styled.div`

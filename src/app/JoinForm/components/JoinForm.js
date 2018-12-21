@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FormInputContainer from '../containers/FormInputContainer';
+import FormTextAreaContainer from '../containers/FormTextAreaContainer';
+import {
+  Form,
+  SubmitButtonWrapper,
+  SubmitButton,
+} from '../styles/JoinForm.styles';
+
 const JoinForm = ({
   firstName,
   lastName,
@@ -8,7 +16,67 @@ const JoinForm = ({
   phone,
   additional,
   onChange,
-}) => <div />;
+}) => (
+  <Form name="joinForm" method="POST" data-netlify="true">
+    <input
+      type="hidden"
+      name="subject"
+      value={`${firstName} ${lastName} wants to join Twin Cities BJJ`}
+    />
+    <FormInputContainer
+      id="joinFirstName"
+      labelText="First Name"
+      name="firstName"
+      placeholder="Your First Name"
+      value={firstName}
+      onChange={onChange}
+      aria-label="First Name Input"
+    />
+    <FormInputContainer
+      id="joinLastName"
+      labelText="Last Name"
+      name="lastName"
+      placeholder="Your Last Name"
+      value={lastName}
+      onChange={onChange}
+      aria-label="Last Name Input"
+    />
+    <FormInputContainer
+      id="joinEmail"
+      type="email"
+      labelText="Email"
+      name="email"
+      placeholder="Your Email"
+      value={email}
+      onChange={onChange}
+      aria-label="Email Input"
+    />
+    <FormInputContainer
+      id="joinPhone"
+      type="tel"
+      labelText="Phone"
+      name="phone"
+      placeholder="Your Phone Number"
+      value={phone}
+      onChange={onChange}
+      aria-label="Phone Number Input"
+    />
+    <FormTextAreaContainer
+      id="joinAdditional"
+      labelText="Anything Else?"
+      name="additional"
+      placeholder="Tell us more about you."
+      value={additional}
+      onChange={onChange}
+      aria-label="Additional Information"
+    />
+    <SubmitButtonWrapper>
+      <SubmitButton type="submit" id="joinSubmit" aria-label="Submit Join Form">
+        Submit
+      </SubmitButton>
+    </SubmitButtonWrapper>
+  </Form>
+);
 
 JoinForm.propTypes = {
   firstName: PropTypes.string.isRequired,

@@ -3,12 +3,15 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   :root {
     --white: #FAFAFA;
+    --off-white: #F6F6F9;
     --black: #222222;
     --red: #FF4136;
     --menuGray: #2B2B2B;
     --gray: #515151;
+    --text-gray: #555555;
     --blue: #28519F ;
     --darkBlue: #14284F;
+    --purple: #3A289F;
     --orange: #F84011;
     --yellow: #fdfe70;
 
@@ -21,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Source Sans Pro', 'sans-serif';
     font-feature-settings: "kern" 1;
     background: linear-gradient(to right,var(--blue) 0%,var(--darkBlue) 100%);
+    color: var(--text-gray)
   };
   body {
     margin: 0;
@@ -50,6 +54,14 @@ const GlobalStyle = createGlobalStyle`
   h3 {
     font-weight: 600;
     font-size: 1.2rem;
+  }
+
+  input {
+    border: unset;
+  }
+  textarea {
+    border: unset;
+    font-family: unset;
   }
 `;
 
