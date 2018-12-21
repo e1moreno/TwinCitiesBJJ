@@ -11,8 +11,8 @@ const Home = () => (
     <Helmet>
       <title>Home</title>
     </Helmet>
-    <Banner />
     <MainContent>
+      <Banner />
       <Introduction />
       <Join />
     </MainContent>

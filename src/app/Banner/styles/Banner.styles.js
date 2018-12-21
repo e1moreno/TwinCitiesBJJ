@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-export const BannerWrapper = styled.div`
+export const BannerWrapper = styled.section`
   position: relative;
+  margin-bottom: var(--bannerFooterSize);
 `;
 
 export const BannerImageWrapper = styled.div`
