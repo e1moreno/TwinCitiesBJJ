@@ -11,8 +11,8 @@ import {
 } from '../styles/Banner.styles';
 
 const Banner = () => (
-  <BannerWrapper>
-    <BannerImageWrapper role="banner">
+  <BannerWrapper role="banner">
+    <BannerImageWrapper>
       <BannerImage src={billImage} alt="Students practicing Knee on Belly" />
       <BannerGrid />
     </BannerImageWrapper>

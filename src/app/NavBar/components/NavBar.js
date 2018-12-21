@@ -8,9 +8,11 @@ import { NavBarContainer } from '../styles/NavBar.styles';
 
 const NavBar = () => (
   <NavBarContainer>
-    <Link to="/" style={{ display: 'flex' }}>
-      <TCBJJLogo height="70px" />
-    </Link>
+    <h1>
+      <Link to="/" style={{ display: 'flex' }} aria-label="Home">
+        <TCBJJLogo height="70px" />
+      </Link>
+    </h1>
     <NavMobileMenu />
   </NavBarContainer>
 );

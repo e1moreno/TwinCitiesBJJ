@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const ContentHeader = styled.h2`
-  text-align: center;
   position: relative;
+  text-align: center;
+  text-transform: uppercase;
 
   &::before {
     background-color: var(--white);
