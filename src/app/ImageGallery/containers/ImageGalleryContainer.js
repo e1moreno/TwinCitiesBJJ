@@ -56,7 +56,6 @@ class ImageGalleryContainer extends Component {
         onClickImage={this.handleNext}
         onClose={this.handleClose}
         showImageCount={false}
-        showCloseButton={false}
         backdropClosesModal
       />
     );
