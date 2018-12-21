@@ -25,7 +25,6 @@ const FormTextArea = ({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
-        rows={3}
         {...other}
       />
     </Label>

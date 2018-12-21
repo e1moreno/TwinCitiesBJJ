@@ -4,7 +4,7 @@ import BaseTextArea from 'design/Input/TextArea';
 
 export const InputWrapper = styled.p`
   border-bottom: solid 1px #c4c4c4;
-  padding: 8px 16px;
+  padding: 4px 16px 8px 16px;
 `;
 
 export const Label = styled.label`

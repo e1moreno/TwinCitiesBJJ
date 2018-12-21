@@ -1,22 +1,27 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { Banner } from 'app/Banner';
 import { Introduction } from 'app/Introduction';
 import { Join } from 'app/Join';
+
+import HomeContextProvider from '../context/HomeContextProvider';
+import HomeContextConsumer from '../context/HomeContextConsumer';
 import { MainContent } from '../styles/Home.styles';
 
 const Home = () => (
-  <Fragment>
+  <HomeContextProvider>
     <Helmet>
       <title>Home</title>
     </Helmet>
     <Banner />
     <MainContent>
       <Introduction />
-      <Join />
+      <HomeContextConsumer>
+        {({ joinRef }) => <Join joinRef={joinRef} />}
+      </HomeContextConsumer>
     </MainContent>
-  </Fragment>
+  </HomeContextProvider>
 );
 
 export default Home;
