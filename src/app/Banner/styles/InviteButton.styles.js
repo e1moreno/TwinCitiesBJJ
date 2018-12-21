@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import FilledButton from 'design/Button/FilledButton';
 
-export const InviteButtonContainer = styled(FilledButton)`
+export const Button = styled(FilledButton)`
   position: absolute;
   z-index: 1;
   bottom: 0;

@@ -2,7 +2,9 @@ import React from 'react';
 
 import billImage from 'images/bill.jpg';
 
-import InviteButton from './InviteButton';
+import HomeContextConsumer from 'app/Home/context/HomeContextConsumer';
+
+import InviteButtonContainer from '../containers/InviteButtonContainer';
 import {
   BannerImageWrapper,
   BannerImage,
@@ -16,7 +18,9 @@ const Banner = () => (
       <BannerImage src={billImage} alt="Students practicing Knee on Belly" />
       <BannerGrid />
     </BannerImageWrapper>
-    <InviteButton />
+    <HomeContextConsumer>
+      {({ joinRef }) => <InviteButtonContainer joinRef={joinRef} />}
+    </HomeContextConsumer>
   </BannerWrapper>
 );
 
