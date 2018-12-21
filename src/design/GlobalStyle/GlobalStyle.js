@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import pattern from 'images/smallpattern.svg';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -23,7 +24,9 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-family: 'Source Sans Pro', 'sans-serif';
     font-feature-settings: "kern" 1;
-    background: linear-gradient(to right,var(--blue) 0%,var(--darkBlue) 100%);
+    /* background: linear-gradient(to right,var(--blue) 0%,var(--darkBlue) 100%); */
+    background-color: #28519f;
+    background-image: url(${pattern});
     color: var(--text-gray)
   };
   body {
