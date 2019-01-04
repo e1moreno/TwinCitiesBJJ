@@ -1,13 +1,16 @@
 import styled from 'styled-components';
-import pattern from 'images/smallpattern.svg';
 
-export const NavBarContainer = styled.nav`
+export const NavBarContainer = styled.div`
+  position: absolute;
   display: flex;
-  padding: 0 16px;
   height: var(--navBarHeight);
+  width: 100%;
   align-items: center;
   justify-content: space-between;
-  background-color: #28519f;
-  background-image: url(${pattern});
   z-index: 100;
+  top: 16px;
+`;
+
+export const HeaderLogo = styled.h1`
+  padding-left: 24px;
 `;

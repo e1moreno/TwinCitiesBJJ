@@ -3,10 +3,15 @@ import { WindowSize } from 'design/WindowSize';
 
 import { SMALL_VIEW } from 'utils/constants';
 import TCTraingle from 'images/TCTriangle';
-import { NavBarLogo, LogoGraphic } from '../styles/LongLogo.styles';
+import {
+  NavBarLogo,
+  LogoGraphic,
+  LogoTextWrapper,
+  LogoTextSection,
+} from '../styles/LongLogo.styles';
 
-const LongLogo = () => (
-  <NavBarLogo>
+const LongLogo = props => (
+  <NavBarLogo {...props}>
     <LogoGraphic>
       <WindowSize>
         {({ windowWidth }) => (
@@ -17,7 +22,11 @@ const LongLogo = () => (
         )}
       </WindowSize>
     </LogoGraphic>
-    Twin Cities Brazilian Jiu Jitsu
+    <LogoTextWrapper>
+      <LogoTextSection>Twin Cities</LogoTextSection>
+      &nbsp;
+      <LogoTextSection>Brazilian Jiu Jitsu</LogoTextSection>
+    </LogoTextWrapper>
   </NavBarLogo>
 );
 

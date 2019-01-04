@@ -7,7 +7,7 @@ export const Form = styled.form`
   background-color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px -1px 8px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  max-width: 1024px;
+  max-width: 768px;
   margin: 0 auto;
 `;
 
@@ -19,4 +19,5 @@ export const SubmitButtonWrapper = styled.div`
 
 export const SubmitButton = styled(FilledButton)`
   font-weight: 600;
+  padding: 8px 16px;
 `;
