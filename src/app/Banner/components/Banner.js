@@ -1,10 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import billImage from 'images/bill.jpg';
-
-import HomeContextConsumer from 'app/Home/context/HomeContextConsumer';
-
-import InviteButtonContainer from '../containers/InviteButtonContainer';
 import {
   BannerImageWrapper,
   BannerImage,
@@ -12,16 +8,24 @@ import {
   BannerWrapper,
 } from '../styles/Banner.styles';
 
-const Banner = () => (
+const Banner = ({ image: { source, alt }, children }) => (
   <BannerWrapper role="banner">
     <BannerImageWrapper>
-      <BannerImage src={billImage} alt="Students practicing Knee on Belly" />
+      <BannerImage src={source} alt={alt} />
       <BannerGrid />
     </BannerImageWrapper>
-    <HomeContextConsumer>
-      {({ joinRef }) => <InviteButtonContainer joinRef={joinRef} />}
-    </HomeContextConsumer>
+    {children}
   </BannerWrapper>
 );
+Banner.propTypes = {
+  image: PropTypes.shape({
+    source: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  }).isRequired,
+  children: PropTypes.node,
+};
+Banner.defaultProps = {
+  children: null,
+};
 
 export default Banner;
