@@ -8,7 +8,7 @@ export const NavBarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   z-index: 100;
-  top: 16px;
+  top: 8px;
 `;
 
 export const HeaderLogo = styled.h1`

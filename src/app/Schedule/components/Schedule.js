@@ -11,6 +11,7 @@ const Schedule = () => (
       <title>Schedule</title>
     </Helmet>
     <Banner
+      pageTitle="Schedule"
       image={{
         source: floorImage,
         alt: 'Students Drilling reps on the ground',

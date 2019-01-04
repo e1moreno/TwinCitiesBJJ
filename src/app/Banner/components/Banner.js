@@ -6,13 +6,21 @@ import {
   BannerImage,
   BannerGrid,
   BannerWrapper,
+  PageTitleWrapper,
+  PageTitle,
 } from '../styles/Banner.styles';
 
-const Banner = ({ image: { source, alt }, children }) => (
+const Banner = ({ image: { source, alt }, pageTitle, children }) => (
   <BannerWrapper role="banner">
     <BannerImageWrapper>
       <BannerImage src={source} alt={alt} />
-      <BannerGrid />
+      <BannerGrid>
+        {pageTitle && (
+          <PageTitleWrapper>
+            <PageTitle>{pageTitle}</PageTitle>
+          </PageTitleWrapper>
+        )}
+      </BannerGrid>
     </BannerImageWrapper>
     {children}
   </BannerWrapper>
@@ -22,9 +30,11 @@ Banner.propTypes = {
     source: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
   }).isRequired,
+  pageTitle: PropTypes.string,
   children: PropTypes.node,
 };
 Banner.defaultProps = {
+  pageTitle: null,
   children: null,
 };
 
