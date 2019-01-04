@@ -9,10 +9,16 @@ export const NavBarLogo = styled.h1`
   margin: 0;
   color: var(--white);
   text-transform: uppercase;
+`;
 
-  @media (max-width: 600px) {
-    font-size: 1.1rem;
-  }
+export const LogoTextWrapper = styled.span`
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+`;
+
+export const LogoTextSection = styled.span`
+  white-space: nowrap;
 `;
 
 export const LogoGraphic = styled.span`

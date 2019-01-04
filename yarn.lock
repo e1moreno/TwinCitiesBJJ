@@ -702,7 +702,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.2.0.tgz#b03e42eeddf5898e00646e4c840fa07ba8dcad7f"
   integrity sha512-oouEibCbHMVdZSDlJBO6bZmID/zA/G/Qx3H1d3rSNPTD+L8UNKvCat7aKWSJ74zYbm5zWGh0GQN0hKj8zYFTCg==
@@ -11766,10 +11766,12 @@ styled-components@^4.1.2:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
-styled-icons@^5.5.0:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-5.5.0.tgz#dc497f2bc40fcbb268c0c562b72a45850737f0e0"
-  integrity sha512-PlKyhEIFHcdhIwMJnPKNJHOA0Bt6X13YneJtqGyjAqXI4rmLrPxtqORVn5BRbAJLccA+dSBOG7gMs+jpxJS94w==
+styled-icons@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-6.2.0.tgz#c0383b4b0bb47bd9efa4d4052aa625687b3b5d45"
+  integrity sha512-7JT3zEh6yqE/UMvmzKq12H9sP9FS/K7fRBT3Mlzqwwn8k7zSBqUe2CaMQ/9PgrEKfbeon+9CtQKPr+p3KoW6uQ==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
 
 styled-reset@^1.6.3:
   version "1.6.3"

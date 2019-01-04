@@ -12,12 +12,12 @@ export const BannerImageWrapper = styled.div`
 `;
 
 export const BannerImage = styled.img`
-  -webkit-filter: grayscale(1) brightness(90%);
-  filter: grayscale(1) brightness(90%);
+  -webkit-filter: grayscale(1) brightness(70%);
+  filter: grayscale(1) brightness(70%);
   object-fit: cover;
   width: 100%;
-  height: calc(100vh - var(--navBarHeight) - var(--bannerFooterSize));
-  max-height: 750px;
+  height: calc(100vh - var(--bannerFooterSize));
+  max-height: 800px;
   margin: 0;
   z-index: -1;
 `;

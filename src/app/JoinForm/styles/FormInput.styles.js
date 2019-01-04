@@ -4,7 +4,8 @@ import BaseInput from 'design/Input/Input';
 
 export const InputWrapper = styled.p`
   border-bottom: solid 1px #c4c4c4;
-  padding: 4px 16px 8px 16px;
+  padding: 8px 16px;
+  margin: 0;
 `;
 
 export const Label = styled.label`

@@ -20,6 +20,9 @@
     "react",
     "jsx-a11y"
   ],
+  "globals": {
+    "graphql": true
+  },
   "settings": {
     "import/resolver": {
       "node": {

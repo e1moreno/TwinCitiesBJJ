@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Section = styled.section`
   position: relative;
   color: ${({ color }) => color};
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  background: ${({ backgroundColor }) => backgroundColor};
+  background-image: ${({ backgroundImage }) => backgroundImage};
   padding-bottom: 16px;
 `;
 

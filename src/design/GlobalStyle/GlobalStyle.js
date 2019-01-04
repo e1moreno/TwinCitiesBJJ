@@ -44,19 +44,26 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
   }
   h2 {
-    font-size: 1.4rem;
     font-weight: 600;
     margin: 0;
     padding: 0;
     color: inherit;
+
+    @media (max-width: 600px) {
+      font-size: 1.4rem;
+    }
   }
   h3 {
     font-weight: 600;
     font-size: 1.2rem;
+
+    @media (max-width: 600px) {
+      font-size: 1.1rem;
+    }
   }
 
   input {

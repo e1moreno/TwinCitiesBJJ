@@ -1,17 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { CollapseContainer } from 'design/Collapse';
 import { PageSection } from 'design/PageSection';
+import { LongLogo } from 'app/LongLogo';
 import { ImageGalleryContextConsumer } from 'app/ImageGallery';
 import IntroductionGalleryContainer from '../containers/IntroductionGalleryContainer';
 
-import { IntroHeader, IntroContent } from '../styles/Introduction.styles';
+import {
+  IntroHeader,
+  IntroSubheader,
+  IntroContent,
+} from '../styles/Introduction.styles';
 
-const Introduction = () => (
+const Introduction = ({ subHeader }) => (
   <PageSection color="var(--white)">
-    <IntroHeader>
-      This is an introduction header with any information we may want
+    <IntroHeader as="span">
+      <LongLogo as="h2" />
     </IntroHeader>
+    <IntroSubheader>{subHeader}</IntroSubheader>
     <ImageGalleryContextConsumer>
       {({ openGallery }) => (
         <IntroductionGalleryContainer openGallery={openGallery} />
@@ -45,5 +52,8 @@ const Introduction = () => (
     </IntroContent>
   </PageSection>
 );
+Introduction.propTypes = {
+  subHeader: PropTypes.string.isRequired,
+};
 
 export default Introduction;

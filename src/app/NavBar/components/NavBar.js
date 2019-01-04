@@ -2,17 +2,19 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import TCBJJLogo from 'images/TCBJJLogo';
+import Navigation from './Navigation';
 import NavMobileMenu from './NavMobileMenu';
 
-import { NavBarContainer } from '../styles/NavBar.styles';
+import { NavBarContainer, HeaderLogo } from '../styles/NavBar.styles';
 
 const NavBar = () => (
   <NavBarContainer>
-    <h1>
+    <HeaderLogo>
       <Link to="/" style={{ display: 'flex' }} aria-label="Home">
-        <TCBJJLogo height="70px" />
+        <TCBJJLogo height="80px" />
       </Link>
-    </h1>
+    </HeaderLogo>
+    <Navigation />
     <NavMobileMenu />
   </NavBarContainer>
 );
