@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Social } from 'app/Social';
+import { SocialIcons } from 'app/Social';
 import {
   FooterWrapper,
   BeltHeader,
@@ -16,7 +16,7 @@ const Footer = () => (
       <BeltHeader as="h4">
         Proud affiliated of Start Brazilian Jiu Jitsu Association
       </BeltHeader>
-      <Social />
+      <SocialIcons />
       <AddressWrapper>
         <AddressSpan>121 85th Ave NW</AddressSpan>
         <AddressSpan>Coon Rapids, MN</AddressSpan>

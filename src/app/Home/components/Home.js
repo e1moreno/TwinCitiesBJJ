@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import { Introduction } from 'app/Introduction';
+import { Social } from 'app/Social';
 import { Join } from 'app/Join';
 
 import HomeBanner from './HomeBanner';
@@ -18,6 +19,7 @@ const Home = ({ content: { introductionHeader } }) => (
     <HomeBanner />
     <MainContent>
       <Introduction subHeader={introductionHeader} />
+      <Social />
       <HomeContextConsumer>
         {({ joinRef }) => <Join joinRef={joinRef} />}
       </HomeContextConsumer>
