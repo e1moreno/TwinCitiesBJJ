@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SocialIcons } from 'app/Social';
+import { SocialIcons } from 'app/SocialIcons';
 import {
   FooterWrapper,
   BeltHeader,

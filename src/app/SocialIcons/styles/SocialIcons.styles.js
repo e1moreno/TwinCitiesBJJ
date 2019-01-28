@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 import { FacebookF, Instagram } from 'styled-icons/fa-brands';
 
 export const SocialWrapper = styled.div`
@@ -9,7 +8,7 @@ export const SocialWrapper = styled.div`
   grid-area: social;
 `;
 
-export const SocialLink = styled(Link)`
+export const SocialLink = styled.a`
   margin: 0 8px;
 `;
 
