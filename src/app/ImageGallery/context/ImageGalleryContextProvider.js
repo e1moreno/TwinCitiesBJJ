@@ -1,67 +1,51 @@
-import React, { Component } from 'react';
+import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
+import { useImmerReducer } from 'use-immer';
 
-export const ImageGalleryContext = React.createContext();
+export const ImageGalleryContext = createContext();
 
-class ImageGalleryContextProvider extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-  };
+const reducer = (draft, action) => {
+  switch (action.type) {
+    case 'setSource':
+      draft.src = action.src;
+      draft.currentImage = action.currentImage;
+      break;
+    case 'setOpen':
+      draft.open = action.open;
+      break;
+    case 'setCurrentImage':
+      draft.currentImage = action.currentImage;
+      break;
+    case 'openGallery':
+      draft.open = true;
+      draft.currentImage = action.currentImage || draft.currentImage;
+      draft.src = action.src || draft.src;
+      break;
+    default:
+      break;
+  }
+};
 
-  state = {
+const ImageGalleryContextProvider = ({ children }) => {
+  const [state, dispatch] = useImmerReducer(reducer, {
     src: [],
     open: false,
     currentImage: 0,
-  };
+  });
 
-  setSource = (newSrc, currentImage = 0) => {
-    const { src } = this.state;
-
-    if (src !== newSrc) {
-      this.setState({
-        src: newSrc,
-        currentImage,
-      });
-    }
-  };
-
-  setOpen = (open) => {
-    this.setState({
-      open,
-    });
-  };
-
-  setCurrentImage = (currentImage) => {
-    this.setState({
-      currentImage,
-    });
-  };
-
-  openGallery = (currentImage, newSrc) => {
-    this.setState(({ src }) => ({
-      open: true,
-      ...(!!currentImage && { currentImage }),
-      ...(!!newSrc && newSrc !== src && { src: newSrc }),
-    }));
-  };
-
-  render() {
-    const { children } = this.props;
-
-    return (
-      <ImageGalleryContext.Provider
-        value={{
-          ...this.state,
-          setSource: this.setSource,
-          setOpen: this.setOpen,
-          setCurrentImage: this.setCurrentImage,
-          openGallery: this.openGallery,
-        }}
-      >
-        {children}
-      </ImageGalleryContext.Provider>
-    );
-  }
-}
+  return (
+    <ImageGalleryContext.Provider
+      value={{
+        ...state,
+        dispatch,
+      }}
+    >
+      {children}
+    </ImageGalleryContext.Provider>
+  );
+};
+ImageGalleryContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default ImageGalleryContextProvider;

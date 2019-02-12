@@ -1,65 +1,44 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext, useCallback } from 'react';
 
 import Lightbox from 'react-images';
+import { ImageGalleryContext } from '../context/ImageGalleryContextProvider';
 
-class ImageGalleryContainer extends Component {
-  static propTypes = {
-    src: PropTypes.arrayOf(
-      PropTypes.shape({
-        src: PropTypes.string.isRequired,
-      }),
-    ),
-    open: PropTypes.bool.isRequired,
-    currentImage: PropTypes.number.isRequired,
-    setOpen: PropTypes.func.isRequired,
-    setCurrentImage: PropTypes.func.isRequired,
-  };
+const ImageGalleryContainer = () => {
+  const {
+    open, currentImage, src, dispatch,
+  } = useContext(ImageGalleryContext);
 
-  static defaultProps = {
-    src: [],
-  };
-
-  handlePrevious = () => {
-    const { currentImage, setCurrentImage } = this.props;
-
+  const handlePrevious = useCallback(() => {
     if (currentImage > 0) {
-      setCurrentImage(currentImage - 1);
+      dispatch({ type: 'setCurrentImage', currentImage: currentImage - 1 });
     }
-  };
+  }, [currentImage]);
 
-  handleNext = () => {
-    const { src, currentImage, setCurrentImage } = this.props;
+  const handleNext = useCallback(() => {
     const nextImage = currentImage + 1;
 
     if (nextImage < src.length) {
-      setCurrentImage(nextImage);
+      dispatch({ type: 'setCurrentImage', currentImage: nextImage });
     }
-  };
+  }, [src, currentImage]);
 
-  handleClose = () => {
-    const { setOpen } = this.props;
+  const handleClose = useCallback(() => {
+    dispatch({ type: 'setOpen', open: false });
+  }, []);
 
-    setOpen(false);
-  };
-
-  render() {
-    const { src, open, currentImage } = this.props;
-
-    return (
-      <Lightbox
-        images={src}
-        isOpen={open}
-        currentImage={currentImage}
-        onClickPrev={this.handlePrevious}
-        onClickNext={this.handleNext}
-        onClickImage={this.handleNext}
-        onClose={this.handleClose}
-        showImageCount={false}
-        backdropClosesModal
-      />
-    );
-  }
-}
+  return (
+    <Lightbox
+      images={src}
+      isOpen={open}
+      currentImage={currentImage}
+      onClickPrev={handlePrevious}
+      onClickNext={handleNext}
+      onClickImage={handleNext}
+      onClose={handleClose}
+      showImageCount={false}
+      backdropClosesModal
+    />
+  );
+};
 
 export default ImageGalleryContainer;

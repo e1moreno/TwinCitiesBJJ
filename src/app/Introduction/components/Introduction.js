@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { CollapseContainer } from 'design/Collapse';
 import { PageSection } from 'design/PageSection';
 import { LongLogo } from 'app/LongLogo';
-import { ImageGalleryContextConsumer } from 'app/ImageGallery';
 import IntroductionGalleryContainer from '../containers/IntroductionGalleryContainer';
 
 import {
@@ -19,11 +18,7 @@ const Introduction = ({ subHeader }) => (
       <LongLogo as="h2" />
     </IntroHeader>
     <IntroSubheader>{subHeader}</IntroSubheader>
-    <ImageGalleryContextConsumer>
-      {({ openGallery }) => (
-        <IntroductionGalleryContainer openGallery={openGallery} />
-      )}
-    </ImageGalleryContextConsumer>
+    <IntroductionGalleryContainer />
     <IntroContent>
       <div>
         <p>
