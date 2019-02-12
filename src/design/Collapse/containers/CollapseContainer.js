@@ -1,48 +1,39 @@
-import React, { Component } from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import onKeyHelper from 'utils/onKeyHelper';
 
 import Collapse from '../components/Collapse';
 
-class CollapseContainer extends Component {
-  static propTypes = {
-    wrapperElement: PropTypes.string,
-    children: PropTypes.node.isRequired,
-  };
+const CollapseContainer = ({ wrapperElement, children }) => {
+  const [open, setOpen] = useState(false);
 
-  static defaultProps = {
-    wrapperElement: null,
-  };
+  const handleClick = useCallback(() => {
+    setOpen(!open);
+  }, [open]);
 
-  state = {
-    open: false,
-  };
+  const handleKeyDown = useCallback((e) => {
+    onKeyHelper(e, handleClick);
+  }, []);
 
-  handleClick = () => {
-    this.setState(state => ({
-      open: !state.open,
-    }));
-  };
+  return (
+    <Collapse
+      open={open}
+      wrapperElement={wrapperElement}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+    >
+      {children}
+    </Collapse>
+  );
+};
+CollapseContainer.propTypes = {
+  wrapperElement: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
 
-  handleKeyDown = (e) => {
-    onKeyHelper(e, this.handleClick);
-  };
-
-  render() {
-    const { wrapperElement, children } = this.props;
-    const { open } = this.state;
-    return (
-      <Collapse
-        open={open}
-        wrapperElement={wrapperElement}
-        onClick={this.handleClick}
-        onKeyDown={this.handleKeyDown}
-      >
-        {children}
-      </Collapse>
-    );
-  }
-}
+CollapseContainer.defaultProps = {
+  wrapperElement: null,
+};
 
 export default CollapseContainer;

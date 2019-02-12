@@ -74,6 +74,24 @@
       "assert": "both",
       "depth": 25
     }],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "acc",
+          "accumulator",
+          "e",
+          "ctx",
+          "req",
+          "request",
+          "res",
+          "response",
+          "$scope",
+          "draft"
+        ]
+      }
+    ],
     "react-hooks/rules-of-hooks": "error"
   }
 }

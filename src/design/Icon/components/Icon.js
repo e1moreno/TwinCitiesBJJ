@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { SMALL_VIEW } from 'utils/constants';
-import { WindowSize } from 'design/WindowSize';
+import { useWindowSize } from 'design/WindowSize';
 import { RoundIconWrapper, RegularIconWrapper } from '../styles/Icon.styles';
 
 const baseStyle = {
@@ -57,13 +57,9 @@ const Icon = ({ variant, ...rest }) => {
       break;
   }
 
-  return (
-    <WindowSize>
-      {({ windowWidth }) => (
-        <IconComponent {...rest} windowWidth={windowWidth} />
-      )}
-    </WindowSize>
-  );
+  const { width: windowWidth } = useWindowSize();
+
+  return <IconComponent {...rest} windowWidth={windowWidth} />;
 };
 
 Icon.propTypes = {

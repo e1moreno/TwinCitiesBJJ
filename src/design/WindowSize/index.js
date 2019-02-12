@@ -1,1 +1,1 @@
-export { default as WindowSize } from './containers/WindowSize';
+export { default as useWindowSize } from './containers/useWindowSize';

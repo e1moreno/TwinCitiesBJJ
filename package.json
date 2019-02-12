@@ -12,6 +12,7 @@
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-styled-components": "^3.0.5",
     "gatsby-source-contentful": "^2.0.29",
+    "immer": "^2.0.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
@@ -21,7 +22,8 @@
     "styled-icons": "^6.12.0",
     "styled-reset": "^1.6.8",
     "typeface-source-sans-pro": "^0.0.54",
-    "typography": "^0.16.17"
+    "typography": "^0.16.17",
+    "use-immer": "^0.1.0"
   },
   "keywords": [
     "gatsby"

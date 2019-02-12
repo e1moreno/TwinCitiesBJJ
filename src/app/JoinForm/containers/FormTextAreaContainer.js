@@ -1,66 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import FormTextArea from '../components/FormTextArea';
+import useFocus from './useFocus';
 
-class FormTextAreaContainer extends Component {
-  static propTypes = {
-    labelText: PropTypes.string,
-    labelProps: PropTypes.object,
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-  };
+const FormTextAreaContainer = ({
+  labelText,
+  labelProps,
+  id,
+  name,
+  value,
+  onChange,
+  ...other
+}) => {
+  const { focus, handleFocus, handleBlur } = useFocus(false);
 
-  static defaultProps = {
-    labelText: null,
-    labelProps: {},
-  };
+  return (
+    <FormTextArea
+      focus={focus}
+      labelText={labelText}
+      labelProps={labelProps}
+      id={id}
+      name={name}
+      value={value}
+      onChange={onChange}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      {...other}
+    />
+  );
+};
+FormTextAreaContainer.propTypes = {
+  labelText: PropTypes.string,
+  labelProps: PropTypes.object,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
-  state = {
-    focus: false,
-  };
-
-  handleFocus = () => {
-    this.setState({
-      focus: true,
-    });
-  };
-
-  handleBlur = () => {
-    this.setState({
-      focus: false,
-    });
-  };
-
-  render() {
-    const {
-      labelText,
-      labelProps,
-      id,
-      name,
-      value,
-      onChange,
-      ...other
-    } = this.props;
-    const { focus } = this.state;
-
-    return (
-      <FormTextArea
-        focus={focus}
-        labelText={labelText}
-        labelProps={labelProps}
-        id={id}
-        name={name}
-        value={value}
-        onChange={onChange}
-        onFocus={this.handleFocus}
-        onBlur={this.handleBlur}
-        {...other}
-      />
-    );
-  }
-}
+FormTextAreaContainer.defaultProps = {
+  labelText: null,
+  labelProps: {},
+};
 
 export default FormTextAreaContainer;
