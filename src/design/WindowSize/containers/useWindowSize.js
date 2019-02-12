@@ -29,7 +29,7 @@ const useWindowSize = () => {
 
     updateWindowDimensions();
     window.addEventListener('resize', updateWindowDimensions);
-    return () => window.removeEventListener('resize', this.updateWindowDimensions);
+    return () => window.removeEventListener('resize', updateWindowDimensions);
   }, []);
 
   const { width, height } = state;
