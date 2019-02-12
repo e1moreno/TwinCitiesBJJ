@@ -8,7 +8,6 @@ import { Join } from 'app/Join';
 
 import HomeBanner from './HomeBanner';
 import HomeContextProvider from '../context/HomeContextProvider';
-import HomeContextConsumer from '../context/HomeContextConsumer';
 import { MainContent } from '../styles/Home.styles';
 
 const Home = ({ content: { introductionHeader } }) => (
@@ -20,9 +19,7 @@ const Home = ({ content: { introductionHeader } }) => (
     <MainContent>
       <Introduction subHeader={introductionHeader} />
       <Social />
-      <HomeContextConsumer>
-        {({ joinRef }) => <Join joinRef={joinRef} />}
-      </HomeContextConsumer>
+      <Join />
     </MainContent>
   </HomeContextProvider>
 );

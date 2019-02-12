@@ -1,32 +1,22 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext, useCallback } from 'react';
 
+import { HomeContext } from 'app/Home';
 import InviteButton from '../components/InviteButton';
 
-class InviteButtonContainer extends PureComponent {
-  static propTypes = {
-    joinRef: PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-    ]).isRequired,
-  };
-
-  handleClick = () => {
+const InviteButtonContainer = () => {
+  const { joinRef } = useContext(HomeContext);
+  const handleClick = useCallback(() => {
     const {
-      joinRef: {
-        current: { offsetTop },
-      },
-    } = this.props;
+      current: { offsetTop },
+    } = joinRef;
 
     window.scrollTo({
       top: offsetTop,
       behavior: 'smooth',
     });
-  };
+  }, [joinRef]);
 
-  render() {
-    return <InviteButton onClick={this.handleClick} />;
-  }
-}
+  return <InviteButton onClick={handleClick} />;
+};
 
 export default InviteButtonContainer;
