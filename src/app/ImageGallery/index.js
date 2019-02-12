@@ -1,9 +1,7 @@
 export {
-  default as ImageGalleryContextWrapper,
-} from './containers/ImageGalleryContextWrapper';
-export {
   default as ImageGalleryContextProvider,
+  ImageGalleryContext,
 } from './context/ImageGalleryContextProvider';
 export {
-  default as ImageGalleryContextConsumer,
-} from './context/ImageGalleryContextConsumer';
+  default as ImageGalleryContainer,
+} from './containers/ImageGalleryContainer';

@@ -1,27 +1,41 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import billImage from 'images/bill.jpg';
-
-import HomeContextConsumer from 'app/Home/context/HomeContextConsumer';
-
-import InviteButtonContainer from '../containers/InviteButtonContainer';
 import {
   BannerImageWrapper,
   BannerImage,
   BannerGrid,
   BannerWrapper,
+  PageTitleWrapper,
+  PageTitle,
 } from '../styles/Banner.styles';
 
-const Banner = () => (
+const Banner = ({ image: { source, alt }, pageTitle, children }) => (
   <BannerWrapper role="banner">
     <BannerImageWrapper>
-      <BannerImage src={billImage} alt="Students practicing Knee on Belly" />
-      <BannerGrid />
+      <BannerImage src={source} alt={alt} />
+      <BannerGrid>
+        {pageTitle && (
+          <PageTitleWrapper>
+            <PageTitle>{pageTitle}</PageTitle>
+          </PageTitleWrapper>
+        )}
+      </BannerGrid>
     </BannerImageWrapper>
-    <HomeContextConsumer>
-      {({ joinRef }) => <InviteButtonContainer joinRef={joinRef} />}
-    </HomeContextConsumer>
+    {children}
   </BannerWrapper>
 );
+Banner.propTypes = {
+  image: PropTypes.shape({
+    source: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  }).isRequired,
+  pageTitle: PropTypes.string,
+  children: PropTypes.node,
+};
+Banner.defaultProps = {
+  pageTitle: null,
+  children: null,
+};
 
 export default Banner;

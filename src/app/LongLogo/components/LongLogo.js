@@ -1,5 +1,5 @@
 import React from 'react';
-import { WindowSize } from 'design/WindowSize';
+import { useWindowSize } from 'design/WindowSize';
 
 import { SMALL_VIEW } from 'utils/constants';
 import TCTraingle from 'images/TCTriangle';
@@ -10,24 +10,23 @@ import {
   LogoTextSection,
 } from '../styles/LongLogo.styles';
 
-const LongLogo = props => (
-  <NavBarLogo {...props}>
-    <LogoGraphic>
-      <WindowSize>
-        {({ windowWidth }) => (
-          <TCTraingle
-            height={windowWidth > SMALL_VIEW ? '18px' : '12px'}
-            color="var(--white)"
-          />
-        )}
-      </WindowSize>
-    </LogoGraphic>
-    <LogoTextWrapper>
-      <LogoTextSection>Twin Cities</LogoTextSection>
-      &nbsp;
-      <LogoTextSection>Brazilian Jiu Jitsu</LogoTextSection>
-    </LogoTextWrapper>
-  </NavBarLogo>
-);
+const LongLogo = (props) => {
+  const { width: windowWidth } = useWindowSize();
+  return (
+    <NavBarLogo {...props}>
+      <LogoGraphic>
+        <TCTraingle
+          height={windowWidth > SMALL_VIEW ? '18px' : '12px'}
+          color="var(--white)"
+        />
+      </LogoGraphic>
+      <LogoTextWrapper>
+        <LogoTextSection>Twin Cities</LogoTextSection>
+        &nbsp;
+        <LogoTextSection>Brazilian Jiu Jitsu</LogoTextSection>
+      </LogoTextWrapper>
+    </NavBarLogo>
+  );
+};
 
 export default LongLogo;

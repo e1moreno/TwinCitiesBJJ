@@ -30,9 +30,22 @@ export const BannerGrid = styled.div`
   height: 100%;
   display: grid;
   grid-template-columns: 1rem auto 1rem;
-  grid-template-rows: 70% 48px 1fr;
+  grid-template-rows: 70% 48px 1fr 4rem 8px;
   grid-template-areas:
     '. . .'
     '. contact .'
-    '. . .';
+    '. . .'
+    '. pageTitle .';
+`;
+
+export const PageTitleWrapper = styled.div`
+  grid-area: pageTitle;
+  display: flex;
+`;
+
+export const PageTitle = styled.h2`
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: 3rem;
+  letter-spacing: 5px;
 `;

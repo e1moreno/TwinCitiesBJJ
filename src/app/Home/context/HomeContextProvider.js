@@ -1,30 +1,23 @@
-import React, { Component } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 export const HomeContext = React.createContext();
 
-class HomeContextProvider extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-  };
+const HomeContextProvider = ({ children }) => {
+  const joinRef = useRef(null);
 
-  state = {
-    joinRef: React.createRef(),
-  };
-
-  render() {
-    const { children } = this.props;
-
-    return (
-      <HomeContext.Provider
-        value={{
-          ...this.state,
-        }}
-      >
-        {children}
-      </HomeContext.Provider>
-    );
-  }
-}
+  return (
+    <HomeContext.Provider
+      value={{
+        joinRef,
+      }}
+    >
+      {children}
+    </HomeContext.Provider>
+  );
+};
+HomeContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default HomeContextProvider;

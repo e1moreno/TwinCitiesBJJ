@@ -9,7 +9,7 @@ import GlobalStyle from 'design/GlobalStyle';
 import { NavBar } from 'app/NavBar';
 import {
   ImageGalleryContextProvider,
-  ImageGalleryContextWrapper,
+  ImageGalleryContainer,
 } from 'app/ImageGallery';
 import { Footer } from 'app/Footer';
 import LayoutContextProvider from '../context/LayoutContextProvider';
@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
     <LayoutContextProvider>
       <ImageGalleryContextProvider>
         <NavBar />
-        <ImageGalleryContextWrapper />
+        <ImageGalleryContainer />
         {children}
       </ImageGalleryContextProvider>
     </LayoutContextProvider>

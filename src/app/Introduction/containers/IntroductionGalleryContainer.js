@@ -1,35 +1,25 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useCallback, useContext } from 'react';
 
+import { ImageGalleryContext } from 'app/ImageGallery';
 import floor from 'images/floor.jpg';
 import IntroductionGallery from '../components/IntroductionGallery';
 
-class IntroductionGalleryContainer extends Component {
-  static propTypes = {
-    openGallery: PropTypes.func.isRequired,
-  };
+const IntroductionGalleryContainer = () => {
+  const { dispatch } = useContext(ImageGalleryContext);
 
-  state = {
-    src: new Array(6).fill({ src: floor }).map((image, ind) => ({
-      ...image,
-      ind,
-    })),
-  };
+  const [src] = useState(() => new Array(6).fill({ src: floor }).map((image, ind) => ({
+    ...image,
+    ind,
+  })));
 
-  handleImageClick = (ind) => {
-    const { openGallery } = this.props;
-    const { src } = this.state;
+  const handleImageClick = useCallback(
+    (currentImage) => {
+      dispatch({ type: 'openGallery', currentImage, src });
+    },
+    [src],
+  );
 
-    openGallery(ind, src);
-  };
-
-  render() {
-    const { src } = this.state;
-
-    return (
-      <IntroductionGallery src={src} handleImageClick={this.handleImageClick} />
-    );
-  }
-}
+  return <IntroductionGallery src={src} handleImageClick={handleImageClick} />;
+};
 
 export default IntroductionGalleryContainer;

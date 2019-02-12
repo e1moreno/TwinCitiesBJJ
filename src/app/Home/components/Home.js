@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import { Banner } from 'app/Banner';
 import { Introduction } from 'app/Introduction';
+import { Social } from 'app/Social';
 import { Join } from 'app/Join';
 
+import HomeBanner from './HomeBanner';
 import HomeContextProvider from '../context/HomeContextProvider';
-import HomeContextConsumer from '../context/HomeContextConsumer';
 import { MainContent } from '../styles/Home.styles';
 
 const Home = ({ content: { introductionHeader } }) => (
@@ -15,12 +15,11 @@ const Home = ({ content: { introductionHeader } }) => (
     <Helmet>
       <title>Home</title>
     </Helmet>
-    <Banner />
+    <HomeBanner />
     <MainContent>
       <Introduction subHeader={introductionHeader} />
-      <HomeContextConsumer>
-        {({ joinRef }) => <Join joinRef={joinRef} />}
-      </HomeContextConsumer>
+      <Social />
+      <Join />
     </MainContent>
   </HomeContextProvider>
 );
