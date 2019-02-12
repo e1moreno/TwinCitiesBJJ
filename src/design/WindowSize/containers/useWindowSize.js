@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 import { useImmerReducer } from 'use-immer';
 
 const reducer = (draft, action) => {
@@ -18,15 +18,15 @@ const useWindowSize = () => {
     height: 0,
   });
 
-  const updateWindowDimensions = useCallback(() => {
-    dispatch({
-      type: 'updateBoth',
-      height: window.innerHeight,
-      width: window.innerWidth,
-    });
-  }, []);
-
   useEffect(() => {
+    const updateWindowDimensions = () => {
+      dispatch({
+        type: 'updateBoth',
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    };
+
     updateWindowDimensions();
     window.addEventListener('resize', updateWindowDimensions);
     return () => window.removeEventListener('resize', this.updateWindowDimensions);
