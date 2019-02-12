@@ -18,7 +18,8 @@
   },
   "plugins": [
     "react",
-    "jsx-a11y"
+    "jsx-a11y",
+    "react-hooks"
   ],
   "settings": {
     "import/resolver": {
@@ -72,6 +73,7 @@
       "controlComponents": ["Input"],
       "assert": "both",
       "depth": 25
-    }]
+    }],
+    "react-hooks/rules-of-hooks": "error"
   }
 }
