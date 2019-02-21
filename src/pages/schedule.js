@@ -1,6 +1,38 @@
 import React from 'react';
-import { Schedule } from 'app/Schedule';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-const schedule = () => <Schedule />;
+import { ScheduleContainer } from 'app/Schedule';
 
-export default schedule;
+const SchedulePage = ({ data: { allContentfulScheduleDay } }) => (
+  <ScheduleContainer schedule={allContentfulScheduleDay} />
+);
+SchedulePage.propTypes = {
+  data: PropTypes.shape({
+    allContentfulScheduleDay: PropTypes.object.isRequired,
+  }).isRequired,
+};
+
+export default SchedulePage;
+
+export const query = graphql`
+  query scheduleDay {
+    allContentfulScheduleDay {
+      edges {
+        node {
+          id
+          day
+          classes {
+            id
+            title
+            classTime
+            class {
+              title
+              duration
+            }
+          }
+        }
+      }
+    }
+  }
+`;
