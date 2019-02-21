@@ -17,7 +17,7 @@ IndexPage.propTypes = {
 export default IndexPage;
 
 export const query = graphql`
-  {
+  query homeQuery {
     contentfulHomeContent {
       introductionHeader
     }

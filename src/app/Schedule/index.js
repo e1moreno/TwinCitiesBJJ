@@ -1,1 +1,1 @@
-export { default as Schedule } from './components/Schedule';
+export { default as ScheduleContainer } from './containers/ScheduleContainer';
