@@ -2,12 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useImmerReducer } from 'use-immer';
 
-export const LayoutContext = React.createContext();
+export const LayoutContext = React.createContext(null);
 
 const reducer = (draft, action) => {
   switch (action.type) {
-    case 'setOpen':
-      draft.open = action.open;
+    case 'setMobileNavOpen':
+      draft.mobileNavOpen = action.open;
+      draft.initialized = Object.prototype.hasOwnProperty.call(
+        action,
+        'initialized',
+      )
+        ? action.initialized
+        : true;
+      break;
+    case 'openMobileNav':
+      draft.mobileNavOpen = true;
+      draft.initialized = Object.prototype.hasOwnProperty.call(
+        action,
+        'initialized',
+      )
+        ? action.initialized
+        : true;
+      break;
+    case 'closeMobileNav':
+      draft.mobileNavOpen = false;
+      draft.initialized = Object.prototype.hasOwnProperty.call(
+        action,
+        'initialized',
+      )
+        ? action.initialized
+        : true;
       break;
     default:
       break;
@@ -16,7 +40,8 @@ const reducer = (draft, action) => {
 
 const LayoutContextProvider = ({ children }) => {
   const [state, dispatch] = useImmerReducer(reducer, {
-    open: false,
+    mobileNavOpen: false,
+    initialized: false,
   });
 
   return (

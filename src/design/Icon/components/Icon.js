@@ -15,7 +15,7 @@ const baseStyle = {
 const RegularIcon = ({
   Symbol, color, windowWidth, IconStyles, ...rest
 }) => (
-  <RegularIconWrapper color={color} {...rest} tabIndex="0">
+  <RegularIconWrapper color={color} {...rest}>
     <Symbol
       size={windowWidth < SMALL_VIEW ? '3em' : '2em'}
       style={{ ...baseStyle, ...IconStyles }}
@@ -34,7 +34,7 @@ RegularIcon.defaultProps = {
 };
 
 const RoundIcon = ({ Symbol, color, ...rest }) => (
-  <RoundIconWrapper color={color} {...rest} tabIndex="0">
+  <RoundIconWrapper color={color} {...rest}>
     <Symbol size="1.5em" style={{ ...baseStyle }} />
   </RoundIconWrapper>
 );

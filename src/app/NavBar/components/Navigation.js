@@ -2,12 +2,18 @@ import React from 'react';
 
 import { NavigationWrapper, NavigationLink } from '../styles/Navigation.styles';
 
+export const links = [
+  { to: '/', title: 'Home' },
+  { to: '/about', title: 'About' },
+  { to: '/schedule', title: 'Schedule' },
+  { to: '/contact', title: 'Contact' },
+];
+
 const Navigation = () => (
   <NavigationWrapper>
-    <NavigationLink to="/">Home</NavigationLink>
-    <NavigationLink to="/about">About</NavigationLink>
-    <NavigationLink to="/schedule">Schedule</NavigationLink>
-    <NavigationLink to="/contact">Contact</NavigationLink>
+    {links.map(({ to, title }) => (
+      <NavigationLink to={to}>{title}</NavigationLink>
+    ))}
   </NavigationWrapper>
 );
 
