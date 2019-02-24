@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import TCBJJLogo from 'images/TCBJJLogo';
 import Navigation from './Navigation';
-import NavMobileMenu from './NavMobileMenu';
+import NavMobileMenuContainer from '../containers/NavMobileMenuContainer';
 
 import { NavBarContainer, HeaderLogo } from '../styles/NavBar.styles';
 
@@ -15,7 +15,7 @@ const NavBar = () => (
       </Link>
     </HeaderLogo>
     <Navigation />
-    <NavMobileMenu />
+    <NavMobileMenuContainer />
   </NavBarContainer>
 );
 

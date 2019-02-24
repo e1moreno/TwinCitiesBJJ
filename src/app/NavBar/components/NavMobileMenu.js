@@ -1,20 +1,29 @@
 import React from 'react';
-import { Menu as MenuIcon } from 'styled-icons/material';
+import PropTypes from 'prop-types';
 
-import { Icon } from 'design/Icon';
-import { MobileNavToggle } from '../styles/NavMobileMenu.styles';
+import {
+  MobileNavToggle,
+  MobileNavIconWrapper,
+  MobileNavIcon,
+} from '../styles/NavMobileMenu.styles';
 
-const NavMobileMenu = () => (
-  <MobileNavToggle>
-    <Icon
-      Symbol={MenuIcon}
-      color="var(--white)"
-      IconStyles={{
-        width: '32px',
-        height: '32px',
-      }}
-    />
+const NavIcon = ({ open }) => (
+  <MobileNavIconWrapper open={open}>
+    <MobileNavIcon open={open} />
+  </MobileNavIconWrapper>
+);
+NavIcon.propTypes = {
+  open: PropTypes.bool.isRequired,
+};
+
+const NavMobileMenu = ({ open, onClick }) => (
+  <MobileNavToggle onClick={onClick} id="nav-icon" aria-expanded={open}>
+    <NavIcon open={open} />
   </MobileNavToggle>
 );
+NavMobileMenu.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default NavMobileMenu;

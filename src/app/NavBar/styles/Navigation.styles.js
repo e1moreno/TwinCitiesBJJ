@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 export const NavigationWrapper = styled.nav`
   display: flex;
   padding-right: 24px;
+  z-index: 1;
 
   @media (max-width: ${SMALL_VIEW}px) {
     display: none;
