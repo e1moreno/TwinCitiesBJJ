@@ -14,12 +14,12 @@ export const SocialLink = styled.a`
 
 export const FacebookIcon = styled(FacebookF)`
   &:hover {
-    color: #3b5998;
+    color: var(--fbBlue);
   }
 `;
 
 export const InstagramIcon = styled(Instagram)`
   &:hover {
-    color: #c32aa3;
+    color: var(--instaPurp);
   }
 `;

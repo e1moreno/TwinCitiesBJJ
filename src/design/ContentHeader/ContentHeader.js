@@ -4,11 +4,12 @@ const ContentHeader = styled.h2`
   position: relative;
   text-align: center;
   text-transform: uppercase;
+  --belt-size: 11px;
 
   &::before {
     background-color: var(--white);
-    height: 0.5rem;
-    width: 2.8rem;
+    height: var(--belt-size);
+    width: 52px;
     content: '';
     display: inline-block;
     top: -1rem;
@@ -19,8 +20,8 @@ const ContentHeader = styled.h2`
 
   &::after {
     background-color: var(--black);
-    height: 0.5rem;
-    width: 1rem;
+    height: var(--belt-size);
+    width: 16px;
     content: '';
     display: inline-block;
     top: -1rem;

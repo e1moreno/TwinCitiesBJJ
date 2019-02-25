@@ -13,8 +13,13 @@ const GlobalStyle = createGlobalStyle`
     --blue: #28519F ;
     --darkBlue: #14284F;
     --purple: #3A289F;
+    --backgroundPurple: #581e76;
+    --backPurpleAlt: #3a144d;
+    --brown: #752e1f;
     --orange: #F84011;
     --yellow: #fdfe70;
+    --fbBlue: #3b5998;
+    --instaPurp: #c32aa3;
 
     --navBarHeight: 86px;
     --bannerFooterSize: 5em;
@@ -54,18 +59,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: inherit;
-
-    @media (max-width: 600px) {
-      font-size: 1.4rem;
-    }
   }
   h3 {
     font-weight: 600;
     font-size: 1.2rem;
-
-    @media (max-width: 600px) {
-      font-size: 1.1rem;
-    }
   }
 
   input {

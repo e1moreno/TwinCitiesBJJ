@@ -12,9 +12,9 @@ import {
   IntroContent,
 } from '../styles/Introduction.styles';
 
-const Introduction = ({ subHeader }) => (
+const Introduction = ({ subHeader, mobile }) => (
   <PageSection color="var(--white)">
-    <IntroHeader as="span">
+    <IntroHeader as="span" mobile={mobile}>
       <LongLogo as="h2" />
     </IntroHeader>
     <IntroSubheader>{subHeader}</IntroSubheader>
@@ -49,6 +49,7 @@ const Introduction = ({ subHeader }) => (
 );
 Introduction.propTypes = {
   subHeader: PropTypes.string.isRequired,
+  mobile: PropTypes.bool.isRequired,
 };
 
 export default Introduction;
