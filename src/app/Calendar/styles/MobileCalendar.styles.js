@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const CalendarGrid = styled.div`
   display: grid;
+  color: var(--text-gray);
   background-color: var(--white);
   grid-template-columns: 80px 1fr;
   grid-template-areas: 'picker schedule';
