@@ -99,10 +99,7 @@ ContactArea.defaultProps = {
 const JoinArea = ({ mobile }) => (
   <JoinSection mobile={mobile}>
     <JoinHeader>Try a Free Class!</JoinHeader>
-    <JoinSubheader>
-      We are excited to start your Jiu Jitsu Journey! Fill out the form and
-      we’ll be in touch!
-    </JoinSubheader>
+    <JoinSubheader>Fill out the form and we’ll be in touch!</JoinSubheader>
     <JoinFormContainer />
   </JoinSection>
 );

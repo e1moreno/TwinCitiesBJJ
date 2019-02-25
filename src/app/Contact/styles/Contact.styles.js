@@ -111,4 +111,5 @@ export const JoinSubheader = styled.h4`
   color: var(--gray);
   text-align: center;
   font-size: 1.3rem;
+  font-weight: 600;
 `;
