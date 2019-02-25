@@ -5,6 +5,7 @@ import ContentHeader from 'design/ContentHeader/ContentHeader';
 export const IntroHeader = styled(ContentHeader)`
   display: block;
   padding-top: 8px;
+  font-size: ${({ mobile }) => (mobile ? '1.2rem' : '2.4rem')};
 
   &::before {
     background-color: var(--black);

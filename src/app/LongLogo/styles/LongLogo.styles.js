@@ -9,6 +9,7 @@ export const NavBarLogo = styled.h1`
   margin: 0;
   color: var(--white);
   text-transform: uppercase;
+  font-size: unset;
 `;
 
 export const LogoTextWrapper = styled.span`

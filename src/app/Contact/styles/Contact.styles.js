@@ -19,6 +19,7 @@ export const PageSection = styled(BasePageSection)`
 
 export const TwinCitiesName = styled.h3`
   margin: 0;
+  font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: underline;

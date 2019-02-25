@@ -1,1 +1,3 @@
-export { default as Introduction } from './components/Introduction';
+export {
+  default as IntroductionContainer,
+} from './containers/IntroductionContainer';

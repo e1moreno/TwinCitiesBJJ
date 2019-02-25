@@ -11,9 +11,10 @@ export const PageSection = styled(BasePageSection)`
 export const JoinHeader = styled(ContentHeader)`
   margin: 32px 0 8px 0;
   color: var(--black);
+  font-size: 2.4rem;
 
   &::before {
-    background-color: var(--blue);
+    background-color: var(--brown);
   }
 `;
 

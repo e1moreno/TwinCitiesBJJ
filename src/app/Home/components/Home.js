@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import { Introduction } from 'app/Introduction';
+import { IntroductionContainer } from 'app/Introduction';
 import { Social } from 'app/Social';
 import { Join } from 'app/Join';
 
@@ -21,7 +21,7 @@ const Home = ({ content: { introductionHeader } }) => (
     <Header />
     <HomeBanner />
     <MainContent>
-      <Introduction subHeader={introductionHeader} />
+      <IntroductionContainer subHeader={introductionHeader} />
       <Social />
       <Join />
     </MainContent>
