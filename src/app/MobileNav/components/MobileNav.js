@@ -21,13 +21,15 @@ const MobileNav = ({
     >
       <NavigationWrapper>
         {links.map(({ to, title }) => (
-          <MobileNavLinkContainer to={to}>{title}</MobileNavLinkContainer>
+          <MobileNavLinkContainer key={to} to={to}>
+            {title}
+          </MobileNavLinkContainer>
         ))}
       </NavigationWrapper>
     </SlideMenu>
     <Overlay
       visible={open}
-      onClick={onClickClose}
+      onClick={open ? onClickClose : undefined}
       onKeyDown={onKeyDownClose}
       tabIndex="0"
     />

@@ -1,35 +1,44 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const IconBase = styled.div`
-  &:not(:last-child) {
-    margin-right: 1rem;
-  }
-
   &:focus {
     transform: translateY(1 px);
   }
 `;
 
-export const RoundIconWrapper = styled(IconBase)`
-  position: relative;
+const baseStyle = () => css`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const Button = styled.a`
   min-width: 48px;
   min-height: 48px;
-  background-color: var(--white);
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 14px rgba(0, 0, 0, 0.7),
-    0 0 24px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
-  &:hover {
-    background-color: ${props => props.color};
+export const RoundIconWrapper = styled(IconBase)`
+  position: relative;
+  cursor: pointer;
+  border: solid 3px;
+  border-radius: 50%;
+
+  & .symbol-icon {
+    ${baseStyle}
   }
 `;
 
 export const RegularIconWrapper = styled(IconBase)`
   position: relative;
-  min-width: 48px;
-  min-height: 48px;
   border-radius: 50%;
   color: ${props => props.color};
   cursor: pointer;
+
+  & .symbol-icon {
+    ${baseStyle}
+  }
 `;

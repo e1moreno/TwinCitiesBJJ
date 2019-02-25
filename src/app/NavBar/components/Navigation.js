@@ -12,7 +12,9 @@ export const links = [
 const Navigation = () => (
   <NavigationWrapper>
     {links.map(({ to, title }) => (
-      <NavigationLink to={to}>{title}</NavigationLink>
+      <NavigationLink key={to} to={to}>
+        {title}
+      </NavigationLink>
     ))}
   </NavigationWrapper>
 );

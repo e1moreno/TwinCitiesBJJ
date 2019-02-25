@@ -8,7 +8,6 @@ const PageSection = ({
   backgroundColor,
   children,
   sectionRef,
-  ContentStyle,
   ...other
 }) => (
   <Section
@@ -17,7 +16,7 @@ const PageSection = ({
     {...!!sectionRef && { ref: sectionRef }}
     {...other}
   >
-    <SectionContent style={ContentStyle}>{children}</SectionContent>
+    <SectionContent>{children}</SectionContent>
   </Section>
 );
 PageSection.propTypes = {
@@ -27,7 +26,6 @@ PageSection.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
-  ContentStyle: PropTypes.object,
   children: PropTypes.node.isRequired,
 };
 
@@ -35,7 +33,6 @@ PageSection.defaultProps = {
   color: null,
   backgroundColor: null,
   sectionRef: null,
-  ContentStyle: {},
 };
 
 export default PageSection;

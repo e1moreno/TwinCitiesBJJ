@@ -11,12 +11,12 @@ import {
 } from '../styles/LongLogo.styles';
 
 const LongLogo = (props) => {
-  const { width: windowWidth } = useWindowSize();
+  const { mobile } = useWindowSize();
   return (
     <NavBarLogo {...props}>
       <LogoGraphic>
         <TCTraingle
-          height={windowWidth > SMALL_VIEW ? '18px' : '12px'}
+          height={mobile > SMALL_VIEW ? '18px' : '12px'}
           color="var(--white)"
         />
       </LogoGraphic>

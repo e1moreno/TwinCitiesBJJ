@@ -9,7 +9,7 @@ export const Section = styled.section`
 `;
 
 export const SectionContent = styled.div`
-  max-width: 1200px;
+  max-width: var(--pageSectionMaxWidth);
   padding: 16px;
   margin: 0 auto;
 `;

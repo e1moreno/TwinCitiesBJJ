@@ -5,7 +5,7 @@ import moment from 'moment';
 import { useWindowSize } from 'design/WindowSize';
 
 import Calendar from '../components/Calendar';
-import FullCalendar from '../components/FullCalendar';
+import FullCalendarContainer from './FullCalendarContainer';
 import MobileCalendarContainer from './MobileCalendarContainer';
 
 const daysHeader = [
@@ -46,32 +46,46 @@ const formatSchedule = sch => Object.values(sch).reduce(
 );
 
 const CalendarContainer = ({ schedule }) => {
-  const [timeSlots, calendar] = useMemo(() => {
+  const [timeSlots, calendar, mobileCalendar, mobileSlotCount] = useMemo(() => {
     const { times, formatted } = formatSchedule(schedule);
+
     const sortedTimes = Object.values(times).sort();
     const cal = new Array(daysHeader.length)
       .fill(null)
       .map(() => new Array(sortedTimes.length).fill(null));
+    const mobileCal = new Array(daysHeader.length).fill(null).map(() => []);
+
+    let maxMobileSlotCount = 0;
     Object.values(formatted).forEach((day) => {
       Object.values(day.classes).forEach((bjjClass) => {
         const timeSlot = sortedTimes.indexOf(bjjClass.startDateTime);
         cal[day.key][timeSlot] = bjjClass;
+        mobileCal[day.key].push(bjjClass);
       });
+      const dayLength = mobileCal[day.key].length;
+      maxMobileSlotCount = dayLength > maxMobileSlotCount ? dayLength : maxMobileSlotCount;
     });
-    return [sortedTimes, cal];
+    return [sortedTimes, cal, mobileCal, maxMobileSlotCount];
   }, []);
 
-  const { width } = useWindowSize();
-  const mobile = width < 600;
-  const CalendarComponent = mobile ? MobileCalendarContainer : FullCalendar;
+  const { mobile } = useWindowSize();
+
   return (
     <Calendar mobile={mobile}>
-      <CalendarComponent
-        calendar={calendar}
-        days={daysHeader}
-        slots={timeSlots}
-        mobile={width < 600}
-      />
+      {mobile ? (
+        <MobileCalendarContainer
+          calendar={mobile ? mobileCalendar : calendar}
+          slotCount={mobileSlotCount}
+          days={daysHeader}
+          mobile={mobile}
+        />
+      ) : (
+        <FullCalendarContainer
+          calendar={mobile ? mobileCalendar : calendar}
+          days={daysHeader}
+          slots={timeSlots}
+        />
+      )}
     </Calendar>
   );
 };

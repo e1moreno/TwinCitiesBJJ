@@ -10,11 +10,15 @@ import HomeBanner from './HomeBanner';
 import HomeContextProvider from '../context/HomeContextProvider';
 import { MainContent } from '../styles/Home.styles';
 
+const Header = React.memo(() => (
+  <Helmet>
+    <title>Home</title>
+  </Helmet>
+));
+
 const Home = ({ content: { introductionHeader } }) => (
   <HomeContextProvider>
-    <Helmet>
-      <title>Home</title>
-    </Helmet>
+    <Header />
     <HomeBanner />
     <MainContent>
       <Introduction subHeader={introductionHeader} />

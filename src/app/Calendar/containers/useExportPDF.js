@@ -1,0 +1,22 @@
+import { useRef, useCallback } from 'react';
+import * as JsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+
+const useExportPDF = () => {
+  const ref = useRef(null);
+
+  const handleExport = useCallback(async () => {
+    try {
+      const canvas = await html2canvas(ref.current);
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new JsPDF();
+      pdf.addImage(imgData, 'PNG', 0, 0);
+      pdf.save('download.pdf');
+    } catch (error) {
+      // do nothing
+    }
+  }, [ref]);
+  return [ref, handleExport];
+};
+
+export default useExportPDF;

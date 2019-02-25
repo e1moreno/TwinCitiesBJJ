@@ -8,11 +8,15 @@ import { CalendarContainer } from 'app/Calendar';
 import floorImage from 'images/floor.jpg';
 import { MainContent } from '../styles/Schedule.styles';
 
+const Header = React.memo(() => (
+  <Helmet>
+    <title>Schedule</title>
+  </Helmet>
+));
+
 const Schedule = ({ schedule }) => (
   <Fragment>
-    <Helmet>
-      <title>Schedule</title>
-    </Helmet>
+    <Header />
     <Banner
       pageTitle="Schedule"
       image={{
