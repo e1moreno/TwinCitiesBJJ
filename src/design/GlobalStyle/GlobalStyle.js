@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     --bannerFooterSize: 5em;
     --smallDisplay: 600px;
     --mediumDisplay: 1024px;
+    --pageSectionMaxWidth: 1200px;
   }
   html {
     font-family: 'Source Sans Pro', 'sans-serif';
@@ -27,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     /* background: linear-gradient(to right,var(--blue) 0%,var(--darkBlue) 100%); */
     background-color: #28519f;
     background-image: url(${pattern});
-    color: var(--text-gray)
+    color: var(--white)
   };
   body {
     margin: 0;

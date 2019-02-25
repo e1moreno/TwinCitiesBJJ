@@ -10,10 +10,16 @@ import {
   PageTitle,
 } from '../styles/Banner.styles';
 
-const Banner = ({ image: { source, alt }, pageTitle, children }) => (
-  <BannerWrapper role="banner">
+const Banner = ({
+  full,
+  image: { source, alt },
+  pageTitle,
+  children,
+  className,
+}) => (
+  <BannerWrapper role="banner" className={className}>
     <BannerImageWrapper>
-      <BannerImage src={source} alt={alt} />
+      <BannerImage src={source} alt={alt} full={full} />
       <BannerGrid>
         {pageTitle && (
           <PageTitleWrapper>
@@ -26,16 +32,20 @@ const Banner = ({ image: { source, alt }, pageTitle, children }) => (
   </BannerWrapper>
 );
 Banner.propTypes = {
+  full: PropTypes.bool,
   image: PropTypes.shape({
     source: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
   }).isRequired,
   pageTitle: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
 };
 Banner.defaultProps = {
+  full: false,
   pageTitle: null,
   children: null,
+  className: null,
 };
 
 export default Banner;

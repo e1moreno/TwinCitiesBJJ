@@ -1,41 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { SMALL_VIEW } from 'utils/constants';
-import { useWindowSize } from 'design/WindowSize';
-import { RoundIconWrapper, RegularIconWrapper } from '../styles/Icon.styles';
+import {
+  Button,
+  RoundIconWrapper,
+  RegularIconWrapper,
+} from '../styles/Icon.styles';
 
-const baseStyle = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-};
-
-const RegularIcon = ({
-  Symbol, color, windowWidth, IconStyles, ...rest
-}) => (
+const RegularIcon = ({ Symbol, color, ...rest }) => (
   <RegularIconWrapper color={color} {...rest}>
-    <Symbol
-      size={windowWidth < SMALL_VIEW ? '3em' : '2em'}
-      style={{ ...baseStyle, ...IconStyles }}
-    />
+    <Symbol className="symbol-icon" />
   </RegularIconWrapper>
 );
 RegularIcon.propTypes = {
-  IconStyles: PropTypes.object,
   Symbol: PropTypes.object.isRequired,
   color: PropTypes.string,
-  windowWidth: PropTypes.number.isRequired,
 };
 RegularIcon.defaultProps = {
-  IconStyles: {},
   color: 'inherit',
 };
 
 const RoundIcon = ({ Symbol, color, ...rest }) => (
   <RoundIconWrapper color={color} {...rest}>
-    <Symbol size="1.5em" style={{ ...baseStyle }} />
+    <Symbol className="symbol-icon" />
   </RoundIconWrapper>
 );
 RoundIcon.propTypes = {
@@ -46,7 +33,9 @@ RoundIcon.defaultProps = {
   color: 'inherit',
 };
 
-const Icon = ({ variant, ...rest }) => {
+const Icon = ({
+  variant, href, onClick, title, ...rest
+}) => {
   let IconComponent;
   switch (variant.toLowerCase()) {
     case 'round':
@@ -57,18 +46,26 @@ const Icon = ({ variant, ...rest }) => {
       break;
   }
 
-  const { width: windowWidth } = useWindowSize();
-
-  return <IconComponent {...rest} windowWidth={windowWidth} />;
+  return (
+    <Button href={href} title={title}>
+      <IconComponent {...rest} />
+    </Button>
+  );
 };
 
 Icon.propTypes = {
+  href: PropTypes.string,
   IconStyles: PropTypes.object,
   variant: PropTypes.string,
+  onClick: PropTypes.func,
+  title: PropTypes.string,
 };
 Icon.defaultProps = {
+  href: undefined,
+  onClick: undefined,
   IconStyles: {},
   variant: 'icon',
+  title: undefined,
 };
 
 export default Icon;

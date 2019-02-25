@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const BannerWrapper = styled.section`
   position: relative;
-  margin-bottom: var(--bannerFooterSize);
 `;
 
 export const BannerImageWrapper = styled.div`
@@ -16,8 +15,10 @@ export const BannerImage = styled.img`
   filter: grayscale(1) brightness(70%);
   object-fit: cover;
   width: 100%;
-  height: calc(100vh - var(--bannerFooterSize));
-  max-height: 800px;
+  height: ${({ full }) => `calc(${
+    full ? '100vh' : '90vh'
+  } - var(--bannerFooterSize) - var(--navBarHeight))`};
+  max-height: ${({ full }) => !full && '600px'};
   margin: 0;
   z-index: -1;
 `;
@@ -41,6 +42,9 @@ export const BannerGrid = styled.div`
 export const PageTitleWrapper = styled.div`
   grid-area: pageTitle;
   display: flex;
+  width: 100%;
+  max-width: var(--pageSectionMaxWidth);
+  margin: 0 auto;
 `;
 
 export const PageTitle = styled.h2`
