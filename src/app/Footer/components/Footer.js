@@ -14,7 +14,7 @@ const Footer = () => (
   <FooterWrapper>
     <FooterContent>
       <BeltHeader as="h4">
-        Proud affiliated of Start Brazilian Jiu Jitsu Association
+        Proud affiliate of Start Brazilian Jiu Jitsu Association
       </BeltHeader>
       <SocialIcons />
       <AddressWrapper>
