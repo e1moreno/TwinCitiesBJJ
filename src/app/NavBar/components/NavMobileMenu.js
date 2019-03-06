@@ -17,7 +17,12 @@ NavIcon.propTypes = {
 };
 
 const NavMobileMenu = ({ open, onClick }) => (
-  <MobileNavToggle onClick={onClick} id="nav-icon" aria-expanded={open}>
+  <MobileNavToggle
+    onClick={onClick}
+    id="nav-icon"
+    aria-expanded={open}
+    tabIndex="0"
+  >
     <NavIcon open={open} />
   </MobileNavToggle>
 );
