@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import pattern from 'images/smallpattern.svg';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -30,9 +29,8 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-family: 'Source Sans Pro', 'sans-serif';
     font-feature-settings: "kern" 1;
-    /* background: linear-gradient(to right,var(--blue) 0%,var(--darkBlue) 100%); */
     background-color: #28519f;
-    background-image: url(${pattern});
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%2328508c' fill-opacity='0.505'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
     color: var(--white)
   };
   body {

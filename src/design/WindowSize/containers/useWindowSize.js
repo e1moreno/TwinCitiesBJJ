@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useImmerReducer } from 'use-immer';
 
-import { SMALL_VIEW } from 'utils/constants';
+import { SMALL_VIEW, MEDIUM_VIEW } from 'utils/constants';
 
 const reducer = (draft, action) => {
   switch (action.type) {
@@ -36,7 +36,12 @@ const useWindowSize = () => {
 
   const { width, height } = state;
 
-  return { width, height, mobile: width <= SMALL_VIEW };
+  return {
+    width,
+    height,
+    mobile: width <= SMALL_VIEW,
+    medium: width <= MEDIUM_VIEW,
+  };
 };
 
 export default useWindowSize;

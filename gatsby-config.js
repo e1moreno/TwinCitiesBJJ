@@ -12,13 +12,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Twin Cities BJJ',
+        short_name: 'T.C. BJJ',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png',
+        background_color: '#28519F',
+        theme_color: '#28519F',
+        icon: 'src/images/favicon.png',
       },
     },
     'gatsby-plugin-offline',

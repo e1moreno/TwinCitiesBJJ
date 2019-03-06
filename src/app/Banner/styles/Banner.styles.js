@@ -15,7 +15,9 @@ export const BannerImage = styled.img`
   filter: grayscale(1) brightness(70%);
   object-fit: cover;
   width: 100%;
-  height: ${({ full }) => `calc(${full ? '100vh' : '90vh'} - var(--bannerFooterSize))`};
+  height: ${({ full }) => `calc(${
+    full ? '100vh' : '90vh'
+  } - var(--bannerFooterSize) - var(--navBarHeight))`};
   max-height: ${({ full }) => !full && '600px'};
   margin: 0;
   z-index: -1;

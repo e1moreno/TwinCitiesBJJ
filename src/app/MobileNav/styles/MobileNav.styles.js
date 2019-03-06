@@ -24,10 +24,9 @@ export const SlideMenu = styled.div`
   top: 0;
   height: 100%;
   width: calc(100% - 48px);
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23fcfcfc' fill-opacity='0.89'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: var(--white);
 
-  animation: ${({ open, initialized }) => initialized && (!open ? slideOutAnimation : slideInAnimation)};
+  animation: ${({ initialized, open }) => initialized && (!open ? slideOutAnimation : slideInAnimation)};
 `;
 
 export const Overlay = styled.div`
@@ -52,4 +51,7 @@ export const Overlay = styled.div`
 export const NavigationWrapper = styled.nav`
   display: flex;
   flex-direction: column;
+  margin-top: 86px;
+  padding: 32px 16px;
+  background-color: var(--black);
 `;

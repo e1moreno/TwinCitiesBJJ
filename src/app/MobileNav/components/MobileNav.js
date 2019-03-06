@@ -9,6 +9,12 @@ import {
   NavigationWrapper,
 } from '../styles/MobileNav.styles';
 
+const NavLinks = () => links.map(({ to, title }) => (
+  <MobileNavLinkContainer key={to} to={to}>
+    {title}
+  </MobileNavLinkContainer>
+));
+
 const MobileNav = ({
   open, initialized, onClickClose, onKeyDownClose,
 }) => (
@@ -20,11 +26,7 @@ const MobileNav = ({
       aria-expanded={open}
     >
       <NavigationWrapper>
-        {links.map(({ to, title }) => (
-          <MobileNavLinkContainer key={to} to={to}>
-            {title}
-          </MobileNavLinkContainer>
-        ))}
+        <NavLinks />
       </NavigationWrapper>
     </SlideMenu>
     <Overlay
