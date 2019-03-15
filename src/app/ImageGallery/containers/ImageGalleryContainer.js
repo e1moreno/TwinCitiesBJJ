@@ -24,7 +24,7 @@ const ImageGalleryContainer = () => {
 
   const handleClose = useCallback(() => {
     dispatch({ type: 'setOpen', open: false });
-  }, []);
+  }, [dispatch]);
 
   return (
     <Lightbox

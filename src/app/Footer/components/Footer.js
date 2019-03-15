@@ -13,7 +13,7 @@ import {
 const Footer = () => (
   <FooterWrapper>
     <FooterContent>
-      <BeltHeader as="h4">
+      <BeltHeader as="p">
         Proud affiliate of Start Brazilian Jiu Jitsu Association
       </BeltHeader>
       <SocialIcons />

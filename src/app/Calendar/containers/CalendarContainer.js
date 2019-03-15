@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 
+import { FullCalendarContainer } from 'app/FullCalendar';
+import { MobileCalendarContainer } from 'app/MobileCalendar';
 import { useWindowSize } from 'design/WindowSize';
 
-import Calendar from '../components/Calendar';
-import FullCalendarContainer from './FullCalendarContainer';
-import MobileCalendarContainer from './MobileCalendarContainer';
+dayjs.extend(customParseFormat);
 
 const daysHeader = [
   'Monday',
@@ -17,7 +18,7 @@ const daysHeader = [
   'Saturday',
 ];
 
-const getDateFromString = hour => new Date(moment(hour, 'hh:mmA'));
+const getDateFromString = hour => dayjs(hour, 'hh:mmA').valueOf();
 
 const formatSchedule = sch => Object.values(sch).reduce(
   (acc, day) => {
@@ -29,7 +30,7 @@ const formatSchedule = sch => Object.values(sch).reduce(
     acc.formatted[day.day].classes = Object.entries(day.classes).reduce(
       /* eslint-disable no-param-reassign */
       (acc2, [key, bjjCourse]) => {
-        const courseTime = getDateFromString(bjjCourse.startTime).getTime();
+        const courseTime = getDateFromString(bjjCourse.startTime);
         acc.times[`t_${bjjCourse.startTime}`] = courseTime;
         acc2[key] = { ...bjjCourse, id: key, startDateTime: courseTime };
         return acc2;
@@ -46,47 +47,19 @@ const formatSchedule = sch => Object.values(sch).reduce(
 );
 
 const CalendarContainer = ({ schedule }) => {
-  const [timeSlots, calendar, mobileCalendar, mobileSlotCount] = useMemo(() => {
+  const [timeSlots, data] = useMemo(() => {
     const { times, formatted } = formatSchedule(schedule);
 
     const sortedTimes = Object.values(times).sort();
-    const cal = new Array(daysHeader.length)
-      .fill(null)
-      .map(() => new Array(sortedTimes.length).fill(null));
-    const mobileCal = new Array(daysHeader.length).fill(null).map(() => []);
-
-    let maxMobileSlotCount = 0;
-    Object.values(formatted).forEach((day) => {
-      Object.values(day.classes).forEach((bjjClass) => {
-        const timeSlot = sortedTimes.indexOf(bjjClass.startDateTime);
-        cal[day.key][timeSlot] = bjjClass;
-        mobileCal[day.key].push(bjjClass);
-      });
-      const dayLength = mobileCal[day.key].length;
-      maxMobileSlotCount = dayLength > maxMobileSlotCount ? dayLength : maxMobileSlotCount;
-    });
-    return [sortedTimes, cal, mobileCal, maxMobileSlotCount];
-  }, []);
+    return [sortedTimes, formatted];
+  }, [schedule]);
 
   const { mobile } = useWindowSize();
 
-  return (
-    <Calendar mobile={mobile}>
-      {mobile ? (
-        <MobileCalendarContainer
-          calendar={mobile ? mobileCalendar : calendar}
-          slotCount={mobileSlotCount}
-          days={daysHeader}
-          mobile={mobile}
-        />
-      ) : (
-        <FullCalendarContainer
-          calendar={mobile ? mobileCalendar : calendar}
-          days={daysHeader}
-          slots={timeSlots}
-        />
-      )}
-    </Calendar>
+  return mobile ? (
+    <MobileCalendarContainer data={data} days={daysHeader} />
+  ) : (
+    <FullCalendarContainer data={data} days={daysHeader} slots={timeSlots} />
   );
 };
 CalendarContainer.propTypes = {

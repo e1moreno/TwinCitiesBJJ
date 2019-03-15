@@ -6,9 +6,12 @@ import Map from '../components/Map';
 const MapContainer = ({ coordinates }) => {
   const [map, setMap] = useState(null);
 
-  const handleGoogleApiLoaded = useCallback(({ map: apiMap }) => {
-    setMap(apiMap);
-  }, []);
+  const handleGoogleApiLoaded = useCallback(
+    ({ map: apiMap }) => {
+      setMap(apiMap);
+    },
+    [setMap],
+  );
 
   return (
     <Map coordinates={coordinates} onGoogleApiLoaded={handleGoogleApiLoaded} />

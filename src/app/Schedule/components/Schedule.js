@@ -6,7 +6,7 @@ import { Banner } from 'app/Banner';
 import { CalendarContainer } from 'app/Calendar';
 
 import floorImage from 'images/floor.jpg';
-import { MainContent } from '../styles/Schedule.styles';
+import { MainContent, PageSection } from '../styles/Schedule.styles';
 
 const Header = React.memo(() => (
   <Helmet>
@@ -25,7 +25,9 @@ const Schedule = ({ schedule }) => (
       }}
     />
     <MainContent>
-      <CalendarContainer schedule={schedule} />
+      <PageSection>
+        <CalendarContainer schedule={schedule} />
+      </PageSection>
     </MainContent>
   </Fragment>
 );

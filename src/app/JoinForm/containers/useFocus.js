@@ -5,11 +5,11 @@ const useFocus = (initial = false) => {
 
   const handleFocus = useCallback(() => {
     setFocus(true);
-  }, []);
+  }, [setFocus]);
 
   const handleBlur = useCallback(() => {
     setFocus(false);
-  }, []);
+  }, [setFocus]);
 
   return {
     focus,

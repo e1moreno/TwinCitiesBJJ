@@ -7,7 +7,7 @@ export const NavigationLink = styled(Link)`
   justify-content: center;
 
   min-height: 48px;
-  color: var(--off-white);
+  color: var(--offWhite);
 
   font-size: 1.2rem;
   font-weight: 600;

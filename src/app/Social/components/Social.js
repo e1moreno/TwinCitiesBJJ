@@ -14,7 +14,7 @@ const Social = () => (
     <SocialHeader>Find Us On</SocialHeader>
     <SocialWrapper>
       <FbIcon Symbol={FacebookF} variant="round" title="facebook" />
-      <InstaIcon Symbol={Instagram} variant="round" title="facebook" />
+      <InstaIcon Symbol={Instagram} variant="round" title="instagram" />
     </SocialWrapper>
   </PageSection>
 );

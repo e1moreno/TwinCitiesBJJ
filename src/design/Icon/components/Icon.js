@@ -34,7 +34,13 @@ RoundIcon.defaultProps = {
 };
 
 const Icon = ({
-  variant, href, onClick, title, ...rest
+  variant,
+  href,
+  onClick,
+  title,
+  className,
+  renderElement,
+  ...rest
 }) => {
   let IconComponent;
   switch (variant.toLowerCase()) {
@@ -47,25 +53,37 @@ const Icon = ({
   }
 
   return (
-    <Button href={href} title={title}>
+    <Button
+      as={renderElement}
+      href={href}
+      title={title}
+      className={className}
+      onClick={onClick}
+      aria-label={title}
+    >
       <IconComponent {...rest} />
     </Button>
   );
 };
 
 Icon.propTypes = {
+  Symbol: PropTypes.object.isRequired,
+  renderElement: PropTypes.string,
   href: PropTypes.string,
   IconStyles: PropTypes.object,
   variant: PropTypes.string,
   onClick: PropTypes.func,
   title: PropTypes.string,
+  className: PropTypes.string,
 };
 Icon.defaultProps = {
+  renderElement: undefined,
   href: undefined,
   onClick: undefined,
   IconStyles: {},
   variant: 'icon',
   title: undefined,
+  className: undefined,
 };
 
 export default Icon;

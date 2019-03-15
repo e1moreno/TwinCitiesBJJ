@@ -32,7 +32,7 @@ export const FooterContent = styled.div`
     'address'
     'copyright';
   padding: 0 24px 8px 24px;
-  color: var(--off-white);
+  color: var(--offWhite);
 `;
 
 export const AddressWrapper = styled.div`

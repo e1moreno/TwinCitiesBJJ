@@ -14,11 +14,9 @@ const baseStyle = () => css`
 `;
 
 export const Button = styled.a`
-  min-width: 48px;
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0;
 `;
 
 export const RoundIconWrapper = styled(IconBase)`
@@ -26,6 +24,8 @@ export const RoundIconWrapper = styled(IconBase)`
   cursor: pointer;
   border: solid 3px;
   border-radius: 50%;
+  height: 100%;
+  width: 100%;
 
   & .symbol-icon {
     ${baseStyle}

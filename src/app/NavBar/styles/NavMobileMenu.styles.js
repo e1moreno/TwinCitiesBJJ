@@ -4,12 +4,13 @@ import { SMALL_VIEW } from 'utils/constants';
 
 export const MobileNavToggle = styled(Button)`
   grid-area: navigation;
-  padding-right: 24px;
+  margin-right: 24px;
   position: relative;
   display: flex;
   justify-content: center;
   min-height: 48px;
   z-index: 3 !important;
+  outline: none;
 
   @media (min-width: ${SMALL_VIEW}px) {
     display: none;
@@ -23,6 +24,10 @@ export const MobileNavIconWrapper = styled.div`
   justify-content: center;
   position: ${({ open }) => open && 'fixed'};
   transform: ${({ open }) => open && 'translate(-50%, 0%)'};
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const openIcon = ({ open }) => css`
@@ -62,5 +67,9 @@ export const MobileNavIcon = styled.span`
 
   &:after {
     ${bar}
+  }
+
+  &:focus {
+    outline: none;
   }
 `;
