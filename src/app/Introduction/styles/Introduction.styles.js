@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 import ContentHeader from 'design/ContentHeader/ContentHeader';
+import { PageSectionContainer as BasePageSection } from 'design/PageSection';
 import { SMALL_VIEW } from 'utils/constants';
+
+export const PageSection = styled(BasePageSection)`
+  color: var(--white);
+`;
 
 export const IntroHeader = styled(ContentHeader)`
   display: block;

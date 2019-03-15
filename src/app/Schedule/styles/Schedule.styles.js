@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PageSection as BasePageSection } from 'design/PageSection';
+import { PageSectionContainer as BasePageSection } from 'design/PageSection';
 import { SMALL_VIEW } from 'utils/constants';
 
 export const MainContent = styled.main``;

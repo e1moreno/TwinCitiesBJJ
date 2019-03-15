@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { PageSection as BasePageSection } from 'design/PageSection';
+
+import ContentHeader from 'design/ContentHeader/ContentHeader';
+import { PageSectionContainer as BasePageSection } from 'design/PageSection';
 import { Icon as BaseIcon } from 'design/Icon';
 import { SMALL_VIEW } from 'utils/constants';
 
@@ -113,13 +115,17 @@ export const JoinSection = styled.div`
   }
 `;
 
-export const JoinHeader = styled.h3`
+export const JoinHeader = styled(ContentHeader)`
   position: relative;
   text-align: center;
   text-transform: uppercase;
   color: var(--black);
   font-size: 1.6rem;
   margin: 0;
+
+  &::before {
+    background-color: var(--brown);
+  }
 `;
 
 export const JoinSubheader = styled.h4`

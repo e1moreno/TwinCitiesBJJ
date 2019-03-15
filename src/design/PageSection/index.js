@@ -1,1 +1,1 @@
-export { default as PageSection } from './components/PageSection';
+export { default as PageSectionContainer } from './containers/PageSectionContainer';

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { RoundIconWrapper } from 'design/Icon/styles/Icon.styles';
 
-import { PageSection as BasePageSection } from 'design/PageSection';
+import { PageSectionContainer as BasePageSection } from 'design/PageSection';
 import ContentHeader from 'design/ContentHeader/ContentHeader';
 import { Icon as BaseIcon } from 'design/Icon';
 

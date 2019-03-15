@@ -8,6 +8,8 @@ export const BannerImageWrapper = styled.div`
   display: flex;
   overflow: hidden;
   position: relative;
+  height: 70vh;
+  max-height: 800px;
 `;
 
 export const BannerImage = styled.img`
@@ -15,10 +17,6 @@ export const BannerImage = styled.img`
   filter: grayscale(1) brightness(70%);
   object-fit: cover;
   width: 100%;
-  height: ${({ full }) => `calc(${
-    full ? '100vh' : '90vh'
-  } - 2 * var(--bannerFooterSize) - var(--navBarHeight))`};
-  max-height: ${({ full }) => (!full ? '600px' : '800px')};
   margin: 0;
   z-index: -1;
 `;

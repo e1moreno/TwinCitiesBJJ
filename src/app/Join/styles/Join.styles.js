@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PageSection as BasePageSection } from 'design/PageSection';
+import { PageSectionContainer as BasePageSection } from 'design/PageSection';
 import ContentHeader from 'design/ContentHeader/ContentHeader';
 
 export const PageSection = styled(BasePageSection)`
