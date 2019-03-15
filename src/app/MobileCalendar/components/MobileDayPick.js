@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { DateSelection } from '../styles/MobileDay.styles';
+import { DaySelection } from '../styles/MobileDayPick.styles';
 
-const MobileDay = ({
+const MobileDayPick = ({
   day,
   selected,
   columnStart,
@@ -11,20 +11,23 @@ const MobileDay = ({
   rowStart,
   rowEnd,
   onClick,
+  onKeyDown,
 }) => (
-  <DateSelection
+  <DaySelection
     columnStart={columnStart}
     columnEnd={columnEnd}
     rowStart={rowStart}
     rowEnd={rowEnd}
     selected={selected}
+    tabIndex={0}
     onClick={onClick}
+    onKeyDown={onKeyDown}
   >
-    {day}
-  </DateSelection>
+    {day.substring(0, 3)}
+  </DaySelection>
 );
 
-MobileDay.propTypes = {
+MobileDayPick.propTypes = {
   day: PropTypes.string.isRequired,
   selected: PropTypes.bool,
   columnStart: PropTypes.number.isRequired,
@@ -32,9 +35,10 @@ MobileDay.propTypes = {
   rowStart: PropTypes.number.isRequired,
   rowEnd: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
 };
-MobileDay.defaultProps = {
+MobileDayPick.defaultProps = {
   selected: false,
 };
 
-export default MobileDay;
+export default MobileDayPick;

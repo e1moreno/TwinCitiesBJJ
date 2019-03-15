@@ -2,13 +2,14 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --white: #FAFAFA;
-    --off-white: #F6F6F9;
+    --white: #FFFFFF;
+    --offWhite: #F6F6F9;
     --black: #222222;
     --red: #FF4136;
     --menuGray: #2B2B2B;
+    --lightGray: #f0f2f6;
     --gray: #515151;
-    --text-gray: #555555;
+    --textGray: #555555;
     --blue: #28519F ;
     --darkBlue: #14284F;
     --purple: #3A289F;
@@ -21,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     --instaPurp: #c32aa3;
 
     --navBarHeight: 86px;
-    --bannerFooterSize: 5em;
+    --bannerFooterSize: calc(1rem + 1.2rem);
     --smallDisplay: 600px;
     --mediumDisplay: 1024px;
     --pageSectionMaxWidth: 1200px;

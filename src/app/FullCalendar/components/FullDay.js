@@ -1,16 +1,17 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Slot from './Slot';
+import Slot from 'app/Calendar/components/Slot';
 
-const Day = ({ slot, data, headerText }) => (
+const FullDay = ({
+  slot, data, headerText, offsetX, offsetY,
+}) => (
   <Fragment>
     <Slot
       columnStart={slot + 1}
       columnEnd={slot + 2}
       rowStart={1}
       rowEnd={2}
-      value={headerText}
-      header
+      primary={headerText}
       blank
     />
     {data.map((bjjCourse, ind) => {
@@ -18,7 +19,8 @@ const Day = ({ slot, data, headerText }) => (
       if (bjjCourse) {
         extraProps = {
           key: bjjCourse.id,
-          value: bjjCourse.title,
+          primary: bjjCourse.primary,
+          secondary: bjjCourse.secondary,
         };
       } else {
         extraProps = {
@@ -28,10 +30,10 @@ const Day = ({ slot, data, headerText }) => (
       }
       return (
         <Slot
-          columnStart={slot + 1}
-          columnEnd={slot + 2}
-          rowStart={ind + 2}
-          rowEnd={ind + 3}
+          columnStart={slot + offsetX}
+          columnEnd={slot + offsetX + 1}
+          rowStart={ind + offsetY}
+          rowEnd={ind + offsetY + 1}
           {...extraProps}
         />
       );
@@ -39,12 +41,22 @@ const Day = ({ slot, data, headerText }) => (
   </Fragment>
 );
 
-Day.propTypes = {
+FullDay.propTypes = {
   slot: PropTypes.number.isRequired,
   data: PropTypes.arrayOf(
-    PropTypes.shape({ title: PropTypes.string.isRequired }),
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      primary: PropTypes.string.isRequired,
+      secondary: PropTypes.string,
+    }),
   ).isRequired,
   headerText: PropTypes.string.isRequired,
+  offsetX: PropTypes.number,
+  offsetY: PropTypes.number,
+};
+FullDay.defaultProps = {
+  offsetX: 1,
+  offsetY: 1,
 };
 
-export default Day;
+export default FullDay;

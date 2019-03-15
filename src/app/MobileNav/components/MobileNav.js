@@ -9,11 +9,14 @@ import {
   NavigationWrapper,
 } from '../styles/MobileNav.styles';
 
-const NavLinks = () => links.map(({ to, title }) => (
-  <MobileNavLinkContainer key={to} to={to}>
+const NavLinks = ({ open }) => links.map(({ to, title }) => (
+  <MobileNavLinkContainer key={to} to={to} tabIndex={open ? 0 : -1}>
     {title}
   </MobileNavLinkContainer>
 ));
+NavLinks.propTypes = {
+  open: PropTypes.bool.isRequired,
+};
 
 const MobileNav = ({
   open, initialized, onClickClose, onKeyDownClose,
@@ -26,7 +29,7 @@ const MobileNav = ({
       aria-expanded={open}
     >
       <NavigationWrapper>
-        <NavLinks />
+        <NavLinks open={open} />
       </NavigationWrapper>
     </SlideMenu>
     <Overlay

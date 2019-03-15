@@ -17,7 +17,7 @@ export const NavigationLink = styled(Link)`
   align-items: center;
   height: 48px;
   padding: 0 16px;
-  color: var(--off-white);
+  color: var(--offWhite);
   text-transform: uppercase;
   font-size: 1.05rem;
   font-weight: 600;

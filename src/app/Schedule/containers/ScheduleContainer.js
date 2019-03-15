@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 
 import Schedule from '../components/Schedule';
 
-const formatClasses = classes => classes.reduce((acc, { id, classTime, class: { title, duration } }) => {
-  acc[id] = {
-    title,
-    duration,
-    startTime: classTime,
-  };
-  return acc;
-}, {});
+const formatClasses = classes => classes.reduce(
+  (acc, { id, classTime, class: { title, shortTitle, duration } }) => {
+    acc[id] = {
+      title,
+      shortTitle,
+      duration,
+      startTime: classTime,
+    };
+    return acc;
+  },
+  {},
+);
 
 const ScheduleContainer = ({ schedule: { edges } }) => {
   const formattedSchedule = useMemo(
@@ -40,6 +44,7 @@ ScheduleContainer.propTypes = {
               title: PropTypes.string.isRequired,
               class: PropTypes.shape({
                 title: PropTypes.string.isRequired,
+                shortTitle: PropTypes.string.isRequired,
                 duration: PropTypes.number.isRequired,
               }).isRequired,
             }).isRequired,

@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import { useWindowSize } from 'design/WindowSize';
 import Contact from '../components/Contact';
 
 const Header = React.memo(() => (
@@ -20,26 +19,21 @@ const ContactContainer = ({
   state,
   zipCode,
   navigationUrl,
-}) => {
-  const { mobile } = useWindowSize();
-
-  return (
-    <Fragment>
-      <Header />
-      <Contact
-        coordinates={coordinates}
-        phoneNumber={phoneNumber}
-        streetAddress={streetAddress}
-        address2={address2}
-        city={city}
-        state={state}
-        zipCode={zipCode}
-        mobile={mobile}
-        navigationUrl={navigationUrl}
-      />
-    </Fragment>
-  );
-};
+}) => (
+  <Fragment>
+    <Header />
+    <Contact
+      coordinates={coordinates}
+      phoneNumber={phoneNumber}
+      streetAddress={streetAddress}
+      address2={address2}
+      city={city}
+      state={state}
+      zipCode={zipCode}
+      navigationUrl={navigationUrl}
+    />
+  </Fragment>
+);
 
 ContactContainer.propTypes = {
   coordinates: PropTypes.shape({

@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { SlotWrapper } from '../styles/Slot.styles';
+import {
+  SlotWrapper,
+  SlotContent,
+  PrimaryText,
+  SecondaryText,
+} from '../styles/Slot.styles';
 
 const Slot = ({
-  value,
+  primary,
+  secondary,
   blank,
-  header,
   columnStart,
   columnEnd,
   rowStart,
@@ -17,25 +22,27 @@ const Slot = ({
     columnEnd={columnEnd}
     rowStart={rowStart}
     rowEnd={rowEnd}
-    header={header}
     blank={blank}
   >
-    {value}
+    <SlotContent>
+      <PrimaryText blank={blank}>{primary}</PrimaryText>
+      {secondary && <SecondaryText>{secondary}</SecondaryText>}
+    </SlotContent>
   </SlotWrapper>
 );
 Slot.propTypes = {
-  value: PropTypes.string,
+  primary: PropTypes.string,
+  secondary: PropTypes.string,
   blank: PropTypes.bool,
-  header: PropTypes.bool,
   columnStart: PropTypes.number.isRequired,
   columnEnd: PropTypes.number.isRequired,
   rowStart: PropTypes.number.isRequired,
   rowEnd: PropTypes.number.isRequired,
 };
 Slot.defaultProps = {
-  value: null,
+  primary: null,
+  secondary: null,
   blank: false,
-  header: false,
 };
 
 export default Slot;

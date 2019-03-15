@@ -17,8 +17,8 @@ export const BannerImage = styled.img`
   width: 100%;
   height: ${({ full }) => `calc(${
     full ? '100vh' : '90vh'
-  } - var(--bannerFooterSize) - var(--navBarHeight))`};
-  max-height: ${({ full }) => !full && '600px'};
+  } - 2 * var(--bannerFooterSize) - var(--navBarHeight))`};
+  max-height: ${({ full }) => (!full ? '600px' : '800px')};
   margin: 0;
   z-index: -1;
 `;

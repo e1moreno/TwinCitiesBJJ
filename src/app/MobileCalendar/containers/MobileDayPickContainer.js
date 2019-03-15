@@ -1,9 +1,11 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-import MobileDay from '../components/MobileDay';
+import onKeyHelper from 'utils/onKeyHelper';
 
-const MobileDayContainer = ({
+import MobileDayPick from '../components/MobileDayPick';
+
+const MobileDayPickContainer = ({
   ind,
   day,
   selected,
@@ -19,8 +21,15 @@ const MobileDayContainer = ({
     }
   }, [ind, selected, setCurrentDate]);
 
+  const handleKeyDown = useCallback(
+    (e) => {
+      onKeyHelper(e, handleClick);
+    },
+    [handleClick],
+  );
+
   return (
-    <MobileDay
+    <MobileDayPick
       day={day}
       selected={selected}
       columnStart={columnStart}
@@ -28,11 +37,12 @@ const MobileDayContainer = ({
       rowStart={rowStart}
       rowEnd={rowEnd}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
     />
   );
 };
 
-MobileDayContainer.propTypes = {
+MobileDayPickContainer.propTypes = {
   ind: PropTypes.number.isRequired,
   day: PropTypes.string.isRequired,
   selected: PropTypes.bool,
@@ -42,8 +52,8 @@ MobileDayContainer.propTypes = {
   rowEnd: PropTypes.number.isRequired,
   setCurrentDate: PropTypes.func.isRequired,
 };
-MobileDayContainer.defaultProps = {
+MobileDayPickContainer.defaultProps = {
   selected: false,
 };
 
-export default MobileDayContainer;
+export default MobileDayPickContainer;

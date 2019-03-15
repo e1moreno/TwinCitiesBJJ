@@ -42,7 +42,6 @@ const ContactArea = ({
   <Fragment>
     <ContactSection>
       <SectionContent>
-        <Subheader>Address</Subheader>
         <ContentSplit>
           <NavigationIcon
             href={navigationUrl}
@@ -96,19 +95,13 @@ ContactArea.defaultProps = {
   address2: null,
 };
 
-const JoinArea = ({ mobile }) => (
-  <JoinSection mobile={mobile}>
+const JoinArea = () => (
+  <JoinSection>
     <JoinHeader>Try a Free Class!</JoinHeader>
     <JoinSubheader>Fill out the form and we’ll be in touch!</JoinSubheader>
     <JoinFormContainer />
   </JoinSection>
 );
-JoinArea.propTypes = {
-  mobile: PropTypes.bool,
-};
-JoinArea.defaultProps = {
-  mobile: false,
-};
 
 const Contact = React.memo(
   ({
@@ -120,7 +113,6 @@ const Contact = React.memo(
     state,
     zipCode,
     navigationUrl,
-    mobile,
   }) => (
     <Fragment>
       <Banner
@@ -131,10 +123,10 @@ const Contact = React.memo(
         }}
       />
       <MainContent>
-        <PageSection mobile={mobile}>
+        <PageSection>
           <TwinCitiesName>Twin Cities BJJ and Fitness</TwinCitiesName>
-          <Content mobile={mobile}>
-            <ContactColumn mobile={mobile}>
+          <Content>
+            <ContactColumn>
               <ContactArea
                 coordinates={coordinates}
                 phoneNumber={phoneNumber}
@@ -146,8 +138,8 @@ const Contact = React.memo(
                 navigationUrl={navigationUrl}
               />
             </ContactColumn>
-            <JoinColumn mobile={mobile}>
-              <JoinArea mobile={mobile} />
+            <JoinColumn>
+              <JoinArea />
             </JoinColumn>
           </Content>
         </PageSection>
@@ -168,10 +160,6 @@ Contact.propTypes = {
   state: PropTypes.string.isRequired,
   zipCode: PropTypes.string.isRequired,
   navigationUrl: PropTypes.string.isRequired,
-  mobile: PropTypes.bool,
-};
-Contact.defaultProps = {
-  mobile: false,
 };
 Contact.defaultProps = {
   address2: null,

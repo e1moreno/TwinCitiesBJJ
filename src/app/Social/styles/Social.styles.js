@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { RoundIconWrapper } from 'design/Icon/styles/Icon.styles';
 
 import { PageSection as BasePageSection } from 'design/PageSection';
 import ContentHeader from 'design/ContentHeader/ContentHeader';
@@ -11,7 +12,6 @@ export const PageSection = styled(BasePageSection)`
 
 export const SocialHeader = styled(ContentHeader)`
   display: block;
-  margin: 32px 0 8px 0;
   font-size: 2.4rem;
 
   &::before {
@@ -29,11 +29,14 @@ export const SocialWrapper = styled.div`
 export const Icon = styled(BaseIcon)`
   height: 64px;
   width: 64px;
-  border: solid 5px;
   margin: 0 16px;
 
   & .symbol-icon {
     height: 48px;
+  }
+
+  ${RoundIconWrapper} {
+    border: solid 5px;
   }
 `;
 
