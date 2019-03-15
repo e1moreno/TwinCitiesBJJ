@@ -22,8 +22,8 @@ const Home = ({ content: { introductionHeader } }) => (
     <HomeBanner />
     <MainContent>
       <IntroductionContainer subHeader={introductionHeader} />
-      <Social />
       <Join />
+      <Social />
     </MainContent>
   </HomeContextProvider>
 );

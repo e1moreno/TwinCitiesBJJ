@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { CollapseContainer } from 'design/Collapse';
-import { PageSection } from 'design/PageSection';
 import { LongLogo } from 'app/LongLogo';
 import IntroductionGalleryContainer from '../containers/IntroductionGalleryContainer';
 
 import {
+  PageSection,
   IntroHeader,
   IntroSubheader,
   IntroContent,
 } from '../styles/Introduction.styles';
 
 const Introduction = ({ subHeader }) => (
-  <PageSection color="var(--white)">
+  <PageSection>
     <IntroHeader as="span">
       <LongLogo as="h2" />
     </IntroHeader>

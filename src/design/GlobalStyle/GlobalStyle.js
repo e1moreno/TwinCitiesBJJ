@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     --instaPurp: #c32aa3;
 
     --navBarHeight: 86px;
-    --bannerFooterSize: calc(1rem + 1.2rem);
+    --bannerFooterSize: 2.2rem;
     --smallDisplay: 600px;
     --mediumDisplay: 1024px;
     --pageSectionMaxWidth: 1200px;

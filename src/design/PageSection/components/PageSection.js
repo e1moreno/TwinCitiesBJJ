@@ -1,38 +1,30 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { Section, SectionContent } from '../styles/PageSection.styles';
 
-const PageSection = ({
-  color,
-  backgroundColor,
-  children,
-  sectionRef,
-  ...other
-}) => (
-  <Section
-    color={color}
-    backgroundColor={backgroundColor}
-    {...!!sectionRef && { ref: sectionRef }}
-    {...other}
-  >
-    <SectionContent>{children}</SectionContent>
-  </Section>
+const PageSection = forwardRef(
+  ({
+    visible, children, sectionRef, ...other
+  }, ref) => (
+    <Section ref={ref} {...other} visible={visible}>
+      {visible && <SectionContent>{children}</SectionContent>}
+    </Section>
+  ),
 );
 PageSection.propTypes = {
-  color: PropTypes.string,
-  backgroundColor: PropTypes.string,
+  visible: PropTypes.bool,
   sectionRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 PageSection.defaultProps = {
-  color: null,
-  backgroundColor: null,
+  visible: false,
   sectionRef: null,
+  children: null,
 };
 
 export default PageSection;
