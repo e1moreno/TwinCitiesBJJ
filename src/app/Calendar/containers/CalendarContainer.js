@@ -54,9 +54,9 @@ const CalendarContainer = ({ schedule }) => {
     return [sortedTimes, formatted];
   }, [schedule]);
 
-  const { mobile } = useWindowSize();
+  const { medium } = useWindowSize();
 
-  return mobile ? (
+  return medium ? (
     <MobileCalendarContainer data={data} days={daysHeader} />
   ) : (
     <FullCalendarContainer data={data} days={daysHeader} slots={timeSlots} />

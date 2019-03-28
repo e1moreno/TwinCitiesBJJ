@@ -10,6 +10,7 @@ export const BannerImageWrapper = styled.div`
   position: relative;
   height: 70vh;
   max-height: 800px;
+  background: var(--pureBlack);
 `;
 
 export const BannerImage = styled.img`
@@ -17,8 +18,8 @@ export const BannerImage = styled.img`
   filter: grayscale(1) brightness(70%);
   object-fit: cover;
   width: 100%;
-  margin: 0;
-  z-index: -1;
+  margin: 0 auto;
+  max-width: 1920px;
 `;
 
 export const BannerGrid = styled.div`

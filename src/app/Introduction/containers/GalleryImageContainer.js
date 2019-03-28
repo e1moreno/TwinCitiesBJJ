@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 
+import onKeyHelper from 'utils/onKeyHelper';
+
 import GalleryImage from '../components/GalleryImage';
 
 const GalleryImageContainer = ({ ind, src, handleImageClick }) => {
@@ -14,7 +16,17 @@ const GalleryImageContainer = ({ ind, src, handleImageClick }) => {
     [handleImageClick, ind],
   );
 
-  return <GalleryImage src={src} onClick={handleClick} />;
+  const handleKeyDown = useCallback(
+    (e) => {
+      console.log('here', e);
+      onKeyHelper(e, handleClick);
+    },
+    [handleClick],
+  );
+
+  return (
+    <GalleryImage src={src} onClick={handleClick} onKeyDown={handleKeyDown} />
+  );
 };
 GalleryImageContainer.propTypes = {
   ind: PropTypes.number.isRequired,

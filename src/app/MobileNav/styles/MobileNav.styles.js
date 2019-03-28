@@ -53,5 +53,5 @@ export const NavigationWrapper = styled.nav`
   flex-direction: column;
   margin-top: 86px;
   padding: 32px 16px;
-  background-color: var(--black);
+  background-color: var(--pureBlack);
 `;

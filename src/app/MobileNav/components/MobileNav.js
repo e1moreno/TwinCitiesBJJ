@@ -36,7 +36,7 @@ const MobileNav = ({
       visible={open}
       onClick={open ? onClickClose : undefined}
       onKeyDown={onKeyDownClose}
-      tabIndex="0"
+      tabIndex={open ? 0 : -1}
     />
   </Fragment>
 );

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import { Home } from 'app/Home';
+import { HomeContainer } from 'app/Home';
 
 const IndexPage = ({ data: { contentfulHomeContent } }) => (
-  <Home content={contentfulHomeContent} />
+  <HomeContainer content={contentfulHomeContent} />
 );
 
 IndexPage.propTypes = {
@@ -20,6 +20,9 @@ export const query = graphql`
   query homeQuery {
     contentfulHomeContent {
       introductionHeader
+      content {
+        json
+      }
     }
   }
 `;

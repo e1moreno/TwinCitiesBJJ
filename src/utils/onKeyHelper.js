@@ -7,7 +7,7 @@ export default (event, action) => {
   switch (event.which) {
     case KEY_ENTER:
     case KEY_SPACE:
-      action();
+      action(event);
       break;
     default:
       break;

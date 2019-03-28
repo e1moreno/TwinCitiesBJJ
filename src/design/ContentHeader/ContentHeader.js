@@ -19,7 +19,7 @@ const ContentHeader = styled.h2`
   }
 
   &::after {
-    background-color: var(--black);
+    background-color: var(--pureBlack);
     height: var(--belt-size);
     width: 16px;
     content: '';
