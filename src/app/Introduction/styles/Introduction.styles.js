@@ -17,7 +17,7 @@ export const IntroHeader = styled(ContentHeader)`
     font-size: 1.2rem;
   }
   &::before {
-    background-color: var(--black);
+    background-color: var(--pureBlack);
   }
 
   &::after {

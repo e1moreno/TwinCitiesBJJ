@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import { CollapseContainer } from 'design/Collapse';
 import { LongLogo } from 'app/LongLogo';
@@ -12,7 +13,7 @@ import {
   IntroContent,
 } from '../styles/Introduction.styles';
 
-const Introduction = ({ subHeader }) => (
+const Introduction = ({ subHeader, content }) => (
   <PageSection>
     <IntroHeader as="span">
       <LongLogo as="h2" />
@@ -20,15 +21,7 @@ const Introduction = ({ subHeader }) => (
     <IntroSubheader>{subHeader}</IntroSubheader>
     <IntroductionGalleryContainer />
     <IntroContent>
-      <div>
-        <p>
-          Id nam illum atomorum. Nam commodo numquam instructior ei, eirmod
-          detraxit pri an. Ea vix sententiae disputationi, ne nec falli fierent.
-          Cum albucius legendos ea. Pro in postea scaevola percipitur. Ad vix
-          sint tempor, eam eu prima reque molestie. Illum porro conclusionemque
-          qui ei, eam cu intellegat voluptatum.
-        </p>
-      </div>
+      <div>{documentToReactComponents(content)}</div>
       <CollapseContainer wrapperElement="p">
         Lorem ipsum dolor sit amet, graeci possit te vis, dicta placerat ius ea,
         no sea tollit latine. Sea at legendos disputando. Vix at bonorum
@@ -49,6 +42,7 @@ const Introduction = ({ subHeader }) => (
 );
 Introduction.propTypes = {
   subHeader: PropTypes.string.isRequired,
+  content: PropTypes.object.isRequired,
 };
 
 export default Introduction;
