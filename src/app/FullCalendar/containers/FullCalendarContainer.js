@@ -4,7 +4,10 @@ import { useExportPDF } from 'app/Calendar';
 import FullCalendar from '../components/FullCalendar';
 
 const FullCalendarContainer = ({ data, days, slots }) => {
-  const [ref, handleExport] = useExportPDF();
+  const [ref, handleExport] = useExportPDF({
+    orientation: 'landscape',
+    format: 'letter',
+  });
 
   const [calendar, enhancedSlots] = useMemo(() => {
     const cal = new Array(days.length)
