@@ -6,7 +6,9 @@ import MobileCalendar from '../components/MobileCalendar';
 
 const MobileCalendarContainer = ({ data, days }) => {
   const [currentDayInd, setCurrentDay] = useState(0);
-  const [ref, handleExport] = useExportPDF();
+  const [ref, handleExport] = useExportPDF({
+    format: 'letter',
+  });
 
   const [calendar, slotCount] = useMemo(() => {
     const mobileCal = new Array(days.length).fill(null).map(() => []);
