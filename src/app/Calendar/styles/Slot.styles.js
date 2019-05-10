@@ -9,9 +9,8 @@ export const SlotWrapper = styled.div.attrs(
       gridColumnEnd: columnEnd,
       gridRowStart: rowStart,
       gridRowEnd: rowEnd,
-      ...(!blank && {
-        backgroundColor: 'var(--lightGray)',
-      }),
+      color: blank ? 'var(--menuGray)' : 'var(--white)',
+      backgroundColor: !blank && 'var(--backgroundPurple)',
     },
   }),
 )`
@@ -30,7 +29,6 @@ export const SlotContent = styled.div`
 `;
 
 export const PrimaryText = styled.span`
-  color: var(--menuGray);
   font-weight: 600;
   letter-spacing: 0.07rem;
 `;

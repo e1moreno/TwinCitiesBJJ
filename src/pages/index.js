@@ -24,5 +24,16 @@ export const query = graphql`
         json
       }
     }
+    # dropdown info
+    allContentfulClass {
+      edges {
+        node {
+          id
+          shortTitle
+          slug
+          display
+        }
+      }
+    }
   }
 `;

@@ -15,9 +15,17 @@ const MobileCalendarContainer = ({ data, days }) => {
 
     let maxMobileSlotCount = 0;
     Object.values(data).forEach((day) => {
-      Object.values(day.classes).forEach(({ id, title, startTime }) => {
-        mobileCal[day.key].push({ id, primary: title, secondary: startTime });
-      });
+      Object.values(day.classes).forEach(
+        ({
+          id, title, subheading, startTime,
+        }) => {
+          mobileCal[day.key].push({
+            id,
+            primary: subheading ? `${title} - ${subheading}` : title,
+            secondary: startTime,
+          });
+        },
+      );
       const dayLength = mobileCal[day.key].length;
       maxMobileSlotCount = dayLength > maxMobileSlotCount ? dayLength : maxMobileSlotCount;
     });

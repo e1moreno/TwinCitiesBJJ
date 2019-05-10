@@ -18,7 +18,6 @@ const GalleryImageContainer = ({ ind, src, handleImageClick }) => {
 
   const handleKeyDown = useCallback(
     (e) => {
-      console.log('here', e);
       onKeyHelper(e, handleClick);
     },
     [handleClick],

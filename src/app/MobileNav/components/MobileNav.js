@@ -1,49 +1,65 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { links } from 'app/NavBar/components/Navigation';
 import MobileNavLinkContainer from '../containers/MobileNavLinkContainer';
-import {
-  SlideMenu,
-  Overlay,
-  NavigationWrapper,
-} from '../styles/MobileNav.styles';
+import MobileCollapsibleNavContainer from '../containers/MobileCollapsibleNavContainer';
+import NavigationWrapper from './NavigationWrapper';
 
-const NavLinks = ({ open }) => links.map(({ to, title }) => (
-  <MobileNavLinkContainer key={to} to={to} tabIndex={open ? 0 : -1}>
-    {title}
-  </MobileNavLinkContainer>
-));
-NavLinks.propTypes = {
-  open: PropTypes.bool.isRequired,
-};
+import { SlideMenu, Overlay } from '../styles/MobileNav.styles';
 
-const MobileNav = ({
-  open, initialized, onClickClose, onKeyDownClose,
-}) => (
-  <Fragment>
-    <SlideMenu
-      open={open}
-      initialized={initialized}
-      id="mobile-menu"
-      aria-expanded={open}
-    >
-      <NavigationWrapper>
-        <NavLinks open={open} />
-      </NavigationWrapper>
-    </SlideMenu>
-    <Overlay
-      visible={open}
-      onClick={open ? onClickClose : undefined}
-      onKeyDown={onKeyDownClose}
-      tabIndex={open ? 0 : -1}
-    />
-  </Fragment>
+export const links = [
+  { to: '/', title: 'Home' },
+  { to: '/about', title: 'About' },
+  { to: '/schedule', title: 'Schedule' },
+  { to: '/contact', title: 'Contact' },
+];
+
+const MobileNav = React.memo(
+  ({
+    open, initialized, collapseData, onClickClose, onKeyDownClose,
+  }) => (
+    <Fragment>
+      <SlideMenu
+        open={open}
+        initialized={initialized}
+        id="mobile-menu"
+        aria-expanded={open}
+      >
+        <NavigationWrapper open={open}>
+          <MobileNavLinkContainer to="/">Home</MobileNavLinkContainer>
+          <MobileNavLinkContainer to="/about">About</MobileNavLinkContainer>
+          <MobileCollapsibleNavContainer text="Curriculum">
+            {collapseData.map(({ text, slug }) => (
+              <MobileNavLinkContainer key={slug} to={slug}>
+                {text}
+              </MobileNavLinkContainer>
+            ))}
+          </MobileCollapsibleNavContainer>
+          <MobileNavLinkContainer to="/schedule">
+            Schedule
+          </MobileNavLinkContainer>
+          <MobileNavLinkContainer to="/contact">Contact</MobileNavLinkContainer>
+        </NavigationWrapper>
+      </SlideMenu>
+      <Overlay
+        visible={open}
+        onClick={open ? onClickClose : undefined}
+        onKeyDown={onKeyDownClose}
+        tabIndex={open ? 0 : -1}
+      />
+    </Fragment>
+  ),
 );
 
 MobileNav.propTypes = {
   open: PropTypes.bool,
   initialized: PropTypes.bool,
+  collapseData: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   onClickClose: PropTypes.func.isRequired,
   onKeyDownClose: PropTypes.func.isRequired,
 };

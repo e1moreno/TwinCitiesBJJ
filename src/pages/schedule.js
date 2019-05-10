@@ -29,9 +29,21 @@ export const query = graphql`
             class {
               title
               shortTitle
+              subheading
               duration
             }
           }
+        }
+      }
+    }
+    # dropdown info
+    allContentfulClass {
+      edges {
+        node {
+          id
+          shortTitle
+          slug
+          display
         }
       }
     }

@@ -24,7 +24,22 @@ export const SlideMenu = styled.div`
   top: 0;
   height: 100%;
   width: calc(100% - 48px);
-  background-color: var(--white);
+  /* background-color: var(--white); */
+  overflow: none;
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2%,
+      var(--white) 2%,
+      var(--white) calc(2% + 5px)
+    ),
+    repeating-linear-gradient(
+      to right,
+      var(--white),
+      var(--white) 10%,
+      #f4f4f4 10%,
+      #f4f4f4 calc(10% + 1px)
+    );
 
   animation: ${({ initialized, open }) => initialized && (!open ? slideOutAnimation : slideInAnimation)};
 `;
@@ -46,12 +61,4 @@ export const Overlay = styled.div`
     opacity: 1 !important;
     cursor: pointer;
   `}
-`;
-
-export const NavigationWrapper = styled.nav`
-  display: flex;
-  flex-direction: column;
-  margin-top: 86px;
-  padding: 32px 16px;
-  background-color: var(--pureBlack);
 `;

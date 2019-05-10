@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import { CollapseContainer } from 'design/Collapse';
+import { ContentCollapseContainer } from 'design/ContentCollapse';
 import { LongLogo } from 'app/LongLogo';
 import IntroductionGalleryContainer from '../containers/IntroductionGalleryContainer';
 
@@ -22,7 +22,7 @@ const Introduction = ({ subHeader, content }) => (
     <IntroductionGalleryContainer />
     <IntroContent>
       <div>{documentToReactComponents(content)}</div>
-      <CollapseContainer wrapperElement="p">
+      <ContentCollapseContainer wrapperElement="p">
         Lorem ipsum dolor sit amet, graeci possit te vis, dicta placerat ius ea,
         no sea tollit latine. Sea at legendos disputando. Vix at bonorum
         nostrum, ei doming scripserit nam. Ne pri soluta pertinacia cotidieque,
@@ -36,7 +36,7 @@ const Introduction = ({ subHeader, content }) => (
         prompta temporibus ius ut, blandit neglegentur necessitatibus et eum.
         Eum graeci singulis te, est ne autem zril. Mollis copiosae detraxit vim
         ad, te mea facete discere.
-      </CollapseContainer>
+      </ContentCollapseContainer>
     </IntroContent>
   </PageSection>
 );

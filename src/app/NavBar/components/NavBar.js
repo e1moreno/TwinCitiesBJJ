@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import TCBJJLogo from 'images/TCBJJLogo';
-import Navigation from './Navigation';
+import NavigationContainer from '../containers/NavigationContainer';
 import NavMobileMenuContainer from '../containers/NavMobileMenuContainer';
 
 import { NavBarContainer, HeaderLogo } from '../styles/NavBar.styles';
@@ -14,7 +14,7 @@ const NavBar = () => (
         <TCBJJLogo height="80px" />
       </Link>
     </HeaderLogo>
-    <Navigation />
+    <NavigationContainer />
     <NavMobileMenuContainer />
   </NavBarContainer>
 );

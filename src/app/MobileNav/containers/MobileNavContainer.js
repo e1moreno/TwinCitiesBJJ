@@ -7,7 +7,12 @@ import onKeyHelper from 'utils/onKeyHelper';
 import MobileNav from '../components/MobileNav';
 
 const MobileNavContainer = () => {
-  const { initialized, mobileNavOpen, dispatch } = useContext(LayoutContext);
+  const {
+    initialized,
+    mobileNavOpen,
+    courseDropdownData,
+    dispatch,
+  } = useContext(LayoutContext);
   const { mobile } = useWindowSize();
 
   useEffect(() => {
@@ -31,6 +36,7 @@ const MobileNavContainer = () => {
     <MobileNav
       initialized={initialized}
       open={mobileNavOpen}
+      collapseData={courseDropdownData}
       onClickClose={handleClose}
       onKeyDownClose={handleCloseKeyDown}
     />

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Map from '../components/Map';
 
 const MapContainer = ({ coordinates }) => {
-  const [map, setMap] = useState(null);
+  const [, setMap] = useState(null);
 
   const handleGoogleApiLoaded = useCallback(
     ({ map: apiMap }) => {

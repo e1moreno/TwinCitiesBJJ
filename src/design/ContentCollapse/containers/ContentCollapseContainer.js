@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import onKeyHelper from 'utils/onKeyHelper';
 
-import Collapse from '../components/Collapse';
+import ContentCollapse from '../components/ContentCollapse';
 
-const CollapseContainer = ({ wrapperElement, children }) => {
+const ContentCollapseContainer = ({ wrapperElement, children }) => {
   const [open, setOpen] = useState(false);
 
   const handleClick = useCallback(() => {
@@ -20,23 +20,23 @@ const CollapseContainer = ({ wrapperElement, children }) => {
   );
 
   return (
-    <Collapse
+    <ContentCollapse
       open={open}
       wrapperElement={wrapperElement}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
     >
       {children}
-    </Collapse>
+    </ContentCollapse>
   );
 };
-CollapseContainer.propTypes = {
+ContentCollapseContainer.propTypes = {
   wrapperElement: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 
-CollapseContainer.defaultProps = {
+ContentCollapseContainer.defaultProps = {
   wrapperElement: null,
 };
 
-export default CollapseContainer;
+export default ContentCollapseContainer;
