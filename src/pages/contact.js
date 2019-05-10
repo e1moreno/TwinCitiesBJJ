@@ -29,6 +29,17 @@ export const query = graphql`
       zipCode
       navigationUrl
     }
+    # dropdown info
+    allContentfulClass {
+      edges {
+        node {
+          id
+          shortTitle
+          slug
+          display
+        }
+      }
+    }
   }
 `;
 

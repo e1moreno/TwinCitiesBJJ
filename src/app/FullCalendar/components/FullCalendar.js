@@ -44,6 +44,7 @@ const FullCalendar = forwardRef(({
       <Header onExport={onExport} />
       <CalendarGrid ref={ref} columns={days.length} rows={slots.length - 1}>
         {slots.map((time, ind) => {
+          // sets time
           if (time) {
             return (
               <Slot
@@ -70,6 +71,7 @@ const FullCalendar = forwardRef(({
           );
         })}
         {calendar.map((day, ind) => (
+          // Maps time slots
           <FullDay
             key={ind} // eslint-disable-line react/no-array-index-key
             slot={ind + 1}

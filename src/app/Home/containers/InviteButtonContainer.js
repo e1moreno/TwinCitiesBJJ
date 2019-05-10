@@ -1,6 +1,6 @@
 import React, { useContext, useCallback } from 'react';
 
-import { HomeContext } from 'app/Home';
+import { HomeContext } from 'app/Home/context/HomeContextProvider';
 import InviteButton from '../components/InviteButton';
 
 const InviteButtonContainer = () => {

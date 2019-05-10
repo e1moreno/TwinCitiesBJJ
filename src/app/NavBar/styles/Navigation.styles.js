@@ -7,7 +7,7 @@ export const NavigationWrapper = styled.nav`
   padding-right: 24px;
   z-index: 1;
 
-  @media (max-width: ${SMALL_VIEW}px) {
+  @media (max-width: ${SMALL_VIEW - 1}px) {
     display: none;
   }
 `;
@@ -15,8 +15,8 @@ export const NavigationWrapper = styled.nav`
 export const NavigationLink = styled(Link)`
   display: inline-flex;
   align-items: center;
-  height: 48px;
-  padding: 0 16px;
+  min-height: 48px;
+  padding: 0 1rem;
   color: var(--offWhite);
   text-transform: uppercase;
   font-size: 1.05rem;

@@ -4,10 +4,18 @@ import PropTypes from 'prop-types';
 import Schedule from '../components/Schedule';
 
 const formatClasses = classes => classes.reduce(
-  (acc, { id, classTime, class: { title, shortTitle, duration } }) => {
+  (
+    acc,
+    {
+      id, classTime, class: {
+        title, shortTitle, subheading, duration,
+      },
+    },
+  ) => {
     acc[id] = {
       title,
       shortTitle,
+      subheading,
       duration,
       startTime: classTime,
     };
@@ -45,6 +53,7 @@ ScheduleContainer.propTypes = {
               class: PropTypes.shape({
                 title: PropTypes.string.isRequired,
                 shortTitle: PropTypes.string.isRequired,
+                subheading: PropTypes.string,
                 duration: PropTypes.number.isRequired,
               }).isRequired,
             }).isRequired,

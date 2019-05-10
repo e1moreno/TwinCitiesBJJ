@@ -38,10 +38,11 @@ const reducer = (draft, action) => {
   }
 };
 
-const LayoutContextProvider = ({ children }) => {
+const LayoutContextProvider = ({ children, ...other }) => {
   const [state, dispatch] = useImmerReducer(reducer, {
     mobileNavOpen: false,
     initialized: false,
+    ...other,
   });
 
   return (

@@ -1,2 +1,2 @@
-export { default as Layout } from './components/Layout';
+export { default as LayoutContainer } from './containers/LayoutContainer';
 export { LayoutContext } from './context/LayoutContextProvider';

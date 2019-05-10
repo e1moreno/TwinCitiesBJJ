@@ -7,10 +7,14 @@ import {
   ButtonText,
   ExpandLess,
   ExpandMore,
-} from '../styles/Collapse.style';
+} from '../styles/ContentCollapse.style';
 
-const Collapse = ({
-  open, wrapperElement, onClick, onKeyDown, children,
+const ContentCollapse = ({
+  open,
+  wrapperElement,
+  onClick,
+  onKeyDown,
+  children,
 }) => (
   <div>
     <CollapseWrapper
@@ -26,15 +30,15 @@ const Collapse = ({
   </div>
 );
 
-Collapse.propTypes = {
+ContentCollapse.propTypes = {
   open: PropTypes.bool.isRequired,
   wrapperElement: PropTypes.string,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
 };
-Collapse.defaultProps = {
+ContentCollapse.defaultProps = {
   wrapperElement: null,
 };
 
-export default Collapse;
+export default ContentCollapse;

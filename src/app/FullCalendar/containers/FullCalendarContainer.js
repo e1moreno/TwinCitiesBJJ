@@ -16,9 +16,15 @@ const FullCalendarContainer = ({ data, days, slots }) => {
 
     Object.values(data).forEach((day) => {
       Object.values(day.classes).forEach(
-        ({ id, shortTitle, startDateTime }) => {
+        ({
+          id, shortTitle, subheading, startDateTime,
+        }) => {
           const timeSlot = slots.indexOf(startDateTime);
-          cal[day.key][timeSlot] = { id, primary: shortTitle };
+          cal[day.key][timeSlot] = {
+            id,
+            primary: shortTitle,
+            secondary: subheading,
+          };
         },
       );
     });

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Button from 'design/Button/Button';
 import {
-  ExpandLess as styledExpandLess,
-  ExpandMore as styledExpandMore,
+  ExpandLess as StyledExpandLess,
+  ExpandMore as StyledExpandMore,
 } from 'styled-icons/material';
 
 export const CollapseWrapper = styled.div`
@@ -26,7 +26,7 @@ export const ButtonText = styled.div`
   margin-bottom: 16px;
 `;
 
-export const ExpandLess = styled(styledExpandLess)`
+export const ExpandLess = styled(StyledExpandLess)`
   position: absolute;
   display: block;
   bottom: 0;
@@ -34,7 +34,7 @@ export const ExpandLess = styled(styledExpandLess)`
   transform: translate(-50%, 20%);
 `;
 
-export const ExpandMore = styled(styledExpandMore)`
+export const ExpandMore = styled(StyledExpandMore)`
   position: absolute;
   display: block;
   bottom: 0;

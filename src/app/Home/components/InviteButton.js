@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from '../styles/InviteButton.styles';
 
 const InviteButton = ({ onClick }) => (
-  <Button aria-label="Join Now" onClick={onClick}>
+  <Button inverse aria-label="Join Now" onClick={onClick}>
     Try a free class today!
   </Button>
 );

@@ -18,7 +18,7 @@ const reducer = (draft, action) => {
       break;
     case 'openGallery':
       draft.open = true;
-      draft.currentImage = action.currentImage || draft.currentImage;
+      draft.currentImage = action.currentImage;
       draft.src = action.src || draft.src;
       break;
     default:

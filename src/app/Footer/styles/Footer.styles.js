@@ -25,7 +25,7 @@ export const BeltHeader = styled.h4`
 export const FooterContent = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 100% 2fr 2fr 1rem;
+  grid-template-rows: 1fr 2fr 2fr 1rem;
   grid-template-areas:
     'affiliate'
     'social'

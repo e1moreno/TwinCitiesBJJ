@@ -18,7 +18,6 @@ import {
   TwinCitiesName,
   ContactSection,
   SectionContent,
-  Subheader,
   ContentSplit,
   TextWrapper,
   NavigationIcon,
@@ -66,10 +65,7 @@ const ContactArea = ({
             variant="round"
             title="Call Us"
           />
-          <TextWrapper>
-            <Subheader>Phone</Subheader>
-            {phoneNumber}
-          </TextWrapper>
+          <TextWrapper>{phoneNumber}</TextWrapper>
         </ContentSplit>
       </SectionContent>
       <SectionContent>

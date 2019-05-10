@@ -16,12 +16,12 @@ import { Footer } from 'app/Footer';
 import GlobalStyleContainer from '../containers/GlobalStyleContainer';
 import LayoutContextProvider from '../context/LayoutContextProvider';
 
-const Layout = ({ children }) => (
+const Layout = ({ children, courseDropdownData }) => (
   <Fragment>
     <Helmet titleTemplate="%s | Twin Cities BJJ">
       <html lang="en" amp />
     </Helmet>
-    <LayoutContextProvider>
+    <LayoutContextProvider courseDropdownData={courseDropdownData}>
       <GlobalStyleContainer />
       <ImageGalleryContextProvider>
         <NavBar />
@@ -36,6 +36,12 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  courseDropdownData: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default Layout;

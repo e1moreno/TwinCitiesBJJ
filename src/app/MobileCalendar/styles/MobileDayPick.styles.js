@@ -13,11 +13,12 @@ export const DaySelection = styled.div`
   font-weight: 700;
   letter-spacing: 0.07rem;
   border-right: solid 1px #e1e1e1;
-  color: ${({ selected }) => (selected ? 'var(--gray)' : '#999')};
-  background: ${({ selected }) => (selected ? 'var(--lightGray)' : '#ffffff')};
+  color: ${({ selected }) => (selected ? 'var(--white)' : '#999')};
+  background: ${({ selected }) => (selected ? 'var(--backgroundPurple)' : '#ffffff')};
 
   &:focus {
     outline: none;
-    background: var(--lightGray);
+    background: var(--backgroundPurple);
+    color: var(--white);
   }
 `;
