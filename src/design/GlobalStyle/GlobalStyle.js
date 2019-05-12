@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     --bannerFooterSize: 2.2rem;
     --smallDisplay: 600px;
     --mediumDisplay: 1024px;
-    --pageSectionMaxWidth: 1200px;
+    --pageSectionMaxWidth: 1040px;
   }
   html {
     font-family: 'Source Sans Pro', 'sans-serif';

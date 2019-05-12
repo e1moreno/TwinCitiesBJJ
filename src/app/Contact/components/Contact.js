@@ -38,7 +38,7 @@ const ContactArea = ({
   zipCode,
   navigationUrl,
 }) => (
-  <Fragment>
+  <PageSection>
     <ContactSection>
       <SectionContent>
         <ContentSplit>
@@ -72,7 +72,7 @@ const ContactArea = ({
         <MapContainer coordinates={coordinates} />
       </SectionContent>
     </ContactSection>
-  </Fragment>
+  </PageSection>
 );
 ContactArea.propTypes = {
   coordinates: PropTypes.shape({
@@ -119,26 +119,24 @@ const Contact = React.memo(
         }}
       />
       <MainContent>
-        <PageSection>
-          <TwinCitiesName>Twin Cities BJJ and Fitness</TwinCitiesName>
-          <Content>
-            <ContactColumn>
-              <ContactArea
-                coordinates={coordinates}
-                phoneNumber={phoneNumber}
-                streetAddress={streetAddress}
-                address2={address2}
-                city={city}
-                state={state}
-                zipCode={zipCode}
-                navigationUrl={navigationUrl}
-              />
-            </ContactColumn>
-            <JoinColumn>
-              <JoinArea />
-            </JoinColumn>
-          </Content>
-        </PageSection>
+        <TwinCitiesName>Twin Cities BJJ and Fitness</TwinCitiesName>
+        <Content>
+          <ContactColumn>
+            <ContactArea
+              coordinates={coordinates}
+              phoneNumber={phoneNumber}
+              streetAddress={streetAddress}
+              address2={address2}
+              city={city}
+              state={state}
+              zipCode={zipCode}
+              navigationUrl={navigationUrl}
+            />
+          </ContactColumn>
+          <JoinColumn>
+            <JoinArea />
+          </JoinColumn>
+        </Content>
       </MainContent>
     </Fragment>
   ),
