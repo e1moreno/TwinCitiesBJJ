@@ -7,11 +7,7 @@ import { SMALL_VIEW } from 'utils/constants';
 
 export const MainContent = styled.main``;
 
-export const PageSection = styled(BasePageSection)`
-  @media (max-width: ${SMALL_VIEW}px) {
-    padding: 2.375em 0 0;
-  }
-`;
+export const PageSection = styled(BasePageSection)``;
 
 export const TwinCitiesName = styled.h3`
   margin: 0;
@@ -28,13 +24,19 @@ export const TwinCitiesName = styled.h3`
 
 export const Content = styled.div`
   display: flex;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1rem;
 
   @media (max-width: ${SMALL_VIEW}px) {
     flex-direction: column;
+    padding: 2.375em 0 0;
   }
 `;
 
-const BaseColumn = styled.section``;
+const BaseColumn = styled.section`
+  position: relative;
+`;
 
 export const ContactColumn = styled(BaseColumn)`
   display: flex;
@@ -44,6 +46,25 @@ export const ContactColumn = styled(BaseColumn)`
 
   @media (max-width: ${SMALL_VIEW}px) {
     margin: 0 0 1rem 0;
+  }
+`;
+
+export const JoinColumn = styled(BaseColumn)`
+  flex: 1;
+  height: 100%;
+  margin: 0 0 0 8px;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23fcfcfc' fill-opacity='0.89'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px -1px 8px rgba(0, 0, 0, 0.15);
+
+  margin-top: 1rem;
+  border-radius: 5px;
+  padding: 32px 16px;
+
+  @media (max-width: ${SMALL_VIEW}px) {
+    margin: 0;
+    border-radius: 0;
+    padding: 2.375em 5%;
   }
 `;
 
@@ -91,29 +112,7 @@ export const PhoneIcon = styled(Icon)`
   color: #43b51f;
 `;
 
-export const JoinColumn = styled(BaseColumn)`
-  flex: 1;
-  margin: 0 0 0 8px;
-
-  @media (max-width: ${SMALL_VIEW}px) {
-    margin: 0;
-  }
-`;
-
-export const JoinSection = styled.div`
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23fcfcfc' fill-opacity='0.89'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px -1px 8px rgba(0, 0, 0, 0.15);
-  margin-top: 1rem;
-  border-radius: 5px;
-  padding: 32px 16px;
-
-  @media (max-width: ${SMALL_VIEW}px) {
-    margin: 0;
-    border-radius: 0;
-    padding: 2.375em 5%;
-  }
-`;
+export const JoinSection = styled.div``;
 
 export const JoinHeader = styled(ContentHeader)`
   position: relative;
