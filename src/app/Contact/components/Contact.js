@@ -38,41 +38,39 @@ const ContactArea = ({
   zipCode,
   navigationUrl,
 }) => (
-  <PageSection>
-    <ContactSection>
-      <SectionContent>
-        <ContentSplit>
-          <NavigationIcon
-            href={navigationUrl}
-            Symbol={LocationOnIcon}
-            variant="round"
-            title="Find Us"
-          />
-          <TextWrapper>
-            {streetAddress}
-            <br />
-            {!!address2 && address2}
-            <br />
-            {city}, {state} {zipCode}
-          </TextWrapper>
-        </ContentSplit>
-      </SectionContent>
-      <SectionContent>
-        <ContentSplit>
-          <PhoneIcon
-            href={`tel:${phoneNumber}`}
-            Symbol={CallIcon}
-            variant="round"
-            title="Call Us"
-          />
-          <TextWrapper>{phoneNumber}</TextWrapper>
-        </ContentSplit>
-      </SectionContent>
-      <SectionContent>
-        <MapContainer coordinates={coordinates} />
-      </SectionContent>
-    </ContactSection>
-  </PageSection>
+  <ContactSection>
+    <SectionContent>
+      <ContentSplit>
+        <NavigationIcon
+          href={navigationUrl}
+          Symbol={LocationOnIcon}
+          variant="round"
+          title="Find Us"
+        />
+        <TextWrapper>
+          {streetAddress}
+          <br />
+          {!!address2 && address2}
+          <br />
+          {city}, {state} {zipCode}
+        </TextWrapper>
+      </ContentSplit>
+    </SectionContent>
+    <SectionContent>
+      <ContentSplit>
+        <PhoneIcon
+          href={`tel:${phoneNumber}`}
+          Symbol={CallIcon}
+          variant="round"
+          title="Call Us"
+        />
+        <TextWrapper>{phoneNumber}</TextWrapper>
+      </ContentSplit>
+    </SectionContent>
+    <SectionContent>
+      <MapContainer coordinates={coordinates} />
+    </SectionContent>
+  </ContactSection>
 );
 ContactArea.propTypes = {
   coordinates: PropTypes.shape({
