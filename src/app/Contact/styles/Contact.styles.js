@@ -20,7 +20,6 @@ export const TwinCitiesName = styled.h3`
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: underline;
-  padding-left: 0;
 
   @media (max-width: ${SMALL_VIEW}px) {
     flex-direction: column;
@@ -46,7 +45,7 @@ export const ContactColumn = styled(BaseColumn)`
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: 0 1.5rem 0 0;
+  margin: 0 1.5rem 0 1rem;
 
   @media (max-width: ${SMALL_VIEW}px) {
     margin: 0 0 1rem 0;
@@ -61,7 +60,7 @@ export const JoinColumn = styled(BaseColumn)`
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23fcfcfc' fill-opacity='0.89'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px -1px 8px rgba(0, 0, 0, 0.15);
 
-  margin: 1rem 0 1.5rem 0;
+  margin: 1rem 1rem 1.5rem 0;
   border-radius: 5px;
   padding: 32px 16px;
 
