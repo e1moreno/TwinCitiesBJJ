@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
 import ContentHeader from 'design/ContentHeader/ContentHeader';
-import { PageSectionContainer as BasePageSection } from 'design/PageSection';
 import { Icon as BaseIcon } from 'design/Icon';
 import { SMALL_VIEW } from 'utils/constants';
 
-export const MainContent = styled.main``;
-
-export const PageSection = styled(BasePageSection)``;
+export const MainContent = styled.main`
+  @media (min-width: ${SMALL_VIEW}px) {
+    margin-bottom: 3rem;
+  }
+`;
 
 export const TwinCitiesName = styled.h3`
-  margin: 0;
+  display: flex;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 3.375em 1rem 0 1rem;
+
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -18,7 +23,8 @@ export const TwinCitiesName = styled.h3`
   padding-left: 0;
 
   @media (max-width: ${SMALL_VIEW}px) {
-    padding-left: 16px;
+    flex-direction: column;
+    padding: 2.375em 1rem 0 1rem;
   }
 `;
 
@@ -26,11 +32,9 @@ export const Content = styled.div`
   display: flex;
   max-width: 1040px;
   margin: 0 auto;
-  padding: 0 1rem;
 
   @media (max-width: ${SMALL_VIEW}px) {
     flex-direction: column;
-    padding: 2.375em 0 0;
   }
 `;
 
@@ -42,7 +46,7 @@ export const ContactColumn = styled(BaseColumn)`
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: 0 1rem 0 0;
+  margin: 0 1.5rem 0 0;
 
   @media (max-width: ${SMALL_VIEW}px) {
     margin: 0 0 1rem 0;
@@ -57,7 +61,7 @@ export const JoinColumn = styled(BaseColumn)`
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23fcfcfc' fill-opacity='0.89'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px -1px 8px rgba(0, 0, 0, 0.15);
 
-  margin-top: 1rem;
+  margin: 1rem 0 1.5rem 0;
   border-radius: 5px;
   padding: 32px 16px;
 
@@ -68,7 +72,15 @@ export const JoinColumn = styled(BaseColumn)`
   }
 `;
 
-export const ContactSection = styled.div``;
+export const ContactSection = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (max-width: ${SMALL_VIEW}px) {
+    padding: 0 1rem;
+  }
+`;
 
 export const Subheader = styled.h4`
   margin: 0 0 4px 0;
@@ -76,12 +88,8 @@ export const Subheader = styled.h4`
 `;
 
 export const SectionContent = styled.div`
-  padding: 0 0 24px 0;
+  padding: 0 0 1.5rem 0;
   margin: 1rem 0 0 0;
-
-  @media (max-width: ${SMALL_VIEW}px) {
-    padding: 0 16px 24px 16px;
-  }
 `;
 
 export const ContentSplit = styled.div`
