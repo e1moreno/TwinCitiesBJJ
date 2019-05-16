@@ -42,8 +42,8 @@ export const Icon = styled(BaseIcon)`
 
 export const CalendarGrid = styled.div`
   display: grid;
-  grid-template-columns: 0.8fr ${({ columns }) => `repeat(${columns}, 1fr)`};
-  grid-template-rows: ${({ rows }) => `56px repeat(${rows}, 70px)`};
+  grid-template-columns: ${({ columns }) => `repeat(${columns}, 1fr)`};
+  grid-template-rows: ${({ rows }) => `56px repeat(${rows}, 120px)`};
   color: var(--textGray);
   background-color: var(--white);
   border-top: solid 1px #e1e1e1;
