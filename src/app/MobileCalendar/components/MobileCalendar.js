@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Export as ExportIcon } from 'styled-icons/boxicons-regular';
 
+import { FullDay } from 'app/FullCalendar';
 import MobileDayPickContainer from '../containers/MobileDayPickContainer';
-import MobileDay from './MobileDay';
 import {
   CalendarWrapper,
   CalendarHeader,
@@ -59,7 +59,7 @@ const Calendar = forwardRef(
           ))}
         </PickerGrid>
         <ScheduleGrid rows={slotCount}>
-          <MobileDay slot={0} data={data} />
+          <FullDay slot={0} data={data} />
         </ScheduleGrid>
       </CalendarGrid>
     </CalendarGridWrapper>

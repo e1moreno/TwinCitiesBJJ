@@ -6,14 +6,16 @@ const FullDay = ({
   slot, data, headerText, offsetX, offsetY,
 }) => (
   <Fragment>
-    <Slot
-      columnStart={slot + 1}
-      columnEnd={slot + 2}
-      rowStart={1}
-      rowEnd={2}
-      primary={headerText}
-      blank
-    />
+    {headerText && (
+      <Slot
+        columnStart={slot + 1}
+        columnEnd={slot + 2}
+        rowStart={1}
+        rowEnd={2}
+        primary={headerText}
+        blank
+      />
+    )}
     {data.map((bjjCourse, ind) => {
       let extraProps;
       if (bjjCourse) {
@@ -25,7 +27,6 @@ const FullDay = ({
       } else {
         extraProps = {
           key: `${slot}_${ind}`,
-          blank: true,
         };
       }
       return (
@@ -34,6 +35,7 @@ const FullDay = ({
           columnEnd={slot + offsetX + 1}
           rowStart={ind + offsetY}
           rowEnd={ind + offsetY + 1}
+          blank
           {...extraProps}
         />
       );
@@ -50,13 +52,14 @@ FullDay.propTypes = {
       secondary: PropTypes.string,
     }),
   ).isRequired,
-  headerText: PropTypes.string.isRequired,
+  headerText: PropTypes.string,
   offsetX: PropTypes.number,
   offsetY: PropTypes.number,
 };
 FullDay.defaultProps = {
   offsetX: 1,
   offsetY: 1,
+  headerText: null,
 };
 
 export default FullDay;

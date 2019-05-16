@@ -20,46 +20,70 @@ const daysHeader = [
 
 const getDateFromString = hour => dayjs(hour, 'hh:mmA').valueOf();
 
-const formatSchedule = sch => Object.values(sch).reduce(
-  (acc, day) => {
-    acc.formatted[day.day] = {
-      date: day.day,
-      key: daysHeader.indexOf(day.day),
-      classes: {},
-    };
-    acc.formatted[day.day].classes = Object.entries(day.classes).reduce(
-      /* eslint-disable no-param-reassign */
-      (acc2, [key, bjjCourse]) => {
-        const courseTime = getDateFromString(bjjCourse.startTime);
-        acc.times[`t_${bjjCourse.startTime}`] = courseTime;
-        acc2[key] = { ...bjjCourse, id: key, startDateTime: courseTime };
-        return acc2;
+const serializeSchedule = sch => Object.values(sch).reduce((acc, day) => {
+  acc[day.day] = {
+    date: day.day,
+    key: daysHeader.indexOf(day.day),
+    classes: {},
+  };
+  acc[day.day].classes = Object.entries(day.classes).reduce(
+    /* eslint-disable no-param-reassign */
+    (acc2, [key, bjjCourse]) => {
+      const courseTime = getDateFromString(bjjCourse.startTime);
+      acc2[key] = { ...bjjCourse, id: key, startDateTime: courseTime };
+      return acc2;
+    },
+    {},
+    /* eslint-enable no-param-reassign */
+  );
+  return acc;
+}, {});
+
+const formatSchedule = (data, days) => {
+  const calendar = new Array(days.length).fill(null).map(() => []);
+
+  let maxSlots = 0;
+  Object.values(data).forEach((day) => {
+    Object.values(day.classes).forEach(
+      ({
+        id, title, subheading, startTime,
+      }) => {
+        calendar[day.key].push({
+          id,
+          primary: subheading ? `${title} - ${subheading}` : title,
+          secondary: startTime,
+        });
       },
-      {},
-      /* eslint-enable no-param-reassign */
     );
-    return acc;
-  },
-  {
-    formatted: {},
-    times: {},
-  },
-);
+    const dayLength = calendar[day.key].length;
+    maxSlots = dayLength > maxSlots ? dayLength : maxSlots;
+  });
+  return [
+    calendar.map(day => day.concat(new Array(maxSlots - day.length).fill(null))),
+    maxSlots,
+  ];
+};
 
 const CalendarContainer = ({ schedule }) => {
-  const [timeSlots, data] = useMemo(() => {
-    const { times, formatted } = formatSchedule(schedule);
-
-    const sortedTimes = Object.values(times).sort();
-    return [sortedTimes, formatted];
+  const [calendar, maxSlots] = useMemo(() => {
+    const serializedSchedule = serializeSchedule(schedule);
+    return formatSchedule(serializedSchedule, daysHeader);
   }, [schedule]);
 
   const { medium } = useWindowSize();
 
   return medium ? (
-    <MobileCalendarContainer data={data} days={daysHeader} />
+    <MobileCalendarContainer
+      data={calendar}
+      days={daysHeader}
+      slotCount={maxSlots}
+    />
   ) : (
-    <FullCalendarContainer data={data} days={daysHeader} slots={timeSlots} />
+    <FullCalendarContainer
+      data={calendar}
+      days={daysHeader}
+      slotCount={maxSlots}
+    />
   );
 };
 CalendarContainer.propTypes = {

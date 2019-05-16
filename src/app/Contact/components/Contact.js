@@ -12,7 +12,6 @@ import { JoinFormContainer } from 'app/JoinForm';
 import MapContainer from '../containers/MapContainer';
 import {
   MainContent,
-  PageSection,
   Content,
   ContactColumn,
   TwinCitiesName,
