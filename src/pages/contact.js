@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import Helmet from 'react-helmet';
+
 import { ContactContainer } from 'app/Contact';
 
+const Header = React.memo(() => (
+  <Helmet>
+    <title>Contact</title>
+  </Helmet>
+));
+
 const ContactPage = ({ data: { contentfulContact } }) => (
-  <ContactContainer {...contentfulContact} />
+  <Fragment>
+    <Header />
+    <ContactContainer {...contentfulContact} />
+  </Fragment>
 );
 
 ContactPage.propTypes = {

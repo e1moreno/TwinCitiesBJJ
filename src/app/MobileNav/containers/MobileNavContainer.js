@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useCallback } from 'react';
 
-import { LayoutContext } from 'app/Layout/context/LayoutContextProvider';
+import { LayoutContext } from 'Layout/context/LayoutContextProvider';
 import { useWindowSize } from 'design/WindowSize';
 import onKeyHelper from 'utils/onKeyHelper';
 

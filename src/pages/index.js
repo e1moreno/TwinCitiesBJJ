@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import { Helmet } from 'react-helmet';
+
 import { HomeContainer } from 'app/Home';
 
+const Header = React.memo(() => (
+  <Helmet>
+    <title>Home</title>
+  </Helmet>
+));
+
 const IndexPage = ({ data: { contentfulHomeContent } }) => (
-  <HomeContainer content={contentfulHomeContent} />
+  <Fragment>
+    <Header />
+    <HomeContainer content={contentfulHomeContent} />
+  </Fragment>
 );
 
 IndexPage.propTypes = {
