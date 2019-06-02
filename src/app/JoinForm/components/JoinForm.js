@@ -17,7 +17,13 @@ const JoinForm = ({
   additional,
   onChange,
 }) => (
-  <Form name="joinForm" method="POST" data-netlify="true">
+  <Form
+    name="joinForm"
+    method="POST"
+    data-netlify-recaptcha="true"
+    data-netlify="true"
+    action="/success"
+  >
     <input
       type="hidden"
       name="subject"
