@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
@@ -11,17 +12,45 @@ const Header = React.memo(() => (
   </Helmet>
 ));
 
-const SuccessPage = () => (
+const SuccessPage = ({
+  data: {
+    contentfulSuccess: {
+      header, subheader, buttonText, redirect,
+    },
+  },
+}) => (
   <Fragment>
     <Header />
-    <Success />
+    <Success
+      header={header}
+      subheader={subheader}
+      buttonText={buttonText}
+      redirect={redirect}
+    />
   </Fragment>
 );
+SuccessPage.propTypes = {
+  data: PropTypes.shape({
+    contentfulSuccess: PropTypes.shape({
+      header: PropTypes.string.isRequired,
+      subheader: PropTypes.string.isRequired,
+      buttonText: PropTypes.string.isRequired,
+      redirect: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default SuccessPage;
 
 export const query = graphql`
   query successQuery {
+    contentfulSuccess {
+      id
+      header
+      subheader
+      buttonText
+      redirect
+    }
     # dropdown info
     allContentfulClass {
       edges {
