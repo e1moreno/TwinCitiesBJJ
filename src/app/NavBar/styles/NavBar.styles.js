@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const NavBarContainer = styled.div`
+export const NavBarContainer = styled.header`
   position: absolute;
   display: flex;
   height: var(--navBarHeight);

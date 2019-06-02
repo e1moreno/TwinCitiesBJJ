@@ -5,4 +5,6 @@ export const MainContent = styled.main`
   padding-top: var(--navBarHeight);
 `;
 
-export const PageSection = styled(BasePageSection)``;
+export const PageSection = styled(BasePageSection)`
+  text-align: center;
+`;
