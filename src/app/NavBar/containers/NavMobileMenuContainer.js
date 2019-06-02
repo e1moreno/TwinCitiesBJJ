@@ -1,6 +1,6 @@
 import React, { useContext, useCallback } from 'react';
 
-import { LayoutContext } from 'Layout/context/LayoutContextProvider';
+import { LayoutContext } from 'layout/context/LayoutContextProvider';
 
 import NavMobileMenu from '../components/NavMobileMenu';
 

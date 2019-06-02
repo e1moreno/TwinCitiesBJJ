@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { LayoutContext } from 'Layout/context/LayoutContextProvider';
+import { LayoutContext } from 'layout/context/LayoutContextProvider';
 import Navigation from '../components/Navigation';
 
 const NavigationContainer = () => {
