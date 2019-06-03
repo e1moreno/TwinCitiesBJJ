@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Tippy from '@tippy.js/react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import 'tippy.js/themes/light.css';
 
 import {

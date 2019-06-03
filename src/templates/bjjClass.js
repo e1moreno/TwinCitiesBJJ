@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import { Helmet } from 'react-helmet';
+
 import { BjjClassContainer } from 'app/BjjClass';
 
-const BjjClass = ({ data: { contentfulClass } }) => (
-  <BjjClassContainer data={contentfulClass} />
-);
+const Header = React.memo(({ pageTitle }) => (
+  <Helmet>
+    <title>{pageTitle}</title>
+  </Helmet>
+));
+Header.propTypes = {
+  pageTitle: PropTypes.string.isRequired,
+};
+
+const BjjClass = ({ data: { contentfulClass } }) => {
+  const { shortTitle } = contentfulClass;
+  return (
+    <Fragment>
+      <Header pageTitle={shortTitle} />
+      <BjjClassContainer data={contentfulClass} />
+    </Fragment>
+  );
+};
 BjjClass.propTypes = {
   data: PropTypes.shape({
     contentfulClass: PropTypes.shape({

@@ -1,6 +1,6 @@
 import React, { useContext, useCallback } from 'react';
 
-import { LayoutContext } from 'app/Layout/context/LayoutContextProvider';
+import { LayoutContext } from 'layout/context/LayoutContextProvider';
 import { NavigationLink } from '../styles/MobileNavLink.styles';
 
 const MobileNavLinkContainer = (props) => {
