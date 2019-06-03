@@ -1,31 +1,44 @@
 import styled, { css } from 'styled-components';
 import Button from 'design/Button/Button';
 
-const BaseSettings = () => css`
-  color: var(--white);
+const BaseColors = css`
   background-color: var(--backgroundPurple);
+  color: var(--white);
+`;
+
+const InverseColors = css`
+  background-color: var(--white);
+  color: var(--backgroundPurple);
+`;
+
+const BaseSettings = () => css`
+  ${BaseColors}
   border: solid 2px var(--backgroundPurple);
 
   &:hover {
-    background-color: var(--white);
-    color: var(--backgroundPurple);
+    ${InverseColors}
+  }
+
+  &:focus {
+    ${InverseColors}
   }
 `;
 
 const InverseSettings = () => css`
-  color: var(--backgroundPurple);
-  background-color: var(--white);
   border: solid 2px var(--backgroundPurple);
+  ${InverseColors}
 
   &:hover {
-    background-color: var(--backgroundPurple);
-    color: var(--white);
+    ${BaseColors}
+  }
+
+  &:focus {
+    ${BaseColors}
   }
 `;
 
 const FilledButton = styled(Button)`
-  color: var(--white);
-  background-color: var(--backgroundPurple);
+  ${BaseColors}
   border: solid 2px var(--backgroundPurple);
   padding: 16px;
 
@@ -33,8 +46,7 @@ const FilledButton = styled(Button)`
   white-space: nowrap;
 
   &:hover {
-    background-color: var(--white);
-    color: var(--backgroundPurple);
+    ${InverseColors}
   }
 
   ${({ inverse }) => (!inverse ? BaseSettings : InverseSettings)}

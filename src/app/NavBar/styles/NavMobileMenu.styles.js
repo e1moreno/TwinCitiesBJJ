@@ -47,7 +47,6 @@ const openIcon = ({ open }) => css`
 `;
 
 const bar = () => css`
-  border-radius: 1px;
   height: 3px;
   width: 26px;
   content: '';

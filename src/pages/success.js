@@ -40,7 +40,6 @@ export const query = graphql`
       id
       header
       subheader
-      buttonText
       redirect
     }
     # dropdown info

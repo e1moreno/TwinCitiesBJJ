@@ -61,7 +61,6 @@ export const JoinColumn = styled(BaseColumn)`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px -1px 8px rgba(0, 0, 0, 0.15);
 
   margin: 1rem 1rem 1.5rem 0;
-  border-radius: 5px;
   padding: 32px 16px;
 
   @media (max-width: ${SMALL_VIEW}px) {
