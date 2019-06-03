@@ -67,7 +67,7 @@ const ContactArea = ({
       </ContentSplit>
     </SectionContent>
     <SectionContent>
-      <MapContainer coordinates={coordinates} />
+      <MapContainer coordinates={coordinates} navigationUrl={navigationUrl} />
     </SectionContent>
   </ContactSection>
 );

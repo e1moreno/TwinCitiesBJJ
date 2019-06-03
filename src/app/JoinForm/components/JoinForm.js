@@ -70,7 +70,7 @@ const JoinForm = ({
       value={phone}
       onChange={onChange}
       aria-label="Phone Number Input"
-      minlength={14}
+      minLength={14}
       required
     />
     <FormTextAreaContainer

@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GoogleMap from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
 
-import { MapWrapper } from '../styles/Map.styles';
+import { MapWrapper, LocationOn } from '../styles/Map.styles';
 
-const Map = ({ coordinates, onGoogleApiLoaded }) => (
+const Map = ({ coordinates, onChildClick }) => (
   <MapWrapper>
-    <GoogleMap
+    <GoogleMapReact
       bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_API_KEY }}
       defaultCenter={coordinates}
-      defaultZoom={17}
       yesIWantToUseGoogleMapApiInternals
-      onGoogleApiLoaded={onGoogleApiLoaded}
-    />
+      defaultZoom={17}
+      onChildClick={onChildClick}
+    >
+      <LocationOn lat={coordinates.lat} lng={coordinates.lng} />
+    </GoogleMapReact>
   </MapWrapper>
 );
 
@@ -21,7 +23,7 @@ Map.propTypes = {
     lat: PropTypes.number.isRequired,
     lng: PropTypes.number.isRequired,
   }).isRequired,
-  onGoogleApiLoaded: PropTypes.func.isRequired,
+  onChildClick: PropTypes.func.isRequired,
 };
 
 export default Map;

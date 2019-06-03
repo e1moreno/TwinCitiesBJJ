@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { PHONE_MASK } from 'utils/constants';
 import { InputWrapper, Label, Input } from '../styles/PhoneInput.styles';
 
 const PhoneInput = ({
@@ -25,22 +26,7 @@ const PhoneInput = ({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
-        mask={[
-          '(',
-          /[1-9]/,
-          /\d/,
-          /\d/,
-          ')',
-          ' ',
-          /\d/,
-          /\d/,
-          /\d/,
-          '-',
-          /\d/,
-          /\d/,
-          /\d/,
-          /\d/,
-        ]}
+        mask={PHONE_MASK}
         guide={false}
         {...other}
       />

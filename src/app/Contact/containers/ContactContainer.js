@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { conformToMask } from 'react-text-mask';
+
+import { PHONE_MASK } from 'utils/constants';
+
 import Contact from '../components/Contact';
 
 const ContactContainer = ({
@@ -12,18 +16,23 @@ const ContactContainer = ({
   state,
   zipCode,
   navigationUrl,
-}) => (
-  <Contact
-    coordinates={coordinates}
-    phoneNumber={phoneNumber}
-    streetAddress={streetAddress}
-    address2={address2}
-    city={city}
-    state={state}
-    zipCode={zipCode}
-    navigationUrl={navigationUrl}
-  />
-);
+}) => {
+  const formattedPhoneNumber = conformToMask(phoneNumber, PHONE_MASK)
+    .conformedValue;
+
+  return (
+    <Contact
+      coordinates={coordinates}
+      phoneNumber={formattedPhoneNumber}
+      streetAddress={streetAddress}
+      address2={address2}
+      city={city}
+      state={state}
+      zipCode={zipCode}
+      navigationUrl={navigationUrl}
+    />
+  );
+};
 
 ContactContainer.propTypes = {
   coordinates: PropTypes.shape({
