@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import FormInputContainer from '../containers/FormInputContainer';
+import PhoneInputContainer from '../containers/PhoneInputContainer';
 import FormTextAreaContainer from '../containers/FormTextAreaContainer';
 import {
   Form,
@@ -37,6 +38,7 @@ const JoinForm = ({
       value={firstName}
       onChange={onChange}
       aria-label="First Name Input"
+      required
     />
     <FormInputContainer
       id="joinLastName"
@@ -46,6 +48,7 @@ const JoinForm = ({
       value={lastName}
       onChange={onChange}
       aria-label="Last Name Input"
+      required
     />
     <FormInputContainer
       id="joinEmail"
@@ -56,8 +59,9 @@ const JoinForm = ({
       value={email}
       onChange={onChange}
       aria-label="Email Input"
+      required
     />
-    <FormInputContainer
+    <PhoneInputContainer
       id="joinPhone"
       type="tel"
       labelText="Phone"
@@ -66,6 +70,8 @@ const JoinForm = ({
       value={phone}
       onChange={onChange}
       aria-label="Phone Number Input"
+      minLength={14}
+      required
     />
     <FormTextAreaContainer
       id="joinAdditional"

@@ -9,6 +9,7 @@
     "@tippy.js/react": "^2.2.0",
     "babel-plugin-styled-components": "^1.10.0",
     "dayjs": "^1.8.14",
+    "dotenv": "^8.0.0",
     "gatsby": "^2.8.2",
     "gatsby-plugin-layout": "^1.0.15",
     "gatsby-plugin-manifest": "^2.1.1",
@@ -25,14 +26,14 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-images": "^0.5.19",
+    "react-text-mask": "^5.4.3",
     "react-typography": "^0.16.19",
     "styled-components": "^4.2.1",
     "styled-icons": "^8.0.0",
     "styled-reset": "^2.0.14",
     "typeface-source-sans-pro": "^0.0.54",
     "typography": "^0.16.19",
-    "use-immer": "^0.3.2",
-    "dotenv": "^8.0.0"
+    "use-immer": "^0.3.2"
   },
   "keywords": [
     "gatsby"

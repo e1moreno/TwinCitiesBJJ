@@ -1,21 +1,14 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import Map from '../components/Map';
 
-const MapContainer = ({ coordinates }) => {
-  const [, setMap] = useState(null);
+const MapContainer = ({ coordinates, navigationUrl }) => {
+  const onChildClick = useCallback(() => {
+    window.location = navigationUrl;
+  }, [navigationUrl]);
 
-  const handleGoogleApiLoaded = useCallback(
-    ({ map: apiMap }) => {
-      setMap(apiMap);
-    },
-    [setMap],
-  );
-
-  return (
-    <Map coordinates={coordinates} onGoogleApiLoaded={handleGoogleApiLoaded} />
-  );
+  return <Map coordinates={coordinates} onChildClick={onChildClick} />;
 };
 
 MapContainer.propTypes = {
@@ -23,6 +16,7 @@ MapContainer.propTypes = {
     lat: PropTypes.number.isRequired,
     lng: PropTypes.number.isRequired,
   }).isRequired,
+  navigationUrl: PropTypes.string.isRequired,
 };
 
 export default MapContainer;
