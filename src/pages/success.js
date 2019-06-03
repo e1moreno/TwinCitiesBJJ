@@ -14,19 +14,12 @@ const Header = React.memo(() => (
 
 const SuccessPage = ({
   data: {
-    contentfulSuccess: {
-      header, subheader, buttonText, redirect,
-    },
+    contentfulSuccess: { header, subheader, redirect },
   },
 }) => (
   <Fragment>
     <Header />
-    <Success
-      header={header}
-      subheader={subheader}
-      buttonText={buttonText}
-      redirect={redirect}
-    />
+    <Success header={header} subheader={subheader} redirect={redirect} />
   </Fragment>
 );
 SuccessPage.propTypes = {
@@ -34,7 +27,6 @@ SuccessPage.propTypes = {
     contentfulSuccess: PropTypes.shape({
       header: PropTypes.string.isRequired,
       subheader: PropTypes.string.isRequired,
-      buttonText: PropTypes.string.isRequired,
       redirect: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,

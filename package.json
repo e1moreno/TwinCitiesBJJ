@@ -31,7 +31,8 @@
     "styled-reset": "^2.0.14",
     "typeface-source-sans-pro": "^0.0.54",
     "typography": "^0.16.19",
-    "use-immer": "^0.3.2"
+    "use-immer": "^0.3.2",
+    "dotenv": "^8.0.0"
   },
   "keywords": [
     "gatsby"
@@ -46,7 +47,6 @@
     "prettier": "./node_modules/.bin/prettier-eslint \"src/**/*.js\""
   },
   "devDependencies": {
-    "dotenv": "^8.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.17.3",
