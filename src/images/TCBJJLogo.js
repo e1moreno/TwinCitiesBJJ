@@ -3,7 +3,13 @@ import React from 'react';
 
 export default function TCBJJLogo(props) {
   return (
-    <svg id="svg2734" version="1.2" viewBox="0 0 556 693" {...props}>
+    <svg
+      id="svg2734"
+      version="1.2"
+      viewBox="0 0 556 693"
+      height="100%"
+      {...props}
+    >
       <defs id="defs2467">
         <g id="g2465">
           <symbol

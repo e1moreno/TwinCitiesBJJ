@@ -1,14 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 
 import Contact from '../components/Contact';
-
-const Header = React.memo(() => (
-  <Helmet>
-    <title>Contact</title>
-  </Helmet>
-));
 
 const ContactContainer = ({
   coordinates,
@@ -20,19 +13,16 @@ const ContactContainer = ({
   zipCode,
   navigationUrl,
 }) => (
-  <Fragment>
-    <Header />
-    <Contact
-      coordinates={coordinates}
-      phoneNumber={phoneNumber}
-      streetAddress={streetAddress}
-      address2={address2}
-      city={city}
-      state={state}
-      zipCode={zipCode}
-      navigationUrl={navigationUrl}
-    />
-  </Fragment>
+  <Contact
+    coordinates={coordinates}
+    phoneNumber={phoneNumber}
+    streetAddress={streetAddress}
+    address2={address2}
+    city={city}
+    state={state}
+    zipCode={zipCode}
+    navigationUrl={navigationUrl}
+  />
 );
 
 ContactContainer.propTypes = {

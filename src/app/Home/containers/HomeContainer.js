@@ -1,15 +1,8 @@
-import React, { Fragment, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 
 import HomeContextProvider from '../context/HomeContextProvider';
 import Home from '../components/Home';
-
-const Header = React.memo(() => (
-  <Helmet>
-    <title>Home</title>
-  </Helmet>
-));
 
 const HomeContainer = ({
   content: {
@@ -26,12 +19,9 @@ const HomeContainer = ({
   );
 
   return (
-    <Fragment>
-      <Header />
-      <HomeContextProvider state={propState}>
-        <Home />
-      </HomeContextProvider>
-    </Fragment>
+    <HomeContextProvider state={propState}>
+      <Home />
+    </HomeContextProvider>
   );
 };
 HomeContainer.propTypes = {
