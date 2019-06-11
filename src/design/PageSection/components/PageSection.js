@@ -16,7 +16,7 @@ PageSection.propTypes = {
   visible: PropTypes.bool,
   sectionRef: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+    PropTypes.shape({ current: PropTypes.element }),
   ]),
   children: PropTypes.node,
 };
