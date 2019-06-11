@@ -24,7 +24,6 @@ const JoinForm = ({
     method="POST"
     action="/success"
     data-netlify="true"
-    data-netlify-recaptcha="true"
     data-netlify-honeypot="bot-field"
   >
     <input type="hidden" name="bot-field" />
@@ -86,7 +85,6 @@ const JoinForm = ({
       onChange={onChange}
       aria-label="Additional Information"
     />
-    <div data-netlify-recaptcha="true" />
     <SubmitButtonWrapper>
       <SubmitButton type="submit" id="joinSubmit" aria-label="Submit Join Form">
         Submit
