@@ -22,11 +22,13 @@ const JoinForm = ({
   <Form
     name={formName}
     method="POST"
-    data-netlify-recaptcha="true"
-    data-netlify="true"
     action="/success"
-    enctype="application/x-www-form-urlencoded"
+    data-netlify="true"
+    data-netlify-recaptcha="true"
+    data-netlify-honeypot="bot-field"
   >
+    <input type="hidden" name="bot-field" />
+    <input type="hidden" name="form-name" value={formName} />
     <input
       type="hidden"
       name="subject"
