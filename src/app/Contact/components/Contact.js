@@ -92,7 +92,7 @@ const JoinArea = () => (
   <JoinSection>
     <JoinHeader>Try a Free Class!</JoinHeader>
     <JoinSubheader>Fill out the form and we’ll be in touch!</JoinSubheader>
-    <JoinFormContainer />
+    <JoinFormContainer formName="joinFormContact" />
   </JoinSection>
 );
 

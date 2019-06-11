@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import PropTypes from 'prop-types';
 import { useImmerReducer } from 'use-immer';
 
 import JoinForm from '../components/JoinForm';
@@ -25,7 +26,7 @@ const reducer = (draft, action) => {
   }
 };
 
-const JoinFormContainer = () => {
+const JoinFormContainer = ({ formName }) => {
   const [state, dispatch] = useImmerReducer(reducer, {
     firstName: '',
     lastName: '',
@@ -49,6 +50,7 @@ const JoinFormContainer = () => {
   } = state;
   return (
     <JoinForm
+      formName={formName}
       firstName={firstName}
       lastName={lastName}
       email={email}
@@ -57,6 +59,12 @@ const JoinFormContainer = () => {
       onChange={handleChange}
     />
   );
+};
+JoinFormContainer.propTypes = {
+  formName: PropTypes.string,
+};
+JoinFormContainer.defaultProps = {
+  formName: 'joinForm',
 };
 
 export default JoinFormContainer;
