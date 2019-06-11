@@ -13,7 +13,7 @@ const Join = () => {
         We are excited to start your Jiu Jitsu Journey! Fill out the form and
         we’ll be in touch!
       </JoinSubheader>
-      <JoinFormContainer />
+      <JoinFormContainer formName="joinFormHome" />
     </PageSection>
   );
 };
