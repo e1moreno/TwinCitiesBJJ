@@ -1,9 +1,23 @@
-import { useRef, useCallback } from 'react';
-import * as JsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import { useEffect, useRef, useCallback } from 'react';
 
 const useExportPDF = (pdfSettings) => {
+  let JsPDF;
+  let html2canvas;
   const ref = useRef(null);
+
+  useEffect(() => {
+    const importJspdf = async () => {
+      try {
+        const { default: defaultJsPDF } = await import('jspdf');
+        const { default: defaultCanvas } = await import('html2canvas');
+        JsPDF = defaultJsPDF;
+        html2canvas = defaultCanvas;
+      } catch (error) {
+        console.warn(error);
+      }
+    };
+    importJspdf();
+  }, []);
 
   const handleExport = useCallback(async () => {
     try {
@@ -15,7 +29,7 @@ const useExportPDF = (pdfSettings) => {
     } catch (error) {
       // do nothing
     }
-  }, [ref]);
+  }, [ref, JsPDF]);
   return [ref, handleExport];
 };
 

@@ -5,7 +5,9 @@ import Layout from '../components/Layout';
 
 const LayoutContainer = ({
   children,
-  data: { allContentfulClass: { edges = [] } = { edges: [] } },
+  data: { allContentfulClass: { edges = [] } = { edges: [] } } = {
+    allContentfulClass: { edges: [] },
+  },
 }) => {
   const formattedDropdown = useMemo(
     () => edges
