@@ -82,6 +82,7 @@ const JoinForm = ({
       onChange={onChange}
       aria-label="Additional Information"
     />
+    <div data-netlify-recaptcha="true" />
     <SubmitButtonWrapper>
       <SubmitButton type="submit" id="joinSubmit" aria-label="Submit Join Form">
         Submit
