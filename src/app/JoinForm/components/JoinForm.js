@@ -11,6 +11,7 @@ import {
 } from '../styles/JoinForm.styles';
 
 const JoinForm = ({
+  formName,
   firstName,
   lastName,
   email,
@@ -19,11 +20,12 @@ const JoinForm = ({
   onChange,
 }) => (
   <Form
-    name="joinForm"
+    name={formName}
     method="POST"
     data-netlify-recaptcha="true"
     data-netlify="true"
     action="/success"
+    enctype="application/x-www-form-urlencoded"
   >
     <input
       type="hidden"
@@ -92,12 +94,16 @@ const JoinForm = ({
 );
 
 JoinForm.propTypes = {
+  formName: PropTypes.string,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   additional: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+};
+JoinForm.defaultProps = {
+  formName: 'joinForm',
 };
 
 export default JoinForm;
