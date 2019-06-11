@@ -8,7 +8,7 @@ import PageSection from '../components/PageSection';
 const PageSectionContainer = ({
   sectionRef, children, className, ...rest
 }) => {
-  const [visible, setVisible] = useState(!window === undefined);
+  const [visible, setVisible] = useState(typeof window === 'undefined');
 
   const handleChange = useCallback(
     ({ isIntersecting }, unobserve) => {
