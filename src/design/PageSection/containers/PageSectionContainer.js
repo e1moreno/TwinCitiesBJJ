@@ -12,10 +12,14 @@ const PageSectionContainer = ({
 
   const handleChange = useCallback(
     ({ isIntersecting }, unobserve) => {
-      if (isIntersecting) {
-        unobserve();
+      if (window) {
+        if (isIntersecting) {
+          unobserve();
+        }
+        setVisible(isIntersecting);
+      } else {
+        setVisible(true);
       }
-      setVisible(isIntersecting);
     },
     [visible, setVisible],
   );
