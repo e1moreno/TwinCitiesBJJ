@@ -16,7 +16,7 @@ NavIcon.propTypes = {
   open: PropTypes.bool.isRequired,
 };
 
-const NavMobileMenu = ({ open, onClick }) => (
+const NavMobileMenu = ({ display, open, onClick }) => (
   <MobileNavToggle
     onClick={onClick}
     id="nav-icon"
@@ -24,10 +24,11 @@ const NavMobileMenu = ({ open, onClick }) => (
     aria-label={open ? 'Open Menu' : 'Close Menu'}
     tabIndex="0"
   >
-    <NavIcon open={open} />
+    {display && <NavIcon open={open} />}
   </MobileNavToggle>
 );
 NavMobileMenu.propTypes = {
+  display: PropTypes.bool.isRequired,
   open: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 };

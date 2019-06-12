@@ -1,13 +1,27 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { ModalWrapper, Overlay } from '../styles/Modal.styles';
+import {
+  ModalWrapper,
+  Content,
+  CloseIcon,
+  Overlay,
+} from '../styles/Modal.styles';
 
 const Modal = ({
   open, mobile, children, onClickClose, onKeyDownClose,
 }) => (
   <Fragment>
-    {open && <ModalWrapper mobile={mobile}>{children}</ModalWrapper>}
+    {open && (
+      <ModalWrapper mobile={mobile}>
+        <CloseIcon
+          onClick={onClickClose}
+          onKeyDownClose={onKeyDownClose}
+          tabIndex={0}
+        />
+        <Content>{children}</Content>
+      </ModalWrapper>
+    )}
     <Overlay
       visible={open}
       onClick={open ? onClickClose : undefined}
