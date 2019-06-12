@@ -19,6 +19,7 @@ const FullDay = ({
     )}
     {data.map((bjjCourse, ind) => {
       let extraProps;
+      let DayElement;
       if (bjjCourse) {
         extraProps = {
           key: bjjCourse.id,
@@ -26,13 +27,15 @@ const FullDay = ({
           secondary: bjjCourse.secondary,
           data: bjjCourse.course,
         };
+        DayElement = DaySlotContainer;
       } else {
         extraProps = {
           key: `${slot}_${ind}`,
         };
+        DayElement = Slot;
       }
       return (
-        <DaySlotContainer
+        <DayElement
           columnStart={slot + offsetX}
           columnEnd={slot + offsetX + 1}
           rowStart={ind + offsetY}

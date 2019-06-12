@@ -16,7 +16,7 @@ const Modal = ({
       <ModalWrapper mobile={mobile}>
         <CloseIcon
           onClick={onClickClose}
-          onKeyDownClose={onKeyDownClose}
+          onKeyDown={onKeyDownClose}
           tabIndex={0}
         />
         <Content>{children}</Content>
@@ -34,9 +34,12 @@ const Modal = ({
 Modal.propTypes = {
   open: PropTypes.bool.isRequired,
   mobile: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   onClickClose: PropTypes.func.isRequired,
   onKeyDownClose: PropTypes.func.isRequired,
+};
+Modal.defaultProps = {
+  children: false,
 };
 
 export default Modal;

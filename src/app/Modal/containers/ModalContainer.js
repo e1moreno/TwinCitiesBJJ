@@ -4,10 +4,12 @@ import { ModalContext } from 'app/Modal/context/ModalContextProvider';
 import onKeyHelper from 'utils/onKeyHelper';
 import { useWindowSize } from 'design/WindowSize';
 
+import { CourseModalContent } from 'app/CourseModalContent';
+
 import Modal from '../components/Modal';
 
 const MODAL_COMPONENTS = {
-  COURSE_MODAL: true,
+  COURSE_MODAL: CourseModalContent,
 };
 
 const ModalContainer = () => {
@@ -24,10 +26,9 @@ const ModalContainer = () => {
     }
   }, [validModal]);
 
-  const handleCloseClick = useCallback(
-    () => dispatch({ type: 'closeModal' }),
-    [],
-  );
+  const handleCloseClick = useCallback(() => dispatch({ type: 'closeModal' }), [
+    dispatch,
+  ]);
 
   const handleCloseKeyDown = useCallback(
     (e) => {
@@ -43,7 +44,7 @@ const ModalContainer = () => {
       onClickClose={handleCloseClick}
       onKeyDownClose={handleCloseKeyDown}
     >
-      {JSON.stringify(props)}
+      {validModal && <ModalComponent {...props} />}
     </Modal>
   );
 };

@@ -44,20 +44,18 @@ const formatSchedule = (data, days) => {
 
   let maxSlots = 0;
   Object.values(data).forEach((day) => {
-    Object.values(day.classes).forEach(
-      (course) => {
-        const {
-          id, title, subheading, startTime,
-        } = course;
+    Object.values(day.classes).forEach((course) => {
+      const {
+        id, title, subheading, startTime,
+      } = course;
 
-        calendar[day.key].push({
-          id,
-          primary: subheading ? `${title} - ${subheading}` : title,
-          secondary: startTime,
-          course,
-        });
-      },
-    );
+      calendar[day.key].push({
+        id,
+        primary: subheading ? `${title} - ${subheading}` : title,
+        secondary: startTime,
+        course,
+      });
+    });
     const dayLength = calendar[day.key].length;
     maxSlots = dayLength > maxSlots ? dayLength : maxSlots;
   });
