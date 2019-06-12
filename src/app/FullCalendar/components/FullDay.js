@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Slot from 'app/Calendar/components/Slot';
+
+import { Slot, DaySlotContainer } from 'app/Calendar';
 
 const FullDay = ({
   slot, data, headerText, offsetX, offsetY,
@@ -23,6 +24,7 @@ const FullDay = ({
           key: bjjCourse.id,
           primary: bjjCourse.primary,
           secondary: bjjCourse.secondary,
+          data: bjjCourse.course,
         };
       } else {
         extraProps = {
@@ -30,7 +32,7 @@ const FullDay = ({
         };
       }
       return (
-        <Slot
+        <DaySlotContainer
           columnStart={slot + offsetX}
           columnEnd={slot + offsetX + 1}
           rowStart={ind + offsetY}

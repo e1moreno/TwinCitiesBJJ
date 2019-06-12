@@ -7,8 +7,10 @@ const formatClasses = classes => classes.reduce(
   (
     acc,
     {
-      id, classTime, class: {
-        title, shortTitle, subheading, duration,
+      id,
+      classTime,
+      class: {
+        title, shortTitle, subheading, duration, content, ...other
       },
     },
   ) => {
@@ -18,6 +20,8 @@ const formatClasses = classes => classes.reduce(
       subheading,
       duration,
       startTime: classTime,
+      json: (!!content && content.json) || null,
+      ...other,
     };
     return acc;
   },

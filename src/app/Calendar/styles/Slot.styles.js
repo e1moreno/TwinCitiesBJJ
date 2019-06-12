@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SlotWrapper = styled.div.attrs(
   ({
-    blank, columnStart, columnEnd, rowStart, rowEnd,
+    blank, columnStart, columnEnd, rowStart, rowEnd, onClick,
   }) => ({
     style: {
       gridColumnStart: columnStart,
@@ -11,6 +11,7 @@ export const SlotWrapper = styled.div.attrs(
       gridRowEnd: rowEnd,
       color: blank ? 'var(--menuGray)' : 'var(--white)',
       backgroundColor: !blank && 'var(--backgroundPurple)',
+      cursor: !!onClick && 'pointer',
     },
   }),
 )`

@@ -45,13 +45,16 @@ const formatSchedule = (data, days) => {
   let maxSlots = 0;
   Object.values(data).forEach((day) => {
     Object.values(day.classes).forEach(
-      ({
-        id, title, subheading, startTime,
-      }) => {
+      (course) => {
+        const {
+          id, title, subheading, startTime,
+        } = course;
+
         calendar[day.key].push({
           id,
           primary: subheading ? `${title} - ${subheading}` : title,
           secondary: startTime,
+          course,
         });
       },
     );
@@ -65,12 +68,12 @@ const formatSchedule = (data, days) => {
 };
 
 const CalendarContainer = ({ schedule }) => {
+  const { medium } = useWindowSize();
+
   const [calendar, maxSlots] = useMemo(() => {
     const serializedSchedule = serializeSchedule(schedule);
     return formatSchedule(serializedSchedule, daysHeader);
   }, [schedule]);
-
-  const { medium } = useWindowSize();
 
   return medium ? (
     <MobileCalendarContainer
