@@ -11,6 +11,7 @@ import {
   ImageGalleryContextProvider,
   ImageGalleryContainer,
 } from 'app/ImageGallery';
+import { ModalContextProvider, ModalContainer } from 'app/Modal';
 import { Footer } from 'app/Footer';
 
 import GlobalStyleContainer from '../containers/GlobalStyleContainer';
@@ -22,13 +23,16 @@ const Layout = ({ children, courseDropdownData }) => (
       <html lang="en" amp />
     </Helmet>
     <LayoutContextProvider courseDropdownData={courseDropdownData}>
-      <GlobalStyleContainer />
-      <ImageGalleryContextProvider>
-        <NavBar />
-        <MobileNavContainer />
-        <ImageGalleryContainer />
-        {children}
-      </ImageGalleryContextProvider>
+      <ModalContextProvider>
+        <GlobalStyleContainer />
+        <ImageGalleryContextProvider>
+          <NavBar />
+          <MobileNavContainer />
+          <ModalContainer />
+          <ImageGalleryContainer />
+          {children}
+        </ImageGalleryContextProvider>
+      </ModalContextProvider>
     </LayoutContextProvider>
     <Footer />
   </Fragment>

@@ -44,17 +44,18 @@ const formatSchedule = (data, days) => {
 
   let maxSlots = 0;
   Object.values(data).forEach((day) => {
-    Object.values(day.classes).forEach(
-      ({
+    Object.values(day.classes).forEach((course) => {
+      const {
         id, title, subheading, startTime,
-      }) => {
-        calendar[day.key].push({
-          id,
-          primary: subheading ? `${title} - ${subheading}` : title,
-          secondary: startTime,
-        });
-      },
-    );
+      } = course;
+
+      calendar[day.key].push({
+        id,
+        primary: subheading ? `${title} - ${subheading}` : title,
+        secondary: startTime,
+        course,
+      });
+    });
     const dayLength = calendar[day.key].length;
     maxSlots = dayLength > maxSlots ? dayLength : maxSlots;
   });
@@ -65,12 +66,12 @@ const formatSchedule = (data, days) => {
 };
 
 const CalendarContainer = ({ schedule }) => {
+  const { medium } = useWindowSize();
+
   const [calendar, maxSlots] = useMemo(() => {
     const serializedSchedule = serializeSchedule(schedule);
     return formatSchedule(serializedSchedule, daysHeader);
   }, [schedule]);
-
-  const { medium } = useWindowSize();
 
   return medium ? (
     <MobileCalendarContainer

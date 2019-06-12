@@ -4,7 +4,7 @@ import { SMALL_VIEW } from 'utils/constants';
 
 export const Button = styled(FilledButton)`
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);

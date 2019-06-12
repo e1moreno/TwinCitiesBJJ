@@ -40,8 +40,11 @@ export const query = graphql`
             class {
               title
               shortTitle
-              subheading
               duration
+              slug
+              content {
+                json
+              }
             }
           }
         }
