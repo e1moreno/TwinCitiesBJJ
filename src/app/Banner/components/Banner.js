@@ -6,9 +6,20 @@ import {
   BannerImage,
   BannerGrid,
   BannerWrapper,
+  HeaderLogoWrapper,
+  HeaderLink,
+  Logo,
   PageTitleWrapper,
   PageTitle,
 } from '../styles/Banner.styles';
+
+const HeaderLogo = () => (
+  <HeaderLogoWrapper>
+    <HeaderLink to="/" aria-label="Home">
+      <Logo />
+    </HeaderLink>
+  </HeaderLogoWrapper>
+);
 
 const Banner = ({
   full,
@@ -17,10 +28,11 @@ const Banner = ({
   children,
   className,
 }) => (
-  <BannerWrapper role="banner" className={className}>
+  <BannerWrapper className={className}>
     <BannerImageWrapper>
       <BannerImage src={source} alt={alt} full={full} />
       <BannerGrid>
+        <HeaderLogo />
         {pageTitle && (
           <PageTitleWrapper>
             <PageTitle>{pageTitle}</PageTitle>

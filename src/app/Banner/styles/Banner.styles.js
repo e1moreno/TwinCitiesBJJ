@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import TCBJJLogo from 'images/TCBJJLogo';
+import { Link } from 'gatsby';
 
-export const BannerWrapper = styled.section`
+export const BannerWrapper = styled.header`
   position: relative;
 `;
 
@@ -30,13 +32,24 @@ export const BannerGrid = styled.div`
   height: 100%;
   display: grid;
   grid-template-columns: 1rem auto 1rem;
-  grid-template-rows: 70% 48px 1fr 4rem 8px;
+  grid-template-rows: 8px var(--navBarHeight) calc(70% - var(--navBarHeight)) 48px 1fr 4rem 8px;
   grid-template-areas:
+    '. . .'
+    '. header .'
     '. . .'
     '. contact .'
     '. . .'
     '. pageTitle .';
 `;
+
+export const HeaderLogoWrapper = styled.h1`
+  grid-area: header;
+  margin: 0;
+`;
+
+export const HeaderLink = styled(Link)``;
+
+export const Logo = styled(TCBJJLogo)``;
 
 export const PageTitleWrapper = styled.div`
   grid-area: pageTitle;
