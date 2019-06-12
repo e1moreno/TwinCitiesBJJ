@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Slot from 'app/Calendar/components/Slot';
+
+import { Slot, DaySlotContainer } from 'app/Calendar';
 
 const FullDay = ({
   slot, data, headerText, offsetX, offsetY,
@@ -18,19 +19,23 @@ const FullDay = ({
     )}
     {data.map((bjjCourse, ind) => {
       let extraProps;
+      let DayElement;
       if (bjjCourse) {
         extraProps = {
           key: bjjCourse.id,
           primary: bjjCourse.primary,
           secondary: bjjCourse.secondary,
+          data: bjjCourse.course,
         };
+        DayElement = DaySlotContainer;
       } else {
         extraProps = {
           key: `${slot}_${ind}`,
         };
+        DayElement = Slot;
       }
       return (
-        <Slot
+        <DayElement
           columnStart={slot + offsetX}
           columnEnd={slot + offsetX + 1}
           rowStart={ind + offsetY}

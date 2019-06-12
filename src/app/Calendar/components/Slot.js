@@ -16,6 +16,7 @@ const Slot = ({
   columnEnd,
   rowStart,
   rowEnd,
+  onClick,
 }) => (
   <SlotWrapper
     columnStart={columnStart}
@@ -23,6 +24,7 @@ const Slot = ({
     rowStart={rowStart}
     rowEnd={rowEnd}
     blank={blank}
+    onClick={onClick}
   >
     <SlotContent>
       <PrimaryText blank={blank}>{primary}</PrimaryText>
@@ -38,11 +40,13 @@ Slot.propTypes = {
   columnEnd: PropTypes.number.isRequired,
   rowStart: PropTypes.number.isRequired,
   rowEnd: PropTypes.number.isRequired,
+  onClick: PropTypes.func,
 };
 Slot.defaultProps = {
   primary: null,
   secondary: null,
   blank: false,
+  onClick: null,
 };
 
 export default Slot;
