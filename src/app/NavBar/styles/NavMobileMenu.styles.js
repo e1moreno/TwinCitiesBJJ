@@ -8,7 +8,6 @@ export const MobileNavToggle = styled(Button)`
   position: relative;
   display: flex;
   justify-content: center;
-  min-height: 48px;
   z-index: 3 !important;
   outline: none;
 
@@ -23,7 +22,7 @@ export const MobileNavIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: ${({ open }) => open && 'fixed'};
-  transform: ${({ open }) => open && 'translate(-50%, 0%)'};
+  transform: ${({ open }) => open && 'translate(-50%, -50%)'};
 
   &:focus {
     outline: none;

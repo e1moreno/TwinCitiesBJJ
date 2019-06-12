@@ -21,7 +21,7 @@ const NavMobileMenu = ({ open, onClick }) => (
     onClick={onClick}
     id="nav-icon"
     aria-expanded={open}
-    aria-label="Menu"
+    aria-label={open ? 'Open Menu' : 'Close Menu'}
     tabIndex="0"
   >
     <NavIcon open={open} />

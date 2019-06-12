@@ -1,1 +1,3 @@
-export { default as PageSectionContainer } from './containers/PageSectionContainer';
+export {
+  default as PageSectionContainer,
+} from './containers/PageSectionContainer';
