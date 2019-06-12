@@ -1,8 +1,10 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 
+import onKeyHelper from 'utils/onKeyHelper';
 import useCourseModal from './useCourseModal';
 import Slot from '../components/Slot';
+
 
 const DaySlotContainer = ({ data, ...props }) => {
   const handleModalOpen = useCourseModal();
@@ -12,7 +14,14 @@ const DaySlotContainer = ({ data, ...props }) => {
     handleModalOpen,
   ]);
 
-  return <Slot {...props} onClick={handleClick} />;
+  const handleKeyDown = useCallback(
+    (e) => {
+      onKeyHelper(e, () => handleModalOpen(data));
+    },
+    [handleModalOpen, data],
+  );
+
+  return <Slot {...props} onClick={handleClick} onKeyDown={handleKeyDown} />;
 };
 DaySlotContainer.propTypes = {
   data: PropTypes.object.isRequired,

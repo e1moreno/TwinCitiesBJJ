@@ -17,6 +17,7 @@ const Slot = ({
   rowStart,
   rowEnd,
   onClick,
+  onKeyDown,
 }) => (
   <SlotWrapper
     columnStart={columnStart}
@@ -25,6 +26,8 @@ const Slot = ({
     rowEnd={rowEnd}
     blank={blank}
     onClick={onClick}
+    onKeyDown={onKeyDown}
+    tabIndex={!!onKeyDown && 0}
   >
     <SlotContent>
       <PrimaryText blank={blank}>{primary}</PrimaryText>
@@ -41,12 +44,14 @@ Slot.propTypes = {
   rowStart: PropTypes.number.isRequired,
   rowEnd: PropTypes.number.isRequired,
   onClick: PropTypes.func,
+  onKeyDown: PropTypes.func,
 };
 Slot.defaultProps = {
   primary: null,
   secondary: null,
   blank: false,
   onClick: null,
+  onKeyDown: null,
 };
 
 export default Slot;
