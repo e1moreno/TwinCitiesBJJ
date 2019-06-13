@@ -13,7 +13,7 @@ const GalleryImageContainer = ({ ind, src, handleImageClick }) => {
 
       handleImageClick(ind);
     },
-    [handleImageClick, ind],
+    [ind],
   );
 
   const handleKeyDown = useCallback(

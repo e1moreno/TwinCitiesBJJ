@@ -6,13 +6,9 @@ import NavigationDropdown from '../components/NavigationDropdown';
 const NavigationDropdownContainer = ({ text, data }) => {
   const [ariaExpanded, setAriaExpanded] = useState(false);
 
-  const setAriaExpandedFalse = useCallback(() => setAriaExpanded(false), [
-    setAriaExpanded,
-  ]);
+  const setAriaExpandedFalse = useCallback(() => setAriaExpanded(false), []);
 
-  const setAriaExpandedTrue = useCallback(() => setAriaExpanded(true), [
-    setAriaExpanded,
-  ]);
+  const setAriaExpandedTrue = useCallback(() => setAriaExpanded(true), []);
 
   return (
     <NavigationDropdown

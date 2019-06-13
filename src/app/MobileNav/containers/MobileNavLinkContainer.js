@@ -8,7 +8,7 @@ const MobileNavLinkContainer = (props) => {
 
   const handleClick = useCallback(() => {
     dispatch({ type: 'closeMobileNav' });
-  }, [dispatch]);
+  }, []);
 
   return <NavigationLink {...props} onClick={handleClick} />;
 };

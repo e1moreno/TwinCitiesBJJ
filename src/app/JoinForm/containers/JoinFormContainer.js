@@ -35,15 +35,12 @@ const JoinFormContainer = ({ formName }) => {
     additional: '',
   });
 
-  const handleChange = useCallback(
-    (e) => {
-      dispatch({
-        type: e.target.name,
-        value: e.target.value,
-      });
-    },
-    [dispatch],
-  );
+  const handleChange = useCallback((e) => {
+    dispatch({
+      type: e.target.name,
+      value: e.target.value,
+    });
+  }, []);
 
   const {
     firstName, lastName, email, phone, additional,

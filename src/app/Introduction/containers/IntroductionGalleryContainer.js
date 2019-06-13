@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext } from 'react';
+import React, { useMemo, useCallback, useContext } from 'react';
 
 import { ImageGalleryContext } from 'app/ImageGallery';
 import floor from 'images/floor.jpg';
@@ -7,10 +7,13 @@ import IntroductionGallery from '../components/IntroductionGallery';
 const IntroductionGalleryContainer = () => {
   const { dispatch } = useContext(ImageGalleryContext);
 
-  const [src] = useState(() => new Array(6).fill({ src: floor }).map((image, ind) => ({
-    ...image,
-    ind,
-  })));
+  const src = useMemo(
+    () => new Array(6).fill({ src: floor }).map((image, ind) => ({
+      ...image,
+      ind,
+    })),
+    [],
+  );
 
   const handleImageClick = useCallback(
     (currentImage) => {

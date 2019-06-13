@@ -9,15 +9,12 @@ const ContentCollapseContainer = ({ wrapperElement, children }) => {
   const [open, setOpen] = useState(false);
 
   const handleClick = useCallback(() => {
-    setOpen(!open);
-  }, [open]);
+    setOpen(stateOpen => !stateOpen);
+  }, []);
 
-  const handleKeyDown = useCallback(
-    (e) => {
-      onKeyHelper(e, handleClick);
-    },
-    [handleClick],
-  );
+  const handleKeyDown = useCallback((e) => {
+    onKeyHelper(e, handleClick);
+  }, []);
 
   return (
     <ContentCollapse

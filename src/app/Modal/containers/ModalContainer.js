@@ -27,14 +27,13 @@ const ModalContainer = () => {
   }, [validModal]);
 
   const handleCloseClick = useCallback(() => dispatch({ type: 'closeModal' }), [
-    dispatch,
   ]);
 
   const handleCloseKeyDown = useCallback(
     (e) => {
       onKeyHelper(e, () => dispatch({ type: 'closeModal' }));
     },
-    [dispatch],
+    [],
   );
 
   return (

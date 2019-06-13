@@ -5,20 +5,16 @@ import onKeyHelper from 'utils/onKeyHelper';
 import useCourseModal from './useCourseModal';
 import Slot from '../components/Slot';
 
-
 const DaySlotContainer = ({ data, ...props }) => {
   const handleModalOpen = useCourseModal();
 
-  const handleClick = useCallback(() => handleModalOpen(data), [
-    data,
-    handleModalOpen,
-  ]);
+  const handleClick = useCallback(() => handleModalOpen(data), [data]);
 
   const handleKeyDown = useCallback(
     (e) => {
       onKeyHelper(e, () => handleModalOpen(data));
     },
-    [handleModalOpen, data],
+    [data],
   );
 
   return <Slot {...props} onClick={handleClick} onKeyDown={handleKeyDown} />;
