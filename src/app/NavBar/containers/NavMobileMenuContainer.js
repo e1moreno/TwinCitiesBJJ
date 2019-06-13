@@ -11,7 +11,7 @@ const NavMobileMenuContainer = () => {
 
   const handleClick = useCallback(() => {
     dispatch({ type: !mobileNavOpen ? 'openMobileNav' : 'closeMobileNav' });
-  }, [mobileNavOpen, dispatch]);
+  }, [mobileNavOpen]);
 
   return (
     <NavMobileMenu
