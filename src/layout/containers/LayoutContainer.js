@@ -7,7 +7,7 @@ import Layout from '../components/Layout';
 
 const LayoutContainer = ({
   children,
-  data: { allContentfulClass: { edges = [] } = { edges: [] }, contentfulFeatureToggle: { features } } = {
+  data: { allContentfulClass: { edges = [] } = { edges: [] }, contentfulFeatureToggle: { features = {} } = {} } = {
     allContentfulClass: { edges: [] },
   },
 }) => {
