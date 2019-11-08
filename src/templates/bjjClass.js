@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -18,10 +18,10 @@ Header.propTypes = {
 const BjjClass = ({ data: { contentfulClass } }) => {
   const { shortTitle } = contentfulClass;
   return (
-    <Fragment>
+    <>
       <Header pageTitle={shortTitle} />
       <BjjClassContainer data={contentfulClass} />
-    </Fragment>
+    </>
   );
 };
 BjjClass.propTypes = {
@@ -41,7 +41,7 @@ BjjClass.propTypes = {
 export default BjjClass;
 
 export const query = graphql`
-  query BjjClassQuery($slug: String!) {
+  query BjjClassQuery($slug: String!, $environment: String!) {
     contentfulClass(slug: { eq: $slug }) {
       title
       shortTitle
@@ -61,6 +61,9 @@ export const query = graphql`
           display
         }
       }
+    }
+    contentfulFeatureToggle(environment: { eq: $environment }) {
+      ...FeatureToggleFragment
     }
   }
 `;

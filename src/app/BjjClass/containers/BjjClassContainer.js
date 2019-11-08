@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import { useWindowSize } from 'design/WindowSize';
@@ -19,14 +19,14 @@ const BjjClassContainer = ({ data: { content, ...other } }) => {
   const { mobile } = useWindowSize();
 
   return (
-    <Fragment>
+    <>
       <BjjClass
         mobile={mobile}
         title={title}
         shortTitle={shortTitle}
         content={jsonContent}
       />
-    </Fragment>
+    </>
   );
 };
 

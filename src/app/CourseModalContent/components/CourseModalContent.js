@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -14,7 +14,7 @@ import {
 const CourseModalContent = ({
   title, startTime, duration, json,
 }) => (
-  <Fragment>
+  <>
     <Title>{title}</Title>
     <Entry>
       <PropertyName>Time:</PropertyName>{' '}
@@ -25,7 +25,7 @@ const CourseModalContent = ({
       <PropertyValue>{duration} minutes</PropertyValue>
     </Entry>
     <Description>{json ? documentToReactComponents(json) : ''}</Description>
-  </Fragment>
+  </>
 );
 
 CourseModalContent.propTypes = {

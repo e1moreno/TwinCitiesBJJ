@@ -1,6 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
+import { FeatureToggle } from 'app/FeatureToggle';
+import featureKey from 'utils/featureKey';
 import MobileNavLinkContainer from '../containers/MobileNavLinkContainer';
 import MobileCollapsibleNavContainer from '../containers/MobileCollapsibleNavContainer';
 import NavigationWrapper from './NavigationWrapper';
@@ -18,7 +20,7 @@ const MobileNav = React.memo(
   ({
     open, initialized, collapseData, onClickClose, onKeyDownClose,
   }) => (
-    <Fragment>
+    <>
       <SlideMenu
         open={open}
         initialized={initialized}
@@ -27,18 +29,26 @@ const MobileNav = React.memo(
       >
         <NavigationWrapper open={open}>
           <MobileNavLinkContainer to="/">Home</MobileNavLinkContainer>
-          <MobileNavLinkContainer to="/about">About</MobileNavLinkContainer>
-          <MobileCollapsibleNavContainer text="Curriculum">
-            {collapseData.map(({ text, slug }) => (
-              <MobileNavLinkContainer key={slug} to={slug}>
-                {text}
-              </MobileNavLinkContainer>
-            ))}
-          </MobileCollapsibleNavContainer>
-          <MobileNavLinkContainer to="/schedule">
-            Schedule
-          </MobileNavLinkContainer>
-          <MobileNavLinkContainer to="/contact">Contact</MobileNavLinkContainer>
+          <FeatureToggle feature={featureKey.about}>
+            <MobileNavLinkContainer to="/about">About</MobileNavLinkContainer>
+          </FeatureToggle>
+          <FeatureToggle feature={featureKey.curriculum}>
+            <MobileCollapsibleNavContainer text="Curriculum">
+              {collapseData.map(({ text, slug }) => (
+                <MobileNavLinkContainer key={slug} to={slug}>
+                  {text}
+                </MobileNavLinkContainer>
+              ))}
+            </MobileCollapsibleNavContainer>
+          </FeatureToggle>
+          <FeatureToggle feature={featureKey.schedule}>
+            <MobileNavLinkContainer to="/schedule">
+              Schedule
+            </MobileNavLinkContainer>
+          </FeatureToggle>
+          <FeatureToggle feature={featureKey.contact}>
+            <MobileNavLinkContainer to="/contact">Contact</MobileNavLinkContainer>
+          </FeatureToggle>
         </NavigationWrapper>
       </SlideMenu>
       <Overlay
@@ -47,7 +57,7 @@ const MobileNav = React.memo(
         onKeyDown={onKeyDownClose}
         tabIndex={open ? 0 : -1}
       />
-    </Fragment>
+    </>
   ),
 );
 

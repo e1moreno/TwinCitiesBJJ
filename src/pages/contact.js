@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -13,10 +13,10 @@ const Header = React.memo(() => (
 ));
 
 const ContactPage = ({ data: { contentfulContact } }) => (
-  <Fragment>
+  <>
     <Header />
     <ContactContainer {...contentfulContact} />
-  </Fragment>
+  </>
 );
 
 ContactPage.propTypes = {
@@ -26,7 +26,7 @@ ContactPage.propTypes = {
 };
 
 export const query = graphql`
-  query contact {
+  query contact($environment: String!) {
     contentfulContact {
       coordinates {
         lat
@@ -50,6 +50,9 @@ export const query = graphql`
           display
         }
       }
+    }
+    contentfulFeatureToggle(environment: { eq: $environment }) {
+      ...FeatureToggleFragment
     }
   }
 `;
