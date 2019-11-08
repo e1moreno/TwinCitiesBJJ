@@ -1,4 +1,4 @@
-import React, { Fragment, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 // import dayjs from 'dayjs';
 import { Export as ExportIcon } from 'styled-icons/boxicons-regular';
@@ -39,7 +39,7 @@ const FullCalendar = forwardRef(
   ({
     calendar, days, slotCount, onExport,
   }, ref) => (
-    <Fragment>
+    <>
       <GridWrapper>
         <Header onExport={onExport} />
         <CalendarGrid ref={ref} columns={days.length} rows={slotCount}>
@@ -55,7 +55,7 @@ const FullCalendar = forwardRef(
           ))}
         </CalendarGrid>
       </GridWrapper>
-    </Fragment>
+    </>
   ),
 );
 FullCalendar.propTypes = {

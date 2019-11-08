@@ -14,6 +14,19 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions;
+  deletePage(page);
+  // You can access the variable "house" in your page queries now
+  createPage({
+    ...page,
+    context: {
+      ...page.context,
+      environment: process.env.GATSBY_FEATURE_SET || 'Development',
+    },
+  });
+};
+
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
   const result = await graphql(`
     {
@@ -32,6 +45,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       component: path.resolve('./src/templates/bjjClass.js'),
       context: {
         slug: node.slug,
+        environment: process.env.GATSBY_FEATURE_SET || 'Development',
       },
     });
   });
