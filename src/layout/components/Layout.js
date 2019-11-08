@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import 'typeface-source-sans-pro';
@@ -18,7 +18,7 @@ import GlobalStyleContainer from '../containers/GlobalStyleContainer';
 import LayoutContextProvider from '../context/LayoutContextProvider';
 
 const Layout = ({ children, courseDropdownData }) => (
-  <Fragment>
+  <>
     <Helmet titleTemplate="%s | Twin Cities BJJ">
       <html lang="en" amp />
     </Helmet>
@@ -35,7 +35,7 @@ const Layout = ({ children, courseDropdownData }) => (
       </ModalContextProvider>
     </LayoutContextProvider>
     <Footer />
-  </Fragment>
+  </>
 );
 
 Layout.propTypes = {

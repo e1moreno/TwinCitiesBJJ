@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -11,7 +11,7 @@ import { MainContent, PageSection } from '../styles/BjjClass.styles';
 const BjjClass = ({
   mobile, shortTitle, title, content,
 }) => (
-  <Fragment>
+  <>
     <Banner
       pageTitle={mobile ? shortTitle : title}
       image={{
@@ -24,7 +24,7 @@ const BjjClass = ({
         {content ? documentToReactComponents(content) : ''}
       </PageSection>
     </MainContent>
-  </Fragment>
+  </>
 );
 
 BjjClass.propTypes = {

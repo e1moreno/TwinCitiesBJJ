@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Banner } from 'app/Banner';
@@ -8,7 +8,7 @@ import floorImage from 'images/floor.jpg';
 import { MainContent, PageSection } from '../styles/Schedule.styles';
 
 const Schedule = ({ schedule }) => (
-  <Fragment>
+  <>
     <Banner
       pageTitle="Schedule"
       image={{
@@ -21,7 +21,7 @@ const Schedule = ({ schedule }) => (
         <CalendarContainer schedule={schedule} />
       </PageSection>
     </MainContent>
-  </Fragment>
+  </>
 );
 Schedule.propTypes = {
   schedule: PropTypes.object.isRequired,

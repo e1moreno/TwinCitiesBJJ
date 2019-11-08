@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -17,10 +17,10 @@ const SuccessPage = ({
     contentfulSuccess: { header, subheader, redirect },
   },
 }) => (
-  <Fragment>
+  <>
     <Header />
     <Success header={header} subheader={subheader} redirect={redirect} />
-  </Fragment>
+  </>
 );
 SuccessPage.propTypes = {
   data: PropTypes.shape({

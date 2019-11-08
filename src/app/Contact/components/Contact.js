@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Call as CallIcon,
@@ -107,7 +107,7 @@ const Contact = React.memo(
     zipCode,
     navigationUrl,
   }) => (
-    <Fragment>
+    <>
       <Banner
         pageTitle="Contact"
         image={{
@@ -135,7 +135,7 @@ const Contact = React.memo(
           </JoinColumn>
         </Content>
       </MainContent>
-    </Fragment>
+    </>
   ),
 );
 

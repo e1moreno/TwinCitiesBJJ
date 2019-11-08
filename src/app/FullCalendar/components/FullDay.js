@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Slot, DaySlotContainer } from 'app/Calendar';
@@ -6,7 +6,7 @@ import { Slot, DaySlotContainer } from 'app/Calendar';
 const FullDay = ({
   slot, data, headerText, offsetX, offsetY,
 }) => (
-  <Fragment>
+  <>
     {headerText && (
       <Slot
         columnStart={slot + 1}
@@ -45,7 +45,7 @@ const FullDay = ({
         />
       );
     })}
-  </Fragment>
+  </>
 );
 
 FullDay.propTypes = {

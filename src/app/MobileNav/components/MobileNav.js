@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import MobileNavLinkContainer from '../containers/MobileNavLinkContainer';
@@ -18,7 +18,7 @@ const MobileNav = React.memo(
   ({
     open, initialized, collapseData, onClickClose, onKeyDownClose,
   }) => (
-    <Fragment>
+    <>
       <SlideMenu
         open={open}
         initialized={initialized}
@@ -47,7 +47,7 @@ const MobileNav = React.memo(
         onKeyDown={onKeyDownClose}
         tabIndex={open ? 0 : -1}
       />
-    </Fragment>
+    </>
   ),
 );
 

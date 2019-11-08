@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -13,10 +13,10 @@ const Header = React.memo(() => (
 ));
 
 const SchedulePage = ({ data: { allContentfulScheduleDay } }) => (
-  <Fragment>
+  <>
     <Header />
     <ScheduleContainer schedule={allContentfulScheduleDay} />
-  </Fragment>
+  </>
 );
 SchedulePage.propTypes = {
   data: PropTypes.shape({

@@ -1,4 +1,4 @@
-import React, { Fragment, Children } from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -15,7 +15,7 @@ const MobileCollapisbleNav = ({
   onClick,
   tabIndex,
 }) => (
-  <Fragment>
+  <>
     <ControlButton
       aria-expanded={ariaExpanded}
       ariaExpanded={ariaExpanded}
@@ -27,7 +27,7 @@ const MobileCollapisbleNav = ({
     <CollapseWrapper open={ariaExpanded}>
       {Children.map(children, component => React.cloneElement(component, { tabIndex }))}
     </CollapseWrapper>
-  </Fragment>
+  </>
 );
 
 MobileCollapisbleNav.propTypes = {

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -11,7 +11,7 @@ import {
 const Modal = ({
   open, mobile, children, onClickClose, onKeyDownClose,
 }) => (
-  <Fragment>
+  <>
     {open && (
       <ModalWrapper mobile={mobile}>
         <CloseIcon
@@ -28,7 +28,7 @@ const Modal = ({
       onKeyDown={onKeyDownClose}
       tabIndex={open ? 0 : -1}
     />
-  </Fragment>
+  </>
 );
 
 Modal.propTypes = {

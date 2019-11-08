@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -13,10 +13,10 @@ const Header = React.memo(() => (
 ));
 
 const IndexPage = ({ data: { contentfulHomeContent } }) => (
-  <Fragment>
+  <>
     <Header />
     <HomeContainer content={contentfulHomeContent} />
-  </Fragment>
+  </>
 );
 
 IndexPage.propTypes = {

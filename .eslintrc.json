@@ -5,7 +5,8 @@
     "node": true
   },
   "extends": [
-    "airbnb"
+    "airbnb",
+    "airbnb/hooks"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -18,8 +19,7 @@
   },
   "plugins": [
     "react",
-    "jsx-a11y",
-    "react-hooks"
+    "jsx-a11y"
   ],
   "settings": {
     "import/resolver": {
@@ -89,7 +89,6 @@
         ]
       }
     ],
-    "react-hooks/rules-of-hooks": "error",
     "max-len": [ "off" ]
   }
 }
