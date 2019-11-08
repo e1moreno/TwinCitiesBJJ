@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const host = process.env.CONTENTFUL_HOST;
+
 /* eslint-disable no-undef */
 module.exports = {
   siteMetadata: {
@@ -33,7 +35,8 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID || '',
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
-        host: 'preview.contentful.com',
+        environment: process.env.CONTENTFUL_ENVIORNMENT || '',
+        ...(!!host && { host }),
       },
     },
   ],
