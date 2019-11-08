@@ -27,7 +27,7 @@ SchedulePage.propTypes = {
 export default SchedulePage;
 
 export const query = graphql`
-  query scheduleDay {
+  query scheduleDay($environment: String!) {
     allContentfulScheduleDay {
       edges {
         node {
@@ -60,6 +60,9 @@ export const query = graphql`
           display
         }
       }
+    }
+    contentfulFeatureToggle(environment: { eq: $environment }) {
+      ...FeatureToggleFragment
     }
   }
 `;

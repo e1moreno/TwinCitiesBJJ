@@ -28,7 +28,7 @@ IndexPage.propTypes = {
 export default IndexPage;
 
 export const query = graphql`
-  query homeQuery {
+  query homeQuery($environment: String!) {
     contentfulHomeContent {
       introductionHeader
       content {
@@ -45,6 +45,9 @@ export const query = graphql`
           display
         }
       }
+    }
+    contentfulFeatureToggle(environment: { eq: $environment }) {
+      ...FeatureToggleFragment
     }
   }
 `;

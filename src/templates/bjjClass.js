@@ -41,7 +41,7 @@ BjjClass.propTypes = {
 export default BjjClass;
 
 export const query = graphql`
-  query BjjClassQuery($slug: String!) {
+  query BjjClassQuery($slug: String!, $environment: String!) {
     contentfulClass(slug: { eq: $slug }) {
       title
       shortTitle
@@ -61,6 +61,9 @@ export const query = graphql`
           display
         }
       }
+    }
+    contentfulFeatureToggle(environment: { eq: $environment }) {
+      ...FeatureToggleFragment
     }
   }
 `;

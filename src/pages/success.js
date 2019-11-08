@@ -35,7 +35,7 @@ SuccessPage.propTypes = {
 export default SuccessPage;
 
 export const query = graphql`
-  query successQuery {
+  query successQuery($environment: String!) {
     contentfulSuccess {
       id
       header
@@ -52,6 +52,9 @@ export const query = graphql`
           display
         }
       }
+    }
+    contentfulFeatureToggle(environment: { eq: $environment }) {
+      ...FeatureToggleFragment
     }
   }
 `;

@@ -26,7 +26,7 @@ ContactPage.propTypes = {
 };
 
 export const query = graphql`
-  query contact {
+  query contact($environment: String!) {
     contentfulContact {
       coordinates {
         lat
@@ -50,6 +50,9 @@ export const query = graphql`
           display
         }
       }
+    }
+    contentfulFeatureToggle(environment: { eq: $environment }) {
+      ...FeatureToggleFragment
     }
   }
 `;
