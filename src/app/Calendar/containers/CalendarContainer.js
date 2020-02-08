@@ -18,9 +18,9 @@ const daysHeader = [
   'Saturday',
 ];
 
-const getDateFromString = hour => dayjs(hour, 'hh:mmA').valueOf();
+const getDateFromString = (hour) => dayjs(hour, 'hh:mmA').valueOf();
 
-const serializeSchedule = sch => Object.values(sch).reduce((acc, day) => {
+const serializeSchedule = (sch) => Object.values(sch).reduce((acc, day) => {
   acc[day.day] = {
     date: day.day,
     key: daysHeader.indexOf(day.day),
@@ -60,7 +60,7 @@ const formatSchedule = (data, days) => {
     maxSlots = dayLength > maxSlots ? dayLength : maxSlots;
   });
   return [
-    calendar.map(day => day.concat(new Array(maxSlots - day.length).fill(null))),
+    calendar.map((day) => day.concat(new Array(maxSlots - day.length).fill(null))),
     maxSlots,
   ];
 };

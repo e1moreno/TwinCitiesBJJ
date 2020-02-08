@@ -7,7 +7,7 @@ const useCourseModal = () => {
 
   const handleOpenDrawer = useCallback((props) => {
     dispatch({ type: 'requestOpenModal', modalType: 'COURSE_MODAL', props });
-  }, []);
+  }, [dispatch]);
 
   return handleOpenDrawer;
 };

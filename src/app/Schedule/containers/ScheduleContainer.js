@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Schedule from '../components/Schedule';
 
-const formatClasses = classes => classes.reduce(
+const formatClasses = (classes) => classes.reduce(
   (
     acc,
     {

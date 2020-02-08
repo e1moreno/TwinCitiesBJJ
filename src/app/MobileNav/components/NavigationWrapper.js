@@ -8,7 +8,7 @@ const NavigationWrapper = ({ open, children }) => {
 
   return (
     <Wrapper>
-      {Children.map(children, component => React.cloneElement(component, { tabIndex }))}
+      {Children.map(children, (component) => React.cloneElement(component, { tabIndex }))}
     </Wrapper>
   );
 };

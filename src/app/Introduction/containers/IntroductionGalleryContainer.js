@@ -19,7 +19,7 @@ const IntroductionGalleryContainer = () => {
     (currentImage) => {
       dispatch({ type: 'openGallery', currentImage, src });
     },
-    [src],
+    [dispatch, src],
   );
 
   return <IntroductionGallery src={src} handleImageClick={handleImageClick} />;

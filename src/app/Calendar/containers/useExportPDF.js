@@ -29,7 +29,7 @@ const useExportPDF = (pdfSettings) => {
     } catch (error) {
       // do nothing
     }
-  }, [ref]);
+  }, [JsPDF, html2canvas, pdfSettings]);
   return [ref, handleExport];
 };
 

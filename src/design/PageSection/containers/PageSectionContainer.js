@@ -21,7 +21,7 @@ const PageSectionContainer = ({
         setVisible(true);
       }
     },
-    [visible],
+    [],
   );
 
   return (

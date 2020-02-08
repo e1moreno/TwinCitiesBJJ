@@ -40,7 +40,7 @@ const JoinFormContainer = ({ formName }) => {
       type: e.target.name,
       value: e.target.value,
     });
-  }, []);
+  }, [dispatch]);
 
   const {
     firstName, lastName, email, phone, additional,
