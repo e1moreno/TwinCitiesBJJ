@@ -7,23 +7,31 @@ import Layout from '../components/Layout';
 
 const LayoutContainer = ({
   children,
-  data: { allContentfulClass: { edges = [] } = { edges: [] }, contentfulFeatureToggle: { features = {} } = {} } = {
+  data: {
+    allContentfulClass: { edges = [] } = { edges: [] },
+    contentfulFeatureToggle: { features = {} } = {},
+  } = {
     allContentfulClass: { edges: [] },
   },
 }) => {
-  const formattedDropdown = useMemo(
-    () => edges
-      .map(({ node: { shortTitle, slug, display } }) => ({
-        text: shortTitle,
-        slug,
-        display,
-      }))
-      .filter(({ display }) => display),
-    [edges],
-  ) || null;
+  const formattedDropdown =
+    useMemo(
+      () =>
+        edges
+          .map(({ node: { shortTitle, slug, display } }) => ({
+            text: shortTitle,
+            slug,
+            display,
+          }))
+          .filter(({ display }) => display),
+      [edges],
+    ) || null;
 
   return (
-    <LayoutContextProvider courseDropdownData={formattedDropdown} featureToggle={features}>
+    <LayoutContextProvider
+      courseDropdownData={formattedDropdown}
+      featureToggle={features}
+    >
       <Layout>{children}</Layout>
     </LayoutContextProvider>
   );

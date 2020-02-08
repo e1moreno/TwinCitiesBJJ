@@ -25,9 +25,12 @@ const MobileNavContainer = () => {
     dispatch({ type: 'closeMobileNav' });
   }, [dispatch]);
 
-  const handleCloseKeyDown = useCallback((e) => {
-    onKeyHelper(e, () => dispatch({ type: 'closeMobileNav' }));
-  }, [dispatch]);
+  const handleCloseKeyDown = useCallback(
+    (e) => {
+      onKeyHelper(e, () => dispatch({ type: 'closeMobileNav' }));
+    },
+    [dispatch],
+  );
 
   return (
     <MobileNav

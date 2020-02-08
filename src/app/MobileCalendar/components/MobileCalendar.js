@@ -24,9 +24,7 @@ const Header = () => (
 );
 
 const Calendar = forwardRef(
-  ({
-    currentDayInd, days, data, setCurrentDay, slotCount,
-  }, ref) => (
+  ({ currentDayInd, days, data, setCurrentDay, slotCount }, ref) => (
     <CalendarGridWrapper>
       <CalendarGrid ref={ref}>
         <PickerGrid rows={days.length}>
@@ -60,9 +58,7 @@ Calendar.propTypes = {
 };
 
 const MobileCalendar = forwardRef(
-  ({
-    currentDayInd, days, data, setCurrentDay, slotCount,
-  }, ref) => (
+  ({ currentDayInd, days, data, setCurrentDay, slotCount }, ref) => (
     <CalendarWrapper>
       <Header />
       <Calendar

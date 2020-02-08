@@ -8,9 +8,7 @@ import {
   Overlay,
 } from '../styles/Modal.styles';
 
-const Modal = ({
-  open, mobile, children, onClickClose, onKeyDownClose,
-}) => (
+const Modal = ({ open, mobile, children, onClickClose, onKeyDownClose }) => (
   <>
     {open && (
       <ModalWrapper mobile={mobile}>

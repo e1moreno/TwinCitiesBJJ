@@ -4,9 +4,7 @@ import Carousel, { Modal, ModalGateway } from 'react-images';
 import { ImageGalleryContext } from '../context/ImageGalleryContextProvider';
 
 const ImageGalleryContainer = () => {
-  const {
-    open, currentImage, src, dispatch,
-  } = useContext(ImageGalleryContext);
+  const { open, currentImage, src, dispatch } = useContext(ImageGalleryContext);
 
   const handleClose = useCallback(() => {
     dispatch({ type: 'setOpen', open: false });

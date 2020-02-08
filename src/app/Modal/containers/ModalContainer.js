@@ -13,9 +13,7 @@ const MODAL_COMPONENTS = {
 };
 
 const ModalContainer = () => {
-  const {
-    open, modalType, props, dispatch,
-  } = useContext(ModalContext);
+  const { open, modalType, props, dispatch } = useContext(ModalContext);
   const { mobile } = useWindowSize();
   const ModalComponent = MODAL_COMPONENTS[modalType];
   const validModal = !!ModalComponent;
@@ -26,7 +24,9 @@ const ModalContainer = () => {
     }
   }, [dispatch, validModal]);
 
-  const handleCloseClick = useCallback(() => dispatch({ type: 'closeModal' }), [dispatch]);
+  const handleCloseClick = useCallback(() => dispatch({ type: 'closeModal' }), [
+    dispatch,
+  ]);
 
   const handleCloseKeyDown = useCallback(
     (e) => {

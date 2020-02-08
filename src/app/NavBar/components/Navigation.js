@@ -13,7 +13,10 @@ const Navigation = ({ courseDropdownData }) => (
       <NavigationLink to="/about">About</NavigationLink>
     </FeatureToggle>
     <FeatureToggle feature={featureKey.curriculum}>
-      <NavigationDropdownContainer data={courseDropdownData} text="Curriculum" />
+      <NavigationDropdownContainer
+        data={courseDropdownData}
+        text="Curriculum"
+      />
     </FeatureToggle>
     <FeatureToggle feature={featureKey.schedule}>
       <NavigationLink to="/schedule">Schedule</NavigationLink>

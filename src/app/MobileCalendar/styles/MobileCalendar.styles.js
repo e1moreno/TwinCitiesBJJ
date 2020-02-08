@@ -30,7 +30,7 @@ export const CalendarTitle = styled.h3`
 export const CalendarGrid = styled.div`
   display: grid;
   grid-template-columns: 80px 1fr;
-  grid-template-areas: "picker schedule";
+  grid-template-areas: 'picker schedule';
   z-index: -1;
   color: var(--textGray);
   background-color: var(--white);

@@ -15,26 +15,28 @@ const daysHeader = [
   'Saturday',
 ];
 
-const getDateFromString = (hour) => parse(hour, 'hh:mmaa', new Date()).valueOf();
+const getDateFromString = (hour) =>
+  parse(hour, 'hh:mmaa', new Date()).valueOf();
 
-const serializeSchedule = (sch) => Object.values(sch).reduce((acc, day) => {
-  acc[day.day] = {
-    date: day.day,
-    key: daysHeader.indexOf(day.day),
-    classes: {},
-  };
-  acc[day.day].classes = Object.entries(day.classes).reduce(
-    /* eslint-disable no-param-reassign */
-    (acc2, [key, bjjCourse]) => {
-      const courseTime = getDateFromString(bjjCourse.startTime);
-      acc2[key] = { ...bjjCourse, id: key, startDateTime: courseTime };
-      return acc2;
-    },
-    {},
-    /* eslint-enable no-param-reassign */
-  );
-  return acc;
-}, {});
+const serializeSchedule = (sch) =>
+  Object.values(sch).reduce((acc, day) => {
+    acc[day.day] = {
+      date: day.day,
+      key: daysHeader.indexOf(day.day),
+      classes: {},
+    };
+    acc[day.day].classes = Object.entries(day.classes).reduce(
+      /* eslint-disable no-param-reassign */
+      (acc2, [key, bjjCourse]) => {
+        const courseTime = getDateFromString(bjjCourse.startTime);
+        acc2[key] = { ...bjjCourse, id: key, startDateTime: courseTime };
+        return acc2;
+      },
+      {},
+      /* eslint-enable no-param-reassign */
+    );
+    return acc;
+  }, {});
 
 const formatSchedule = (data, days) => {
   const calendar = new Array(days.length).fill(null).map(() => []);
@@ -42,9 +44,7 @@ const formatSchedule = (data, days) => {
   let maxSlots = 0;
   Object.values(data).forEach((day) => {
     Object.values(day.classes).forEach((course) => {
-      const {
-        id, title, subheading, startTime,
-      } = course;
+      const { id, title, subheading, startTime } = course;
 
       calendar[day.key].push({
         id,
@@ -57,7 +57,9 @@ const formatSchedule = (data, days) => {
     maxSlots = dayLength > maxSlots ? dayLength : maxSlots;
   });
   return [
-    calendar.map((day) => day.concat(new Array(maxSlots - day.length).fill(null))),
+    calendar.map((day) =>
+      day.concat(new Array(maxSlots - day.length).fill(null)),
+    ),
     maxSlots,
   ];
 };

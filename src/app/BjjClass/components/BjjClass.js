@@ -8,9 +8,7 @@ import floorImage from 'images/floor.jpg';
 
 import { MainContent, PageSection } from '../styles/BjjClass.styles';
 
-const BjjClass = ({
-  mobile, shortTitle, title, content,
-}) => (
+const BjjClass = ({ mobile, shortTitle, title, content }) => (
   <>
     <Banner
       pageTitle={mobile ? shortTitle : title}

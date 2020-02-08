@@ -17,9 +17,7 @@ export const links = [
 ];
 
 const MobileNav = React.memo(
-  ({
-    open, initialized, collapseData, onClickClose, onKeyDownClose,
-  }) => (
+  ({ open, initialized, collapseData, onClickClose, onKeyDownClose }) => (
     <>
       <SlideMenu
         open={open}
@@ -47,7 +45,9 @@ const MobileNav = React.memo(
             </MobileNavLinkContainer>
           </FeatureToggle>
           <FeatureToggle feature={featureKey.contact}>
-            <MobileNavLinkContainer to="/contact">Contact</MobileNavLinkContainer>
+            <MobileNavLinkContainer to="/contact">
+              Contact
+            </MobileNavLinkContainer>
           </FeatureToggle>
         </NavigationWrapper>
       </SlideMenu>
