@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useExportPDF } from 'app/Calendar';
 
 import MobileCalendar from '../components/MobileCalendar';
 
 const MobileCalendarContainer = ({ data, days, slotCount }) => {
   const [currentDayInd, setCurrentDay] = useState(0);
-  const [ref, handleExport] = useExportPDF({
-    format: 'letter',
-  });
 
   return (
     <MobileCalendar
@@ -17,8 +13,6 @@ const MobileCalendarContainer = ({ data, days, slotCount }) => {
       currentDayInd={currentDayInd}
       data={data[currentDayInd]}
       setCurrentDay={setCurrentDay}
-      onExport={handleExport}
-      ref={ref}
     />
   );
 };

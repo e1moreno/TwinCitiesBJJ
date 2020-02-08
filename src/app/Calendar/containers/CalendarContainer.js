@@ -1,13 +1,10 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import dayjs from 'dayjs';
-import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { parse } from 'date-fns';
 
 import { FullCalendarContainer } from 'app/FullCalendar';
 import { MobileCalendarContainer } from 'app/MobileCalendar';
 import { useWindowSize } from 'design/WindowSize';
-
-dayjs.extend(customParseFormat);
 
 const daysHeader = [
   'Monday',
@@ -18,7 +15,7 @@ const daysHeader = [
   'Saturday',
 ];
 
-const getDateFromString = (hour) => dayjs(hour, 'hh:mmA').valueOf();
+const getDateFromString = (hour) => parse(hour, 'hh:mmaa', new Date()).valueOf();
 
 const serializeSchedule = (sch) => Object.values(sch).reduce((acc, day) => {
   acc[day.day] = {

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Icon as BaseIcon } from 'design/Icon';
 
 export const CalendarWrapper = styled.div`
   background: var(--white);
@@ -12,6 +11,7 @@ export const CalendarGridWrapper = styled.div``;
 export const CalendarHeader = styled.div`
   display: flex;
   padding: 0 0 0 1rem;
+  min-height: 2.5rem;
 `;
 
 export const CalendarInstructions = styled.div`
@@ -27,24 +27,10 @@ export const CalendarTitle = styled.h3`
   letter-spacing: 2px;
 `;
 
-export const CalendarExportIconWrapper = styled.div``;
-
-export const Icon = styled(BaseIcon)`
-  height: 48px;
-  width: 48px;
-  background-color: var(--white);
-  border: none;
-
-  & .symbol-icon {
-    height: 1.7rem;
-    color: var(--textGray);
-  }
-`;
-
 export const CalendarGrid = styled.div`
   display: grid;
   grid-template-columns: 80px 1fr;
-  grid-template-areas: 'picker schedule';
+  grid-template-areas: "picker schedule";
   z-index: -1;
   color: var(--textGray);
   background-color: var(--white);
