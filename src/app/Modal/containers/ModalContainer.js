@@ -13,9 +13,7 @@ const MODAL_COMPONENTS = {
 };
 
 const ModalContainer = () => {
-  const {
-    open, modalType, props, dispatch,
-  } = useContext(ModalContext);
+  const { open, modalType, props, dispatch } = useContext(ModalContext);
   const { mobile } = useWindowSize();
   const ModalComponent = MODAL_COMPONENTS[modalType];
   const validModal = !!ModalComponent;
@@ -24,16 +22,17 @@ const ModalContainer = () => {
     if (validModal) {
       dispatch({ type: 'setOpen', open: validModal });
     }
-  }, [validModal]);
+  }, [dispatch, validModal]);
 
   const handleCloseClick = useCallback(() => dispatch({ type: 'closeModal' }), [
+    dispatch,
   ]);
 
   const handleCloseKeyDown = useCallback(
     (e) => {
       onKeyHelper(e, () => dispatch({ type: 'closeModal' }));
     },
-    [],
+    [dispatch],
   );
 
   return (

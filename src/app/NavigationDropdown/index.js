@@ -1,3 +1,1 @@
-export {
-  default as NavigationDropdownContainer,
-} from './containers/NavigationDropdownContainer';
+export { default as NavigationDropdownContainer } from './containers/NavigationDropdownContainer';

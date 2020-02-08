@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const SlotWrapper = styled.div.attrs(
-  ({
-    blank, columnStart, columnEnd, rowStart, rowEnd, onClick,
-  }) => ({
+  ({ blank, columnStart, columnEnd, rowStart, rowEnd, onClick }) => ({
     style: {
       gridColumnStart: columnStart,
       gridColumnEnd: columnEnd,

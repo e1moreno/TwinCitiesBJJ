@@ -1,3 +1,1 @@
-export {
-  default as MobileCalendarContainer,
-} from './containers/MobileCalendarContainer';
+export { default as MobileCalendarContainer } from './containers/MobileCalendarContainer';

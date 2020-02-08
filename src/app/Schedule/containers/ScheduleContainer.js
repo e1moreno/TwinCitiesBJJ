@@ -3,40 +3,40 @@ import PropTypes from 'prop-types';
 
 import Schedule from '../components/Schedule';
 
-const formatClasses = classes => classes.reduce(
-  (
-    acc,
-    {
-      id,
-      classTime,
-      class: {
-        title, shortTitle, subheading, duration, content, ...other
+const formatClasses = (classes) =>
+  classes.reduce(
+    (
+      acc,
+      {
+        id,
+        classTime,
+        class: { title, shortTitle, subheading, duration, content, ...other },
       },
+    ) => {
+      acc[id] = {
+        title,
+        shortTitle,
+        subheading,
+        duration,
+        startTime: classTime,
+        json: (!!content && content.json) || null,
+        ...other,
+      };
+      return acc;
     },
-  ) => {
-    acc[id] = {
-      title,
-      shortTitle,
-      subheading,
-      duration,
-      startTime: classTime,
-      json: (!!content && content.json) || null,
-      ...other,
-    };
-    return acc;
-  },
-  {},
-);
+    {},
+  );
 
 const ScheduleContainer = ({ schedule: { edges } }) => {
   const formattedSchedule = useMemo(
-    () => edges.reduce((acc, { node: { day, classes } }) => {
-      acc[day] = {
-        day,
-        classes: formatClasses(classes),
-      };
-      return acc;
-    }, {}),
+    () =>
+      edges.reduce((acc, { node: { day, classes } }) => {
+        acc[day] = {
+          day,
+          classes: formatClasses(classes),
+        };
+        return acc;
+      }, {}),
     [edges],
   );
 

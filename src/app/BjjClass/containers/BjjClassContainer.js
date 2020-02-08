@@ -9,10 +9,10 @@ const BjjClassContainer = ({ data: { content, ...other } }) => {
   const { shortTitle, title, content: jsonContent } = useMemo(
     () => ({
       ...other,
-      ...(!!content
-        && Object.prototype.hasOwnProperty.call(content, 'json') && {
-        content: content.json,
-      }),
+      ...(!!content &&
+        Object.prototype.hasOwnProperty.call(content, 'json') && {
+          content: content.json,
+        }),
     }),
     [content, other],
   );

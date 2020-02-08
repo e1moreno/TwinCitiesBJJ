@@ -18,7 +18,7 @@ const reducer = (draft, action) => {
       return draft;
     case 'setOpen':
       draft.open = action.open;
-      break;
+      return draft;
     case 'closeModal':
       return initialState;
     default:

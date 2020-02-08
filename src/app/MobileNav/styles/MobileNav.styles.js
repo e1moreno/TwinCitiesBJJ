@@ -27,7 +27,8 @@ export const SlideMenu = styled.div`
   width: calc(100% - 48px);
   background-color: var(--white);
   overflow: none;
-  animation: ${({ initialized, open }) => initialized && (!open ? slideOutAnimation : slideInAnimation)};
+  animation: ${({ initialized, open }) =>
+    initialized && (!open ? slideOutAnimation : slideInAnimation)};
 `;
 
 export const Overlay = styled(BaseOverlay)``;

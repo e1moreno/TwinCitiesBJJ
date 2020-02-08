@@ -8,13 +8,16 @@ import Slot from '../components/Slot';
 const DaySlotContainer = ({ data, ...props }) => {
   const handleModalOpen = useCourseModal();
 
-  const handleClick = useCallback(() => handleModalOpen(data), [data]);
+  const handleClick = useCallback(() => handleModalOpen(data), [
+    data,
+    handleModalOpen,
+  ]);
 
   const handleKeyDown = useCallback(
     (e) => {
       onKeyHelper(e, () => handleModalOpen(data));
     },
-    [data],
+    [data, handleModalOpen],
   );
 
   return <Slot {...props} onClick={handleClick} onKeyDown={handleKeyDown} />;

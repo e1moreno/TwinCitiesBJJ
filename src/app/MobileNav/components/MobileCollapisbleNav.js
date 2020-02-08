@@ -25,7 +25,9 @@ const MobileCollapisbleNav = ({
       {text} {ariaExpanded ? <ExpandLess /> : <ExpandMore />}
     </ControlButton>
     <CollapseWrapper open={ariaExpanded}>
-      {Children.map(children, component => React.cloneElement(component, { tabIndex }))}
+      {Children.map(children, (component) =>
+        React.cloneElement(component, { tabIndex }),
+      )}
     </CollapseWrapper>
   </>
 );

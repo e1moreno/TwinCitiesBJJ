@@ -10,8 +10,9 @@ const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0% 0%;
   opacity: 0;
 
-  ${({ visible }) => visible
-    && `
+  ${({ visible }) =>
+    visible &&
+    `
     transition: opacity 0.3s ease 0s;
     z-index: 1 !important;
     opacity: 1 !important;
