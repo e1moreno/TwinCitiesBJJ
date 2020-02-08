@@ -13,7 +13,7 @@ const MobileCollapsibleNavContainer = ({ tabIndex, text, children }) => {
   }, [tabIndex]);
 
   const toggleAriaExpanded = useCallback(() => {
-    setAriaExpanded(ariaExpandedState => !ariaExpandedState);
+    setAriaExpanded((ariaExpandedState) => !ariaExpandedState);
   }, []);
 
   return (

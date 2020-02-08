@@ -27,7 +27,6 @@ const Slot = ({
     blank={blank}
     onClick={onClick}
     onKeyDown={onKeyDown}
-    tabIndex={!!onKeyDown && 0}
   >
     <SlotContent>
       <PrimaryText blank={blank}>{primary}</PrimaryText>

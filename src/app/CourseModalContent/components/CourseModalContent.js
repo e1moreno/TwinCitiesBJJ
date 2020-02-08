@@ -11,9 +11,7 @@ import {
   Description,
 } from '../styles/CourseModalContent.styles';
 
-const CourseModalContent = ({
-  title, startTime, duration, json,
-}) => (
+const CourseModalContent = ({ title, startTime, duration, json }) => (
   <>
     <Title>{title}</Title>
     <Entry>

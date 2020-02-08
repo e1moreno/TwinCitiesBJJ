@@ -8,10 +8,11 @@ const IntroductionGalleryContainer = () => {
   const { dispatch } = useContext(ImageGalleryContext);
 
   const src = useMemo(
-    () => new Array(6).fill({ src: floor }).map((image, ind) => ({
-      ...image,
-      ind,
-    })),
+    () =>
+      new Array(6).fill({ src: floor }).map((image, ind) => ({
+        ...image,
+        ind,
+      })),
     [],
   );
 
@@ -19,7 +20,7 @@ const IntroductionGalleryContainer = () => {
     (currentImage) => {
       dispatch({ type: 'openGallery', currentImage, src });
     },
-    [src],
+    [dispatch, src],
   );
 
   return <IntroductionGallery src={src} handleImageClick={handleImageClick} />;

@@ -1,3 +1,1 @@
-export {
-  default as ContentCollapseContainer,
-} from './containers/ContentCollapseContainer';
+export { default as ContentCollapseContainer } from './containers/ContentCollapseContainer';

@@ -19,7 +19,7 @@ const ContentCollapse = ({
   <div>
     <CollapseWrapper
       open={open}
-      {...!!wrapperElement && { as: wrapperElement }}
+      {...(!!wrapperElement && { as: wrapperElement })}
     >
       {children}
     </CollapseWrapper>

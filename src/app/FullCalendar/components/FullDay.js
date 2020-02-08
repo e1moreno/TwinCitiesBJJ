@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Slot, DaySlotContainer } from 'app/Calendar';
 
-const FullDay = ({
-  slot, data, headerText, offsetX, offsetY,
-}) => (
+const FullDay = ({ slot, data, headerText, offsetX, offsetY }) => (
   <>
     {headerText && (
       <Slot

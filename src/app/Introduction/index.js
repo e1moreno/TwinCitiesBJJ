@@ -1,3 +1,1 @@
-export {
-  default as IntroductionContainer,
-} from './containers/IntroductionContainer';
+export { default as IntroductionContainer } from './containers/IntroductionContainer';

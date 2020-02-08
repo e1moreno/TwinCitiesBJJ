@@ -5,24 +5,19 @@ import Observer from '@researchgate/react-intersection-observer';
 
 import PageSection from '../components/PageSection';
 
-const PageSectionContainer = ({
-  sectionRef, children, className, ...rest
-}) => {
+const PageSectionContainer = ({ sectionRef, children, className, ...rest }) => {
   const [visible, setVisible] = useState(typeof window === 'undefined');
 
-  const handleChange = useCallback(
-    ({ isIntersecting }, unobserve) => {
-      if (window) {
-        if (isIntersecting) {
-          unobserve();
-        }
-        setVisible(isIntersecting);
-      } else {
-        setVisible(true);
+  const handleChange = useCallback(({ isIntersecting }, unobserve) => {
+    if (window) {
+      if (isIntersecting) {
+        unobserve();
       }
-    },
-    [visible],
-  );
+      setVisible(isIntersecting);
+    } else {
+      setVisible(true);
+    }
+  }, []);
 
   return (
     <Observer onChange={handleChange}>

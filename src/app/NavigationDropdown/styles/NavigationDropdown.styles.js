@@ -13,7 +13,8 @@ export const PopoverButton = styled.button`
   border: none;
   outline: none;
   padding: 0 1rem;
-  color: ${({ ariaExpanded }) => (ariaExpanded ? '#FFFFFF' : ' var(--offWhite)')};
+  color: ${({ ariaExpanded }) =>
+    ariaExpanded ? '#FFFFFF' : ' var(--offWhite)'};
   text-transform: uppercase;
   font-family: 'Source Sans Pro', 'sans-serif';
   font-size: 1.05rem;

@@ -35,7 +35,7 @@ export const RoundIconWrapper = styled(IconBase)`
 export const RegularIconWrapper = styled(IconBase)`
   position: relative;
   border-radius: 50%;
-  color: ${props => props.color};
+  color: ${(props) => props.color};
   cursor: pointer;
 
   & .symbol-icon {

@@ -5,8 +5,10 @@
     "node": true
   },
   "extends": [
+    "plugin:prettier/recommended",
     "airbnb",
-    "airbnb/hooks"
+    "airbnb/hooks",
+    "prettier"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -19,7 +21,8 @@
   },
   "plugins": [
     "react",
-    "jsx-a11y"
+    "jsx-a11y",
+    "prettier"
   ],
   "settings": {
     "import/resolver": {
@@ -32,6 +35,7 @@
     }
   },
   "rules": {
+    "prettier/prettier": "error",
     "import/prefer-default-export": [
       "off"
     ],
@@ -89,6 +93,7 @@
         ]
       }
     ],
-    "max-len": [ "off" ]
+    "max-len": [ "off" ],
+    "react/jsx-props-no-spreading": ["off"]
   }
 }

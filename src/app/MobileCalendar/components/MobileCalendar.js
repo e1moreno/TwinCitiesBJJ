@@ -1,7 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { Export as ExportIcon } from 'styled-icons/boxicons-regular';
 
 import { FullDay } from 'app/FullCalendar';
 import MobileDayPickContainer from '../containers/MobileDayPickContainer';
@@ -10,37 +9,22 @@ import {
   CalendarHeader,
   CalendarInstructions,
   CalendarTitle,
-  CalendarExportIconWrapper,
-  Icon,
   CalendarGridWrapper,
   CalendarGrid,
   PickerGrid,
   ScheduleGrid,
 } from '../styles/MobileCalendar.styles';
 
-const Header = ({ onExport }) => (
+const Header = () => (
   <CalendarHeader>
     <CalendarInstructions>
       <CalendarTitle>Weekly Schedule</CalendarTitle>
     </CalendarInstructions>
-    <CalendarExportIconWrapper>
-      <Icon
-        renderElement="button"
-        Symbol={ExportIcon}
-        onClick={onExport}
-        title="Export Mobile Calendar"
-      />
-    </CalendarExportIconWrapper>
   </CalendarHeader>
 );
-Header.propTypes = {
-  onExport: PropTypes.func.isRequired,
-};
 
 const Calendar = forwardRef(
-  ({
-    currentDayInd, days, data, setCurrentDay, slotCount,
-  }, ref) => (
+  ({ currentDayInd, days, data, setCurrentDay, slotCount }, ref) => (
     <CalendarGridWrapper>
       <CalendarGrid ref={ref}>
         <PickerGrid rows={days.length}>
@@ -74,11 +58,9 @@ Calendar.propTypes = {
 };
 
 const MobileCalendar = forwardRef(
-  ({
-    currentDayInd, days, data, setCurrentDay, slotCount, onExport,
-  }, ref) => (
+  ({ currentDayInd, days, data, setCurrentDay, slotCount }, ref) => (
     <CalendarWrapper>
-      <Header onExport={onExport} />
+      <Header />
       <Calendar
         ref={ref}
         currentDayInd={currentDayInd}
@@ -97,7 +79,6 @@ MobileCalendar.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   slotCount: PropTypes.number.isRequired,
   setCurrentDay: PropTypes.func.isRequired,
-  onExport: PropTypes.func.isRequired,
 };
 
 export default MobileCalendar;
