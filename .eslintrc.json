@@ -5,10 +5,9 @@
     "node": true
   },
   "extends": [
-    "plugin:prettier/recommended",
     "airbnb",
     "airbnb/hooks",
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -94,6 +93,7 @@
       }
     ],
     "max-len": [ "off" ],
-    "react/jsx-props-no-spreading": ["off"]
+    "react/jsx-props-no-spreading": ["off"],
+    "react/jsx-indent": "off"
   }
 }

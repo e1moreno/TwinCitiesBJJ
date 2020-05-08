@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
 
-import { BjjClassContainer } from 'app/BjjClass';
+import BjjClassContainer from 'screens/bjjClass';
 
 const Header = React.memo(({ pageTitle }) => (
   <Helmet>

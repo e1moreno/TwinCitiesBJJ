@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
 
-import { Success } from 'app/Success';
+import Success from 'screens/success';
 
 const Header = React.memo(() => (
   <Helmet>

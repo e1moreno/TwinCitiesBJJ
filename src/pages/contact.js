@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
-import { ContactContainer } from 'app/Contact';
+import ContactContainer from 'screens/contact';
 
 const Header = React.memo(() => (
   <Helmet>

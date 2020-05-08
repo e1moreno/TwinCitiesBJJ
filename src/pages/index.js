@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
 
-import { HomeContainer } from 'app/Home';
+import HomeContainer from 'screens/home';
 
 const Header = React.memo(() => (
   <Helmet>

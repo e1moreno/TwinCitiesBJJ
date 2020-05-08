@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
 
-import { ScheduleContainer } from 'app/Schedule';
+import ScheduleContainer from 'screens/schedule';
 
 const Header = React.memo(() => (
   <Helmet>
