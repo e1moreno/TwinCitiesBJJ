@@ -15,7 +15,7 @@ const PageSectionContainer = ({ sectionRef, children, className, ...rest }) => {
       }
       setVisible(isIntersecting);
     } else {
-      setVisible(true);
+      setVisible(false);
     }
   }, []);
 
