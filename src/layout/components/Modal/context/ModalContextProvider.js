@@ -2,22 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useImmerReducer } from 'use-immer';
 
-export const ModalContext = React.createContext(null);
+import { CourseModalContent } from '../components/CourseModalContent';
+
+export const ModalStateContext = React.createContext(null);
+export const ModalDispatchContext = React.createContext(null);
+
+const MODAL_COMPONENTS = {
+  COURSE_MODAL: CourseModalContent,
+};
 
 const initialState = {
-  open: false,
-  modalType: '',
+  ModalComponent: null,
   props: {},
 };
 
 const reducer = (draft, action) => {
   switch (action.type) {
     case 'requestOpenModal':
-      draft.modalType = action.modalType;
+      draft.ModalComponent = MODAL_COMPONENTS[action.modalType];
       draft.props = action.props || {};
-      return draft;
-    case 'setOpen':
-      draft.open = action.open;
       return draft;
     case 'closeModal':
       return initialState;
@@ -26,13 +29,20 @@ const reducer = (draft, action) => {
   }
 };
 
+export const requestOpenModal = (dispatch, modalType, props) =>
+  dispatch({ type: 'requestOpenModal', modalType, props });
+
+export const closeModal = (dispatch) => dispatch({ type: 'closeModal' });
+
 const ModalContextProvider = ({ children }) => {
   const [state, dispatch] = useImmerReducer(reducer, initialState);
 
   return (
-    <ModalContext.Provider value={{ ...state, dispatch }}>
-      {children}
-    </ModalContext.Provider>
+    <ModalStateContext.Provider value={state}>
+      <ModalDispatchContext.Provider value={dispatch}>
+        {children}
+      </ModalDispatchContext.Provider>
+    </ModalStateContext.Provider>
   );
 };
 ModalContextProvider.propTypes = {

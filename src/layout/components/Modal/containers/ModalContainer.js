@@ -1,43 +1,34 @@
-import React, { useContext, useEffect, useCallback } from 'react';
+import React, { useContext, useCallback } from 'react';
 
 import onKeyHelper from 'utils/onKeyHelper';
 import { useWindowSize } from 'lib/WindowSize';
 
-import { CourseModalContent } from '../components/CourseModalContent';
-
-import { ModalContext } from '../context/ModalContextProvider';
+import {
+  ModalStateContext,
+  ModalDispatchContext,
+  closeModal,
+} from '../context/ModalContextProvider';
 import Modal from '../components/Modal';
 
-const MODAL_COMPONENTS = {
-  COURSE_MODAL: CourseModalContent,
-};
-
 const ModalContainer = () => {
-  const { open, modalType, props, dispatch } = useContext(ModalContext);
+  const dispatch = useContext(ModalDispatchContext);
+  const { ModalComponent, props } = useContext(ModalStateContext);
+
   const { mobile } = useWindowSize();
-  const ModalComponent = MODAL_COMPONENTS[modalType];
   const validModal = !!ModalComponent;
 
-  useEffect(() => {
-    if (validModal) {
-      dispatch({ type: 'setOpen', open: validModal });
-    }
-  }, [dispatch, validModal]);
-
-  const handleCloseClick = useCallback(() => dispatch({ type: 'closeModal' }), [
-    dispatch,
-  ]);
+  const handleCloseClick = useCallback(() => closeModal(dispatch), [dispatch]);
 
   const handleCloseKeyDown = useCallback(
     (e) => {
-      onKeyHelper(e, () => dispatch({ type: 'closeModal' }));
+      onKeyHelper(e, () => closeModal(dispatch));
     },
     [dispatch],
   );
 
   return (
     <Modal
-      open={open}
+      open={validModal}
       mobile={mobile}
       onClickClose={handleCloseClick}
       onKeyDownClose={handleCloseKeyDown}

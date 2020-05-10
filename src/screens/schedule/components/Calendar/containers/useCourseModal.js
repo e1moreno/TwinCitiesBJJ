@@ -1,13 +1,16 @@
 import { useContext, useCallback } from 'react';
 
-import { ModalContext } from 'layout/components/Modal';
+import {
+  ModalDispatchContext,
+  requestOpenModal,
+} from 'layout/components/Modal';
 
 const useCourseModal = () => {
-  const { dispatch } = useContext(ModalContext);
+  const dispatch = useContext(ModalDispatchContext);
 
   const handleOpenDrawer = useCallback(
     (props) => {
-      dispatch({ type: 'requestOpenModal', modalType: 'COURSE_MODAL', props });
+      requestOpenModal(dispatch, 'COURSE_MODAL', props);
     },
     [dispatch],
   );

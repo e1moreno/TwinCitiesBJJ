@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useCallback } from 'react';
+import React, { useContext, useLayoutEffect, useCallback } from 'react';
 
 import { LayoutContext } from 'layout/context/LayoutContextProvider';
 import { useWindowSize } from 'lib/WindowSize';
@@ -15,7 +15,7 @@ const MobileNavContainer = () => {
   } = useContext(LayoutContext);
   const { mobile } = useWindowSize();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!mobile && initialized) {
       dispatch({ type: 'closeMobileNav', initialized: false });
     }
@@ -32,15 +32,18 @@ const MobileNavContainer = () => {
     [dispatch],
   );
 
-  return (
-    <MobileNav
-      initialized={initialized}
-      open={mobileNavOpen}
-      collapseData={courseDropdownData}
-      onClickClose={handleClose}
-      onKeyDownClose={handleCloseKeyDown}
-    />
-  );
+  if (mobile) {
+    return (
+      <MobileNav
+        initialized={initialized}
+        open={mobileNavOpen}
+        collapseData={courseDropdownData}
+        onClickClose={handleClose}
+        onKeyDownClose={handleCloseKeyDown}
+      />
+    );
+  }
+  return false;
 };
 
 export default MobileNavContainer;
