@@ -1,31 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  ModalWrapper,
-  Content,
-  CloseIcon,
-  Overlay,
-} from '../styles/Modal.styles';
+import { Dialog, Content, Button, CloseIcon } from '../styles/Modal.styles';
 
 const Modal = ({ open, mobile, children, onClickClose, onKeyDownClose }) => (
   <>
-    {open && (
-      <ModalWrapper mobile={mobile}>
-        <CloseIcon
-          onClick={onClickClose}
-          onKeyDown={onKeyDownClose}
-          tabIndex={0}
-        />
-        <Content>{children}</Content>
-      </ModalWrapper>
-    )}
-    <Overlay
-      visible={open}
-      onClick={open ? onClickClose : undefined}
-      onKeyDown={onKeyDownClose}
-      tabIndex={open ? 0 : -1}
-    />
+    <Dialog
+      isOpen={open}
+      mobile={mobile}
+      onDismiss={onClickClose}
+      aria-label="Class Description"
+    >
+      <Button onClick={onClickClose} onKeyDown={onKeyDownClose}>
+        <CloseIcon />
+      </Button>
+      <Content>{children}</Content>
+    </Dialog>
   </>
 );
 

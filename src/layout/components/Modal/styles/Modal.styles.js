@@ -1,42 +1,37 @@
 import styled from 'styled-components';
-import BaseOverlay from 'lib/Overlay/Overlay';
+import { Dialog as ReachDialog } from '@reach/dialog';
+import '@reach/dialog/styles.css';
+
+import BaseButton from 'lib/Button/Button';
 
 import { Close as BaseCloseIcon } from 'styled-icons/material';
 
-export const ModalWrapper = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-
+export const Dialog = styled(ReachDialog).withConfig({
+  shouldForwardProp: (prop) => prop !== 'mobile',
+})`
   color: var(--black);
   background-color: var(--white);
 
-  display: grid;
-  grid-template-columns: 1rem 1fr 48px 1rem;
-  grid-template-rows: 1rem 48px 1fr 1rem;
-  grid-template-areas:
-    ' . . . .'
-    '. header closeIcon .'
-    '. content content .'
-    ' . . . .';
+  position: relative;
 
-  width: ${({ mobile }) => mobile && '100%'};
-  height: ${({ mobile }) => mobile && '100%'};
-  min-width: 400px;
-  min-height: 300px;
+  width: ${({ mobile }) => mobile && 'calc(100% - 4rem)'};
+  height: ${({ mobile }) => mobile && 'calc(100% - 4rem)'};
+  margin: ${({ mobile }) => mobile && '0'};
 `;
 
-export const Content = styled.div`
-  grid-area: content;
-  width: 100%;
-  height: 100%;
-`;
+export const Content = styled.div``;
 
-export const CloseIcon = styled(BaseCloseIcon)`
-  grid-area: closeIcon;
+export const Button = styled(BaseButton)`
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  min-height: 48px;
+  min-width: 48px;
+
   cursor: pointer;
 `;
 
-export const Overlay = styled(BaseOverlay)``;
+export const CloseIcon = styled(BaseCloseIcon)`
+  height: 32px;
+  width: 32px;
+`;

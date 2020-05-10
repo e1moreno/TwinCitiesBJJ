@@ -1,13 +1,13 @@
 import React, { useContext, useCallback } from 'react';
 
 import { LayoutContext } from 'layout/context/LayoutContextProvider';
-import { ModalContext } from 'layout/components/Modal';
+import { ModalStateContext } from 'layout/components/Modal';
 
 import NavMobileMenu from '../components/NavMobileMenu';
 
 const NavMobileMenuContainer = () => {
   const { mobileNavOpen, dispatch } = useContext(LayoutContext);
-  const { open: modalOpen } = useContext(ModalContext);
+  const { ModalComponent } = useContext(ModalStateContext);
 
   const handleClick = useCallback(() => {
     dispatch({ type: !mobileNavOpen ? 'openMobileNav' : 'closeMobileNav' });
@@ -15,7 +15,7 @@ const NavMobileMenuContainer = () => {
 
   return (
     <NavMobileMenu
-      display={!modalOpen}
+      display={!ModalComponent}
       open={mobileNavOpen}
       onClick={handleClick}
     />

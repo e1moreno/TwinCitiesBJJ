@@ -1550,6 +1550,26 @@
     lodash.debounce "^4.0.8"
     react-dev-utils "^9.1.0"
 
+"@reach/dialog@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@reach/dialog/-/dialog-0.10.1.tgz#c4056a0eef402a46ce94017415dd3c947855f73b"
+  integrity sha512-IPzuBH6dKeYPDFoybSntiDrO0r7dByOxClh/oSjmpOknspTLUPUjef73csA7/Ma9u7+C0wyEILXljYZXM3LfeQ==
+  dependencies:
+    "@reach/portal" "^0.10.1"
+    "@reach/utils" "^0.10.1"
+    prop-types "^15.7.2"
+    react-focus-lock "^2.3.1"
+    react-remove-scroll "^2.3.0"
+    tslib "^1.11.1"
+
+"@reach/portal@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.10.1.tgz#07329846ef45bb1af362d4470dd137087b39da68"
+  integrity sha512-axap4IxA0xgsxluqyeyVuGZrStqaZ81iyiHmXFn+D+bjDNdd29colHm5GEB5mjGnkqktcXWyx5DQ+aRHIyGEkQ==
+  dependencies:
+    "@reach/utils" "^0.10.1"
+    tslib "^1.11.1"
+
 "@reach/router@^1.3.3":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.3.3.tgz#58162860dce6c9449d49be86b0561b5ef46d80db"
@@ -1559,6 +1579,15 @@
     invariant "^2.2.3"
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
+
+"@reach/utils@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.10.1.tgz#ee0283f81e161db4126a943b5c908a69f6a66d7e"
+  integrity sha512-YzwZWVK+rSiUATNVtK7H2/ZkT/GhNKmkRjnj3hnVhSYLGxY9uQdfc+npetOqkh4hTAOXiErDa64ybVClR3h0TA==
+  dependencies:
+    "@types/warning" "^3.0.0"
+    tslib "^1.11.1"
+    warning "^4.0.3"
 
 "@researchgate/react-intersection-observer@^1.1.3":
   version "1.1.3"
@@ -1982,6 +2011,11 @@
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
+
+"@types/warning@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/warning/-/warning-3.0.0.tgz#0d2501268ad8f9962b740d387c4654f5f8e23e52"
+  integrity sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=
 
 "@types/yargs-parser@*":
   version "15.0.0"
