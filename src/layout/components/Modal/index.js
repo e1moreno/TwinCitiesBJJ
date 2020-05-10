@@ -1,5 +1,7 @@
 export {
   default as ModalContextProvider,
-  ModalContext,
+  ModalStateContext,
+  ModalDispatchContext,
+  requestOpenModal,
 } from './context/ModalContextProvider';
 export { default as ModalContainer } from './containers/ModalContainer';
