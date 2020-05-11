@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
+import { SocialContextProvider } from 'layout/components/Social';
 import { Social } from './components/Social';
 import { IntroductionContainer } from './components/Introduction';
 import { Join } from './components/Join';
-
 import { HomeBanner } from './components/HomeBanner';
 import HomeContextProvider from './context/HomeContextProvider';
 
@@ -13,6 +13,7 @@ const HomeContainer = ({
     introductionHeader,
     content: { json: homePageContent },
   },
+  social,
 }) => {
   const propState = useMemo(
     () => ({
@@ -24,12 +25,14 @@ const HomeContainer = ({
 
   return (
     <HomeContextProvider state={propState}>
-      <HomeBanner />
-      <main>
-        <IntroductionContainer />
-        <Join />
-        <Social />
-      </main>
+      <SocialContextProvider social={social}>
+        <HomeBanner />
+        <main>
+          <IntroductionContainer />
+          <Join />
+          <Social />
+        </main>
+      </SocialContextProvider>
     </HomeContextProvider>
   );
 };
@@ -40,6 +43,7 @@ HomeContainer.propTypes = {
       json: PropTypes.object.isRequired,
     }).isRequired,
   }).isRequired,
+  social: PropTypes.object.isRequired,
 };
 
 export default HomeContainer;

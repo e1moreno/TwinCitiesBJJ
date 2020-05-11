@@ -12,16 +12,22 @@ const Header = React.memo(() => (
   </Helmet>
 ));
 
-const IndexPage = ({ data: { contentfulHomeContent } }) => (
+const IndexPage = ({
+  data: { contentfulHomeContent, allContentfulSocial },
+}) => (
   <>
     <Header />
-    <HomeContainer content={contentfulHomeContent} />
+    <HomeContainer
+      content={contentfulHomeContent}
+      social={allContentfulSocial}
+    />
   </>
 );
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
     contentfulHomeContent: PropTypes.object.isRequired,
+    allContentfulSocial: PropTypes.object.isRequired,
   }).isRequired,
 };
 
