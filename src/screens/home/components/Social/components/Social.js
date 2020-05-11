@@ -1,20 +1,19 @@
 import React from 'react';
 import { FacebookF, Instagram } from 'styled-icons/fa-brands';
+import SocialLinkContainer from '../containers/SocialLinkContainer';
 
 import {
   PageSection,
   SocialWrapper,
   SocialHeader,
-  FbIcon,
-  InstaIcon,
 } from '../styles/Social.styles';
 
 const Social = () => (
   <PageSection>
     <SocialHeader>Find Us On</SocialHeader>
     <SocialWrapper>
-      <FbIcon Symbol={FacebookF} variant="round" title="facebook" />
-      <InstaIcon Symbol={Instagram} variant="round" title="instagram" />
+      <SocialLinkContainer name="facebook" Icon={FacebookF} variant="round" />
+      <SocialLinkContainer name="instagram" Icon={Instagram} variant="round" />
     </SocialWrapper>
   </PageSection>
 );

@@ -2,6 +2,8 @@ import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import { useImmerReducer } from 'use-immer';
 
+import { SocialContextProvider } from '../components/Social';
+
 export const LayoutContext = createContext(null);
 export const FeatureToggleContext = createContext(null);
 
@@ -39,7 +41,12 @@ const reducer = (draft, action) => {
   }
 };
 
-const LayoutContextProvider = ({ featureToggle, children, ...other }) => {
+const LayoutContextProvider = ({
+  featureToggle,
+  social,
+  children,
+  ...other
+}) => {
   const [state, dispatch] = useImmerReducer(reducer, {
     mobileNavOpen: false,
     initialized: false,
@@ -49,7 +56,9 @@ const LayoutContextProvider = ({ featureToggle, children, ...other }) => {
   return (
     <LayoutContext.Provider value={{ ...state, dispatch }}>
       <FeatureToggleContext.Provider value={featureToggle}>
-        {children}
+        <SocialContextProvider social={social}>
+          {children}
+        </SocialContextProvider>
       </FeatureToggleContext.Provider>
     </LayoutContext.Provider>
   );
@@ -57,6 +66,7 @@ const LayoutContextProvider = ({ featureToggle, children, ...other }) => {
 LayoutContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
   featureToggle: PropTypes.object.isRequired,
+  social: PropTypes.object.isRequired,
 };
 
 export default LayoutContextProvider;

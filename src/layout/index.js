@@ -10,6 +10,7 @@ const LayoutContainer = ({
   data: {
     allContentfulClass: { edges = [] } = { edges: [] },
     contentfulFeatureToggle: { features = {} } = {},
+    allContentfulSocial,
   } = {
     allContentfulClass: { edges: [] },
   },
@@ -31,6 +32,7 @@ const LayoutContainer = ({
     <LayoutContextProvider
       courseDropdownData={formattedDropdown}
       featureToggle={features}
+      social={allContentfulSocial}
     >
       <Layout>{children}</Layout>
     </LayoutContextProvider>
