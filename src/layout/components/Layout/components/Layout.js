@@ -13,6 +13,7 @@ import {
 } from 'layout/components/ImageGallery';
 import { ModalContextProvider, ModalContainer } from 'layout/components/Modal';
 import { Footer } from 'layout/components/Footer';
+import { AlertPortalContainer } from 'layout/components/AlertPortal';
 
 import { GlobalStyleContainer } from 'layout/components/GlobalStyle';
 
@@ -32,6 +33,7 @@ const Layout = ({ children }) => (
       </ImageGalleryContextProvider>
     </ModalContextProvider>
     <Footer />
+    <AlertPortalContainer />
   </>
 );
 

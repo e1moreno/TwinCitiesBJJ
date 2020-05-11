@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useImmerReducer } from 'use-immer';
 
 import { SocialContextProvider } from '../components/Social';
+import { AlertPortalContextProvider } from '../components/AlertPortal';
 
 export const LayoutContext = createContext(null);
 export const FeatureToggleContext = createContext(null);
@@ -44,6 +45,7 @@ const reducer = (draft, action) => {
 const LayoutContextProvider = ({
   featureToggle,
   social,
+  alert,
   children,
   ...other
 }) => {
@@ -57,7 +59,9 @@ const LayoutContextProvider = ({
     <LayoutContext.Provider value={{ ...state, dispatch }}>
       <FeatureToggleContext.Provider value={featureToggle}>
         <SocialContextProvider social={social}>
-          {children}
+          <AlertPortalContextProvider alert={alert}>
+            {children}
+          </AlertPortalContextProvider>
         </SocialContextProvider>
       </FeatureToggleContext.Provider>
     </LayoutContext.Provider>
@@ -67,6 +71,7 @@ LayoutContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
   featureToggle: PropTypes.object.isRequired,
   social: PropTypes.object.isRequired,
+  alert: PropTypes.object.isRequired,
 };
 
 export default LayoutContextProvider;

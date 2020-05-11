@@ -65,5 +65,12 @@ export const query = graphql`
         }
       }
     }
+    # Alert
+    contentfulAlert {
+      type
+      text {
+        json
+      }
+    }
   }
 `;

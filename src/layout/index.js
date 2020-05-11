@@ -11,6 +11,7 @@ const LayoutContainer = ({
     allContentfulClass: { edges = [] } = { edges: [] },
     contentfulFeatureToggle: { features = {} } = {},
     allContentfulSocial,
+    contentfulAlert,
   } = {
     allContentfulClass: { edges: [] },
   },
@@ -33,6 +34,7 @@ const LayoutContainer = ({
       courseDropdownData={formattedDropdown}
       featureToggle={features}
       social={allContentfulSocial}
+      alert={contentfulAlert}
     >
       <Layout>{children}</Layout>
     </LayoutContextProvider>
@@ -55,6 +57,7 @@ LayoutContainer.propTypes = {
     contentfulFeatureToggle: PropTypes.shape({
       features: PropTypes.object.isRequired,
     }).isRequired,
+    contentfulAlert: PropTypes.object.isRequired,
   }).isRequired,
   children: PropTypes.node.isRequired,
 };
