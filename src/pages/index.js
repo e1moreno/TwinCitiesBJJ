@@ -49,5 +49,14 @@ export const query = graphql`
     contentfulFeatureToggle(environment: { eq: $environment }) {
       ...FeatureToggleFragment
     }
+    # Social
+    allContentfulSocial {
+      edges {
+        node {
+          name
+          url
+        }
+      }
+    }
   }
 `;

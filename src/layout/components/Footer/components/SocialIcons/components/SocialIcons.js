@@ -1,21 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  SocialWrapper,
-  SocialLink,
-  FacebookIcon,
-  InstagramIcon,
-} from '../styles/SocialIcons.styles';
+import FacebookLinkContainer from '../containers/FacebookLinkContainer';
+import InstagramLinkContainer from '../containers/InstagramLinkContainer';
+import { SocialWrapper } from '../styles/SocialIcons.styles';
 
 const SocialIcons = ({ fbIconSize, instaIconSize }) => (
   <SocialWrapper>
-    <SocialLink>
-      <FacebookIcon size={fbIconSize} />
-    </SocialLink>
-    <SocialLink>
-      <InstagramIcon size={instaIconSize} />
-    </SocialLink>
+    <FacebookLinkContainer size={fbIconSize} />
+    <InstagramLinkContainer size={instaIconSize} />
   </SocialWrapper>
 );
 SocialIcons.propTypes = {
