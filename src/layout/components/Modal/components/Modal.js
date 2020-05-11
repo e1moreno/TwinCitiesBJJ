@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Dialog, Content, Button, CloseIcon } from '../styles/Modal.styles';
+import CloseButton from 'lib/CloseButton';
+import { Dialog, Content } from '../styles/Modal.styles';
 
 const Modal = ({ open, mobile, children, onClickClose, onKeyDownClose }) => (
   <>
@@ -11,9 +12,7 @@ const Modal = ({ open, mobile, children, onClickClose, onKeyDownClose }) => (
       onDismiss={onClickClose}
       aria-label="Class Description"
     >
-      <Button onClick={onClickClose} onKeyDown={onKeyDownClose}>
-        <CloseIcon />
-      </Button>
+      <CloseButton onClick={onClickClose} onKeyDown={onKeyDownClose} />
       <Content>{children}</Content>
     </Dialog>
   </>

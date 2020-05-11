@@ -1550,6 +1550,16 @@
     lodash.debounce "^4.0.8"
     react-dev-utils "^9.1.0"
 
+"@reach/alert@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@reach/alert/-/alert-0.10.1.tgz#56feca2a04f8aa5b7b5fbce43c378aadd576eb67"
+  integrity sha512-XJNM24tPowcaW/zEEppWSSk9MJtmeaqNL6IvwqqFJxddUTHwmMOx9FS9szJIp6Y/GhfldoO6Hg0KNPG2Zsn4MQ==
+  dependencies:
+    "@reach/utils" "^0.10.1"
+    "@reach/visually-hidden" "^0.10.1"
+    prop-types "^15.7.2"
+    tslib "^1.11.1"
+
 "@reach/dialog@^0.10.1":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@reach/dialog/-/dialog-0.10.1.tgz#c4056a0eef402a46ce94017415dd3c947855f73b"
@@ -1588,6 +1598,13 @@
     "@types/warning" "^3.0.0"
     tslib "^1.11.1"
     warning "^4.0.3"
+
+"@reach/visually-hidden@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@reach/visually-hidden/-/visually-hidden-0.10.1.tgz#f57f059c9662ec9e66d30f5e4d88a4dcd06480a1"
+  integrity sha512-X62KLq58f5oG6k6WZMiUj/Dwjm7pEyuApzsYF9sjaZy4fRh8ji+pzzlV8AaDFw/IQMDg6tBwr2tX0SyyMSJs9g==
+  dependencies:
+    tslib "^1.11.1"
 
 "@researchgate/react-intersection-observer@^1.1.3":
   version "1.1.3"
