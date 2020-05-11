@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 export const SocialContext = createContext();
 
-const SocialContextProvider = ({ social: { edges }, children }) => {
+const SocialContextProvider = ({ social, children }) => {
   const formattedSocial = useMemo(
     () =>
-      edges.reduce((acc, { node }) => {
+      social?.edges.reduce((acc, { node }) => {
         acc[node.name] = node;
         return acc;
       }, {}),
-    [edges],
+    [social],
   );
 
   return (
