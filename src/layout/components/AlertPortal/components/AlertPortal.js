@@ -21,8 +21,16 @@ const ContentWrapper = styled.div`
   background-color: var(--red);
   color: var(--offWhite);
 
-  padding: 1.5rem 3rem;
-  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2), 0px 1px 8px rgba(0, 0, 0, 0.15);
+  padding: 1rem 3rem;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2), 0px -1px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0.97;
+`;
+
+const AlertWrapper = styled.div`
+  margin: 0 auto;
+  max-width: var(--pageSectionMaxWidth);
+
+  text-align: center;
 `;
 
 const AlertPortal = ({ visible, message, onCloseClick, onCloseKeyDown }) => (
@@ -30,8 +38,14 @@ const AlertPortal = ({ visible, message, onCloseClick, onCloseKeyDown }) => (
     {visible && (
       <FixedWrapper>
         <ContentWrapper>
-          <CloseButton onClick={onCloseClick} onKeyDown={onCloseKeyDown} />
-          <Alert> {message ? documentToReactComponents(message) : ''}</Alert>
+          <CloseButton
+            onClick={onCloseClick}
+            onKeyDown={onCloseKeyDown}
+            autoFocus
+          />
+          <AlertWrapper>
+            <Alert> {message ? documentToReactComponents(message) : ''}</Alert>
+          </AlertWrapper>
         </ContentWrapper>
       </FixedWrapper>
     )}
