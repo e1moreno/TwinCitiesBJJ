@@ -32,3 +32,18 @@ export const IntroSubheader = styled.h3`
 `;
 
 export const IntroContent = styled.div``;
+
+export const IframeContainer = styled.span`
+  padding-bottom: 56.25%;
+  position: relative;
+  display: block;
+  width: 100%;
+
+  > iframe {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+`;
